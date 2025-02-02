@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garrett MacDonald - Personal Website</title>
+    <title>Garrett MacDonald - Blog</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,19 +28,20 @@
         nav a:hover {
             text-decoration: underline;
         }
+        .blog-post {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        .blog-date {
+            color: #666;
+            font-size: 0.9em;
+        }
         h1, h2 {
             color: #333;
         }
-        section {
-            margin-bottom: 30px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-        }
-        .social-links a:hover {
-            text-decoration: underline;
+        .blog-preview {
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -54,23 +55,19 @@
     </header>
     
     <section>
-        <h2>About Me</h2>
-        <p>Write a brief introduction about yourself here.</p>
-    </section>
-    
-    <section>
-        <h2>Projects</h2>
-        <p>List your projects and achievements here.</p>
-    </section>
-    
-    <section>
-        <h2>Contact</h2>
-        <p class="social-links">
-            <!-- Add your social media links here -->
-            <a href="https://github.com/yourusername">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-            <a href="mailto:your.email@example.com">Email</a>
-        </p>
+        <h2>Latest Posts</h2>
+        
+        <!-- Example blog post - duplicate this structure for each post -->
+        <article class="blog-post">
+            <h3>Your First Blog Post Title</h3>
+            <div class="blog-date">February 2, 2025</div>
+            <div class="blog-preview">
+                <p>This is a preview of your first blog post. Write a brief introduction or excerpt here that will make readers want to click through to read the full post.</p>
+                <a href="/blog/first-post">Read more...</a>
+            </div>
+        </article>
+        
+        <!-- Add more blog posts here -->
     </section>
 </body>
 </html>
