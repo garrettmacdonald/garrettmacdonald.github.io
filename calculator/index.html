@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black-Scholes Calculator - Garrett MacDonald</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .calculator {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .calculator input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .calculator label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .explanation {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Black-Scholes Option Calculator</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/blog">Blog</a>
+            <a href="/calculator">Options Calculator</a>
+        </nav>
+    </header>
+
+    <div class="calculator">
+        <div>
+            <label for="stockPrice">Stock Price ($):</label>
+            <input type="number" id="stockPrice" step="0.01" value="100">
+            
+            <label for="strikePrice">Strike Price ($):</label>
+            <input type="number" id="strikePrice" step="0.01" value="100">
+            
+            <label for="timeToExpiry">Time to Expiry (years):</label>
+            <input type="number" id="timeToExpiry" step="0.01" value="1">
+            
+            <label for="riskFreeRate">Risk-Free Rate (%):</label>
+            <input type="number" id="riskFreeRate" step="0.01" value="5">
+            
+            <label for="volatility">Volatility (%):</label>
+            <input type="number" id="volatility" step="0.01" value="20">
+        </div>
+        <div class="result">
+            <p>Call Option Price: $<span id="callPrice">0.00</span></p>
+            <p>Put Option Price: $<span id="putPrice">0.00</span></p>
+        </div>
+    </div>
+
+    <div class="explanation">
+        <h3>About the Black-Scholes Model</h3>
+        <p>The Black-Scholes model, also known as the Black-Scholes-Merton model, is a mathematical model for pricing options contracts. It assumes that the price of heavily traded assets follows a geometric Brownian motion with constant drift and volatility.</p>
+        <p>Key assumptions of the model:</p>
+        <ul>
+            <li>The risk-free rate and volatility of the underlying asset are known and constant</li>
+            <li>No dividends are paid during the life of the option</li>
+            <li>Markets are efficient (i.e., market movements cannot be predicted)</li>
+            <li>There are no transaction costs or taxes</li>
+            <li>The returns on the underlying asset are normally distributed</li>
+        </ul>
+    </div>
+    
+    <script src="scripts/black-scholes.js"></script>
+</body>
+</html>
