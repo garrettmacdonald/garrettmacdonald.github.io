@@ -13,23 +13,7 @@
             margin: 0 auto;
             padding: 20px;
         }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #333;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        h1, h2, h3 {
+        h2, h3 {
             color: #333;
         }
         .calculator {
@@ -67,14 +51,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Black-Scholes Option Calculator</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-            <a href="/calculator">Options Calculator</a>
-        </nav>
-    </header>
+    <!-- Header will be inserted here by header.js -->
 
     <div class="calculator">
         <div>
@@ -112,6 +89,7 @@
         </ul>
     </div>
     
+    <script src="/components/header.js"></script>
     <script src="scripts/black-scholes.js"></script>
 </body>
 </html>

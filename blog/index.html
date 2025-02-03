@@ -12,22 +12,6 @@
             margin: 0 auto;
             padding: 20px;
         }
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        nav a {
-            margin: 0 15px;
-            color: #333;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
         .blog-post {
             margin-bottom: 40px;
             padding-bottom: 20px;
@@ -37,7 +21,7 @@
             color: #666;
             font-size: 0.9em;
         }
-        h1, h2 {
+        h2 {
             color: #333;
         }
         .blog-preview {
@@ -46,13 +30,7 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Garrett MacDonald</h1>
-        <nav>
-            <a href="/">Home</a>
-            <a href="/blog">Blog</a>
-        </nav>
-    </header>
+    <!-- Header will be inserted here by header.js -->
     
     <section>
         <h2>Latest Posts</h2>
@@ -69,5 +47,7 @@
         
         <!-- Add more blog posts here -->
     </section>
+
+    <script src="/components/header.js"></script>
 </body>
 </html>
