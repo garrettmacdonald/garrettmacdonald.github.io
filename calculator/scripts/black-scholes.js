@@ -71,12 +71,12 @@ function findImpliedVolatility(S, K, DTE, r, targetPrice, type) {
 }
 
 function calculateMoneyness(S, K) {
-    if (!S || !K || isNaN(S) || isNaN(K)) return null;
+    if (!S || !K) return null;
     return ((K / S) - 1) * 100; // Convert to percentage
 }
 
 function calculateStrikeFromMoneyness(S, moneyness) {
-    if (!S || moneyness === undefined || isNaN(S) || isNaN(moneyness)) return null;
+    if (!S || moneyness === undefined) return null;
     return Math.round(S * (1 + moneyness / 100)); // Round to nearest whole number
 }
 
@@ -92,66 +92,66 @@ function updateCalculations() {
         const K = parseFloat(document.getElementById('strikePrice').value);
         const DTE = parseFloat(document.getElementById('daysToExpiry').value);
         const r = parseFloat(document.getElementById('riskFreeRate').value) / 100;
-        const moneyness = parseFloat(document.getElementById('moneyness').value);
 
-        // Input validation for basic fields
-        const basicInputsValid = !isNaN(S) && !isNaN(DTE) && !isNaN(r) && DTE >= 0 && DTE <= 3650;
-        if (!basicInputsValid) {
-            console.log('Invalid basic inputs detected');
+        // Handle moneyness calculations
+        if (lastUpdated === 'strikePrice' || lastUpdated === 'stockPrice') {
+            const moneyness = calculateMoneyness(S, K);
+            if (moneyness !== null) {
+                document.getElementById('moneyness').value = moneyness.toFixed(1);
+            }
+        } else if (lastUpdated === 'moneyness') {
+            const moneyness = parseFloat(document.getElementById('moneyness').value);
+            const newStrike = calculateStrikeFromMoneyness(S, moneyness);
+            if (newStrike !== null) {
+                document.getElementById('strikePrice').value = newStrike.toFixed(2);
+            }
+        }
+
+        // Input validation
+        if (isNaN(S) || isNaN(K) || isNaN(DTE) || isNaN(r) || DTE < 0 || DTE > 3650) {
+            console.log('Invalid inputs detected');
             return;
         }
 
-        // Handle moneyness and strike price updates
-        let currentK = K;
-        if (lastUpdated === 'moneyness' && !isNaN(moneyness)) {
-            currentK = calculateStrikeFromMoneyness(S, moneyness);
-            if (currentK !== null) {
-                document.getElementById('strikePrice').value = currentK.toFixed(2);
-            }
-        } else if ((lastUpdated === 'strikePrice' || lastUpdated === 'stockPrice') && !isNaN(K)) {
-            const newMoneyness = calculateMoneyness(S, K);
-            if (newMoneyness !== null) {
-                document.getElementById('moneyness').value = newMoneyness.toFixed(1);
-            }
-            currentK = K;
-        }
+        console.log('Calculating with:', { lastUpdated, S, K, DTE, r });
 
-        // Proceed with option calculations using currentK
-        console.log('Calculating with:', { lastUpdated, S, K: currentK, DTE, r });
-
-        if (['volatility', '', 'moneyness', 'stockPrice', 'strikePrice', 'daysToExpiry', 'riskFreeRate'].includes(lastUpdated)) {
+        if (lastUpdated === 'volatility' || lastUpdated === '' || 
+            lastUpdated === 'moneyness' || lastUpdated === 'stockPrice' || 
+            lastUpdated === 'strikePrice') {
             const sigma = parseFloat(document.getElementById('volatility').value) / 100;
             if (!isNaN(sigma) && sigma > 0) {
-                const callPrice = blackScholes(S, currentK, DTE, r, sigma, 'call');
-                const putPrice = blackScholes(S, currentK, DTE, r, sigma, 'put');
+                const callPrice = blackScholes(S, K, DTE, r, sigma, 'call');
+                const putPrice = blackScholes(S, K, DTE, r, sigma, 'put');
                 
                 if (callPrice !== null && putPrice !== null) {
                     document.getElementById('callPrice').value = callPrice.toFixed(2);
                     document.getElementById('putPrice').value = putPrice.toFixed(2);
-                    console.log('Updated prices:', { callPrice, putPrice });
+                    console.log('Updated prices from volatility:', { callPrice, putPrice });
                 }
             }
         } else if (lastUpdated === 'callPrice') {
             const targetCall = parseFloat(document.getElementById('callPrice').value);
             if (!isNaN(targetCall)) {
-                const impliedVol = findImpliedVolatility(S, currentK, DTE, r, targetCall, 'call');
+                const impliedVol = findImpliedVolatility(S, K, DTE, r, targetCall, 'call');
                 if (impliedVol !== null) {
                     document.getElementById('volatility').value = (impliedVol * 100).toFixed(1);
-                    const putPrice = blackScholes(S, currentK, DTE, r, impliedVol, 'put');
+                    const putPrice = blackScholes(S, K, DTE, r, impliedVol, 'put');
                     if (putPrice !== null) {
                         document.getElementById('putPrice').value = putPrice.toFixed(2);
+                        console.log('Updated from call price:', { impliedVol, putPrice });
                     }
                 }
             }
         } else if (lastUpdated === 'putPrice') {
             const targetPut = parseFloat(document.getElementById('putPrice').value);
             if (!isNaN(targetPut)) {
-                const impliedVol = findImpliedVolatility(S, currentK, DTE, r, targetPut, 'put');
+                const impliedVol = findImpliedVolatility(S, K, DTE, r, targetPut, 'put');
                 if (impliedVol !== null) {
                     document.getElementById('volatility').value = (impliedVol * 100).toFixed(1);
-                    const callPrice = blackScholes(S, currentK, DTE, r, impliedVol, 'call');
+                    const callPrice = blackScholes(S, K, DTE, r, impliedVol, 'call');
                     if (callPrice !== null) {
                         document.getElementById('callPrice').value = callPrice.toFixed(2);
+                        console.log('Updated from put price:', { impliedVol, callPrice });
                     }
                 }
             }
