@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black-Scholes Calculator - Garrett MacDonald</title>
+    <title>Black-Scholes Calculator with Implied Volatility</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
     <style>
         body {
@@ -22,12 +22,25 @@
             border-radius: 8px;
             margin-top: 20px;
         }
+        .input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .input-group.three-col {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .input-field {
+            margin-bottom: 15px;
+        }
         .calculator input {
             width: 100%;
             padding: 8px;
             margin: 8px 0;
             border: 1px solid #ddd;
             border-radius: 4px;
+            box-sizing: border-box;
         }
         .calculator label {
             display: block;
@@ -51,35 +64,60 @@
     </style>
 </head>
 <body>
-    <!-- Header will be inserted here by header.js -->
-
     <div class="calculator">
-        <div>
-            <label for="stockPrice">Stock Price ($):</label>
-            <input type="number" id="stockPrice" step="0.01" value="100">
+        <h2>Black-Scholes Option Calculator</h2>
+        
+        <div class="input-group">
+            <div class="input-field">
+                <label for="stockPrice">Stock Price ($):</label>
+                <input type="number" id="stockPrice" step="0.01" value="100">
+            </div>
             
-            <label for="strikePrice">Strike Price ($):</label>
-            <input type="number" id="strikePrice" step="0.01" value="100">
-            
-            <label for="daysToExpiry">Days to Expiry:</label>
-            <input type="number" id="daysToExpiry" step="1" value="30" min="0" max="3650">
-            
-            <label for="riskFreeRate">Risk-Free Rate (%):</label>
-            <input type="number" id="riskFreeRate" step="0.01" value="5">
-            
-            <label for="volatility">Volatility (%):</label>
-            <input type="number" id="volatility" step="0.01" value="20">
+            <div class="input-field">
+                <label for="strikePrice">Strike Price ($):</label>
+                <input type="number" id="strikePrice" step="0.01" value="100">
+            </div>
         </div>
-        <div class="result">
-            <p>Call Option Price: $<span id="callPrice">0.00</span></p>
-            <p>Put Option Price: $<span id="putPrice">0.00</span></p>
+        
+        <div class="input-group three-col">
+            <div class="input-field">
+                <label for="daysToExpiry">Days to Expiry:</label>
+                <input type="number" id="daysToExpiry" step="1" value="30" min="0" max="3650">
+            </div>
+            
+            <div class="input-field">
+                <label for="riskFreeRate">Risk-Free Rate (%):</label>
+                <input type="number" id="riskFreeRate" step="0.01" value="5">
+            </div>
+            
+            <div class="input-field">
+                <label for="volatility">Volatility (%):</label>
+                <input type="number" id="volatility" step="0.01" value="20">
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <div class="input-field">
+                <label for="callPrice">Call Option Price ($):</label>
+                <input type="number" id="callPrice" step="0.01" value="0.00">
+            </div>
+            
+            <div class="input-field">
+                <label for="putPrice">Put Option Price ($):</label>
+                <input type="number" id="putPrice" step="0.01" value="0.00">
+            </div>
         </div>
     </div>
 
     <div class="explanation">
-        <h3>About the Black-Scholes Model</h3>
-        <p>The Black-Scholes model, also known as the Black-Scholes-Merton model, is a mathematical model for pricing options contracts. It assumes that the price of heavily traded assets follows a geometric Brownian motion with constant drift and volatility.</p>
-        <p>Key assumptions of the model:</p>
+        <h3>About the Black-Scholes Calculator</h3>
+        <p>This enhanced version of the Black-Scholes calculator supports bi-directional calculations between implied volatility (IV) and option prices:</p>
+        <ul>
+            <li>Input volatility to calculate both call and put prices</li>
+            <li>Input either call or put price to calculate implied volatility and the other option price</li>
+            <li>All calculations update automatically when any value changes</li>
+        </ul>
+        <p>Key assumptions of the Black-Scholes model:</p>
         <ul>
             <li>The risk-free rate and volatility of the underlying asset are known and constant</li>
             <li>No dividends are paid during the life of the option</li>
@@ -89,7 +127,6 @@
         </ul>
     </div>
     
-    <script src="/components/header.js"></script>
-    <script src="scripts/black-scholes.js"></script>
+    <script src="black-scholes.js"></script>
 </body>
 </html>
