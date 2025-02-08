@@ -70,16 +70,6 @@ function findImpliedVolatility(S, K, DTE, r, targetPrice, type) {
     }
 }
 
-function calculateMoneyness(S, K) {
-    if (!S || !K) return null;
-    return ((K / S) - 1) * 100; // Convert to percentage
-}
-
-function calculateStrikeFromMoneyness(S, moneyness) {
-    if (!S || moneyness === undefined) return null;
-    return Math.round(S * (1 + moneyness / 100)); // Round to nearest whole number
-}
-
 let lastUpdated = '';
 let isCalculating = false;
 
@@ -93,20 +83,6 @@ function updateCalculations() {
         const DTE = parseFloat(document.getElementById('daysToExpiry').value);
         const r = parseFloat(document.getElementById('riskFreeRate').value) / 100;
 
-        // Handle moneyness calculations
-        if (lastUpdated === 'strikePrice' || lastUpdated === 'stockPrice') {
-            const moneyness = calculateMoneyness(S, K);
-            if (moneyness !== null) {
-                document.getElementById('moneyness').value = moneyness.toFixed(1);
-            }
-        } else if (lastUpdated === 'moneyness') {
-            const moneyness = parseFloat(document.getElementById('moneyness').value);
-            const newStrike = calculateStrikeFromMoneyness(S, moneyness);
-            if (newStrike !== null) {
-                document.getElementById('strikePrice').value = newStrike.toFixed(2);
-            }
-        }
-
         // Input validation
         if (isNaN(S) || isNaN(K) || isNaN(DTE) || isNaN(r) || DTE < 0 || DTE > 3650) {
             console.log('Invalid inputs detected');
@@ -115,9 +91,7 @@ function updateCalculations() {
 
         console.log('Calculating with:', { lastUpdated, S, K, DTE, r });
 
-        if (lastUpdated === 'volatility' || lastUpdated === '' || 
-            lastUpdated === 'moneyness' || lastUpdated === 'stockPrice' || 
-            lastUpdated === 'strikePrice') {
+        if (lastUpdated === 'volatility' || lastUpdated === '') {
             const sigma = parseFloat(document.getElementById('volatility').value) / 100;
             if (!isNaN(sigma) && sigma > 0) {
                 const callPrice = blackScholes(S, K, DTE, r, sigma, 'call');
@@ -164,7 +138,7 @@ function updateCalculations() {
 }
 
 // Add event listeners to all inputs
-const inputs = ['stockPrice', 'strikePrice', 'moneyness', 'daysToExpiry', 'riskFreeRate', 'volatility', 'callPrice', 'putPrice'];
+const inputs = ['stockPrice', 'strikePrice', 'daysToExpiry', 'riskFreeRate', 'volatility', 'callPrice', 'putPrice'];
 inputs.forEach(id => {
     const element = document.getElementById(id);
     if (element) {

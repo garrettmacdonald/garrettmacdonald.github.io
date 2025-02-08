@@ -67,7 +67,7 @@
     <div class="calculator">
         <h2>Black-Scholes Option Calculator</h2>
         
-        <div class="input-group three-col">
+        <div class="input-group">
             <div class="input-field">
                 <label for="stockPrice">Stock Price ($):</label>
                 <input type="number" id="stockPrice" step="0.01" value="100">
@@ -76,11 +76,6 @@
             <div class="input-field">
                 <label for="strikePrice">Strike Price ($):</label>
                 <input type="number" id="strikePrice" step="0.01" value="100">
-            </div>
-
-            <div class="input-field">
-                <label for="moneyness">Moneyness (%):</label>
-                <input type="number" id="moneyness" step="0.1" value="0">
             </div>
         </div>
         
@@ -120,7 +115,6 @@
         <ul>
             <li>Input volatility to calculate both call and put prices</li>
             <li>Input either call or put price to calculate implied volatility and the other option price</li>
-            <li>Input either strike price or moneyness to calculate the other value</li>
             <li>All calculations update automatically when any value changes</li>
         </ul>
         <p>Key assumptions of the Black-Scholes model:</p>
