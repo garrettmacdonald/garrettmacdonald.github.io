@@ -212,6 +212,7 @@
                 const K = parseFloat(document.getElementById('strikePrice').value);
                 const DTE = parseFloat(document.getElementById('daysToExpiry').value);
                 const r = parseFloat(document.getElementById('riskFreeRate').value) / 100;
+                const sigma = parseFloat(document.getElementById('volatility').value) / 100;
 
                 // Input validation
                 if (isNaN(S) || isNaN(K) || isNaN(DTE) || isNaN(r) || DTE < 0 || DTE > 3650) {
@@ -221,8 +222,11 @@
 
                 console.log('Calculating with:', { lastUpdated, S, K, DTE, r });
 
-                if (lastUpdated === 'volatility' || lastUpdated === '') {
-                    const sigma = parseFloat(document.getElementById('volatility').value) / 100;
+                // If any of the key inputs (S, K, DTE, r) or volatility is updated, recalculate prices
+                if (lastUpdated === 'stockPrice' || lastUpdated === 'strikePrice' || 
+                    lastUpdated === 'daysToExpiry' || lastUpdated === 'riskFreeRate' || 
+                    lastUpdated === 'volatility' || lastUpdated === '') {
+                    
                     if (!isNaN(sigma) && sigma > 0) {
                         const callPrice = blackScholes(S, K, DTE, r, sigma, 'call');
                         const putPrice = blackScholes(S, K, DTE, r, sigma, 'put');
@@ -230,7 +234,7 @@
                         if (callPrice !== null && putPrice !== null) {
                             document.getElementById('callPrice').value = callPrice.toFixed(2);
                             document.getElementById('putPrice').value = putPrice.toFixed(2);
-                            console.log('Updated prices from volatility:', { callPrice, putPrice });
+                            console.log('Updated prices:', { callPrice, putPrice });
                         }
                     }
                 } else if (lastUpdated === 'callPrice') {

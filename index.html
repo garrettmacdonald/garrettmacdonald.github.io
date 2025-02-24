@@ -4,50 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Garrett MacDonald - Personal Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h2 {
-            color: #333;
-        }
-        section {
-            margin-bottom: 30px;
-        }
-        .social-links a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-        }
-        .social-links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/modern.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header will be inserted here by header.js -->
     
     <section>
         <h2>About Me</h2>
-        <p>Write a brief introduction about yourself here.</p>
+        <div class="card">
+            <p>I'm a financial analyst and developer with expertise in options pricing and quantitative finance. I build tools to help investors make more informed decisions.</p>
+        </div>
     </section>
     
     <section>
         <h2>Projects</h2>
-        <p>List your projects and achievements here.</p>
+        <div class="card">
+            <h3>Black-Scholes Calculator</h3>
+            <p>An interactive tool for calculating option prices and implied volatility using the Black-Scholes model.</p>
+            <a href="/calculator">View Calculator →</a>
+        </div>
+        
+        <div class="card">
+            <h3>Financial Blog</h3>
+            <p>Regular insights on market trends, option strategies, and quantitative analysis techniques.</p>
+            <a href="/blog">Read Blog →</a>
+        </div>
     </section>
     
     <section>
         <h2>Contact</h2>
-        <p class="social-links">
-            <a href="https://github.com/yourusername">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-            <a href="mailto:your.email@example.com">Email</a>
-        </p>
+        <div class="card">
+            <p>Feel free to reach out for collaborations or questions about my work:</p>
+            <div class="social-links">
+                <a href="https://github.com/yourusername">GitHub</a>
+                <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
+        </div>
     </section>
 
     <script src="/components/header.js"></script>
