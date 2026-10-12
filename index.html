@@ -1,51 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garrett MacDonald - Personal Website</title>
-    <link rel="stylesheet" href="/styles/modern.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garrett MacDonald | Portfolio Manager, Asset Allocation &amp; Equity</title>
+<meta name="description" content="Garrett MacDonald is a portfolio manager in Hartford, Connecticut, working on strategic and tactical asset allocation and passive and active equity for institutional clients.">
+<link rel="canonical" href="https://garrett-macdonald.com/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Garrett MacDonald, Portfolio Manager">
+<meta property="og:description" content="Strategic and tactical asset allocation. Passive and active equity. For institutional clients.">
+<meta property="og:url" content="https://garrett-macdonald.com/">
+<meta property="og:image" content="https://garrett-macdonald.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="profile:first_name" content="Garrett">
+<meta property="profile:last_name" content="MacDonald">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Garrett MacDonald",
+  "url": "https://garrett-macdonald.com/",
+  "jobTitle": "Portfolio Manager",
+  "worksFor": { "@type": "Organization", "name": "Hartford Investment Management Company" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Bentley University" },
+    { "@type": "CollegeOrUniversity", "name": "WorldQuant University" }
+  ],
+  "knowsAbout": ["Strategic asset allocation", "Tactical asset allocation", "Portfolio optimization", "Index investing", "Equity portfolio management"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Hartford", "addressRegion": "CT", "addressCountry": "US" },
+  "sameAs": ["https://www.linkedin.com/in/garrett-macdonald/"]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f5f3ee;
+    --panel: #fbfaf7;
+    --ink: #14171c;
+    --muted: #5d636d;
+    --faint: #8b9099;
+    --rule: #dcd8cf;
+    --grid: #e7e3da;
+    --accent: #0e6b5c;
+    --dot: #9aa0a8;
+    --btn-ink: #f5f3ee;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f1216;
+      --panel: #151a1f;
+      --ink: #ecebe7;
+      --muted: #a2a8b1;
+      --faint: #7b828c;
+      --rule: #2a3037;
+      --grid: #20262c;
+      --accent: #4fbfa6;
+      --dot: #66707b;
+      --btn-ink: #0f1216;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.6 var(--sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  ::selection { background: var(--accent); color: var(--btn-ink); }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  @media (max-width: 600px) { .wrap { padding: 0 18px; } }
+
+  .label {
+    font: 500 12px/1.4 var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* top bar */
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
+  .mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mono-badge {
+    width: 38px; height: 38px; display: grid; place-items: center;
+    border: 1px solid var(--ink); font: 400 20px/1 var(--serif); letter-spacing: -.02em;
+  }
+  .mark span:last-child { font-weight: 500; font-size: 15px; }
+  .top-link {
+    font: 500 13px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase;
+    text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--rule);
+  }
+  .top-link:hover { border-color: var(--ink); }
+
+  /* hero */
+  .hero {
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 56px; align-items: center; padding: 56px 0 88px;
+  }
+  .hero h1 {
+    font: 400 clamp(52px, 7.4vw, 92px)/.95 var(--serif);
+    letter-spacing: -.02em; margin: 18px 0 26px;
+  }
+  .lead { font-size: clamp(18px, 1.9vw, 21px); line-height: 1.5; max-width: 34ch; }
+  .lead strong { font-weight: 600; }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font: 500 15px/1 var(--sans); text-decoration: none;
+    padding: 15px 22px; border: 1px solid var(--ink);
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .btn svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+  .btn-primary { background: var(--ink); color: var(--btn-ink); }
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+  .btn-ghost:hover { background: var(--ink); color: var(--btn-ink); }
+  .btn:focus-visible, .top-link:focus-visible, .mark:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; }
+  .facts li { list-style: none; font: 400 13px/1.4 var(--mono); color: var(--muted); }
+  .facts li::before { content: "— "; color: var(--faint); }
+
+  /* figure */
+  figure { border: 1px solid var(--rule); background: var(--panel); }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption {
+    border-top: 1px solid var(--rule); padding: 14px 18px;
+    font: 400 12.5px/1.5 var(--mono); color: var(--muted);
+  }
+  figcaption b { color: var(--ink); font-weight: 500; }
+  .g-grid line { stroke: var(--grid); stroke-width: 1; }
+  .g-axis { fill: none; stroke: var(--faint); stroke-width: 1; }
+  .g-text { font: 400 12.5px var(--mono); fill: var(--muted); letter-spacing: .04em; }
+  .g-callout { font: 500 14px var(--mono); fill: var(--ink); }
+  .g-assets circle { fill: var(--dot); opacity: .75; }
+  .g-ineff { fill: none; stroke: var(--faint); stroke-width: 1.5; stroke-dasharray: 3 5; }
+  .g-front { fill: none; stroke: var(--ink); stroke-width: 2.25; stroke-linecap: round; stroke-linejoin: round; }
+  .g-tilt { fill: none; stroke: var(--accent); stroke-width: 10; stroke-linecap: round; opacity: .22; }
+  .g-leader { stroke: var(--faint); stroke-width: 1; }
+  .g-policy-ring { fill: var(--panel); stroke: var(--ink); stroke-width: 2; }
+  .g-policy { fill: var(--ink); }
+  .g-mover { fill: var(--accent); }
+  @media (prefers-reduced-motion: no-preference) {
+    .g-front { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.8s .2s cubic-bezier(.6,.1,.2,1) forwards; }
+    .g-reveal { opacity: 0; animation: fade .8s 1.6s ease forwards; }
+  }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fade { to { opacity: 1; } }
+
+  /* sections */
+  section { border-top: 1px solid var(--rule); padding: 72px 0; }
+  .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 40px; }
+  h2 { font: 400 clamp(34px, 4.4vw, 50px)/1.05 var(--serif); letter-spacing: -.01em; }
+  h2 em { font-style: italic; color: var(--accent); }
+
+  .areas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-left: 1px solid var(--rule); }
+  .area { border-right: 1px solid var(--rule); padding: 6px 26px 10px; }
+  .area-head { display: flex; justify-content: space-between; align-items: baseline; font: 400 12px/1 var(--mono); letter-spacing: .08em; }
+  .area-head .num { font-weight: 500; color: var(--accent); }
+  .area-head .tag { color: var(--faint); text-transform: uppercase; }
+  .area h3 { font: 400 28px/1.1 var(--serif); margin: 18px 0 14px; }
+  .area p { color: var(--muted); font-size: 15.5px; }
+
+  .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; }
+  .split p { font-size: 18px; max-width: 58ch; }
+  .split p + p { margin-top: 16px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .chips li {
+    list-style: none; font: 400 12.5px/1 var(--mono); color: var(--ink);
+    border: 1px solid var(--rule); padding: 9px 12px; background: var(--panel);
+  }
+
+  .timeline { list-style: none; }
+  .timeline li {
+    display: grid; grid-template-columns: 160px minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--rule); align-items: baseline;
+  }
+  .timeline li:first-child { border-top: 1px solid var(--rule); }
+  .timeline .when { font: 400 13px var(--mono); color: var(--muted); }
+  .timeline .what { font: 400 24px/1.2 var(--serif); }
+  .timeline .where { color: var(--muted); font-size: 15.5px; }
+
+  .closer { text-align: center; padding: 104px 0 96px; }
+  .closer h2 { font-size: clamp(44px, 6vw, 72px); }
+  .closer p { color: var(--muted); margin: 18px auto 34px; max-width: 46ch; }
+  .closer .ctas { justify-content: center; margin-top: 0; }
+
+  footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; }
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font: 400 12.5px/1.6 var(--mono); color: var(--faint); }
+  .foot p:last-child { max-width: 68ch; }
+
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; gap: 44px; padding: 36px 0 64px; }
+    .areas { grid-template-columns: repeat(2, minmax(0, 1fr)); border-left: 0; }
+    .area { border-right: 0; border-top: 1px solid var(--rule); padding: 22px 0 18px; }
+    .area:nth-child(odd) { padding-right: 24px; border-right: 1px solid var(--rule); }
+    .area:nth-child(even) { padding-left: 24px; }
+    .split { grid-template-columns: 1fr; gap: 24px; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .top { padding: 18px 0; }
+    .mark span:last-child { display: none; }
+    section { padding: 56px 0; }
+    .sec-head { flex-wrap: wrap; gap: 8px; }
+    .areas { grid-template-columns: 1fr; }
+    .area, .area:nth-child(odd), .area:nth-child(even) { padding: 22px 0 16px; border-right: 0; }
+    .timeline li { grid-template-columns: 1fr; gap: 4px; }
+    .btn { flex: 1 1 auto; justify-content: center; }
+    .closer { padding: 80px 0 72px; }
+  }
+</style>
 </head>
 <body>
-    <!-- Header will be inserted here by header.js -->
-    
-    <section>
-        <h2>About Me</h2>
-        <div class="card">
-            <p>I'm a financial analyst and developer with expertise in options pricing and quantitative finance. I build tools to help investors make more informed decisions.</p>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="/" aria-label="Garrett MacDonald, home">
+      <span class="mono-badge" aria-hidden="true">GM</span>
+      <span>Garrett MacDonald</span>
+    </a>
+    <a class="top-link" href="https://www.linkedin.com/in/garrett-macdonald/" rel="me noopener">LinkedIn&nbsp;↗</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <p class="label">Portfolio Manager · Hartford, Connecticut</p>
+        <h1>Garrett MacDonald</h1>
+        <p class="lead">I run <strong>strategic and tactical asset allocation</strong> and <strong>passive and active equity</strong> portfolios for institutional clients.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/garrett-macdonald/" rel="me noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            Connect on LinkedIn
+          </a>
+          <a class="btn btn-ghost" href="#work">What I do&nbsp;↓</a>
         </div>
-    </section>
-    
-    <section>
-        <h2>Projects</h2>
-        <div class="card">
-            <h3>Black-Scholes Calculator</h3>
-            <p>An interactive tool for calculating option prices and implied volatility using the Black-Scholes model.</p>
-            <a href="/calculator">View Calculator →</a>
-        </div>
-        
-        <div class="card">
-            <h3>Financial Blog</h3>
-            <p>Regular insights on market trends, option strategies, and quantitative analysis techniques.</p>
-            <a href="/blog">Read Blog →</a>
-        </div>
-    </section>
-    
-    <section>
-        <h2>Contact</h2>
-        <div class="card">
-            <p>Feel free to reach out for collaborations or questions about my work:</p>
-            <div class="social-links">
-                <a href="https://github.com/yourusername">GitHub</a>
-                <a href="https://linkedin.com/in/yourusername">LinkedIn</a>
-                <a href="mailto:your.email@example.com">Email</a>
-            </div>
-        </div>
+        <ul class="facts">
+          <li>At HIMCO since 2013</li>
+          <li>M.S., Financial Engineering</li>
+        </ul>
+      </div>
+
+      <figure>
+        <svg viewBox="0 0 600 420" role="img" aria-labelledby="fig-title fig-desc">
+          <title id="fig-title">An efficient frontier</title>
+          <desc id="fig-desc">A stylized risk-versus-return chart. A curved efficient frontier rises from lower left to upper right above a scatter of single assets. A policy portfolio sits on the curve, and a highlighted stretch of the curve around it marks the range for tactical tilts.</desc>
+          <g class="g-grid">
+            <line x1="153.6" y1="36" x2="153.6" y2="372"/><line x1="259.2" y1="36" x2="259.2" y2="372"/>
+            <line x1="364.8" y1="36" x2="364.8" y2="372"/><line x1="470.4" y1="36" x2="470.4" y2="372"/>
+            <line x1="576" y1="36" x2="576" y2="372"/>
+            <line x1="48" y1="288" x2="576" y2="288"/><line x1="48" y1="204" x2="576" y2="204"/>
+            <line x1="48" y1="120" x2="576" y2="120"/><line x1="48" y1="36" x2="576" y2="36"/>
+          </g>
+          <path class="g-axis" d="M48 36 V372 H576"/>
+          <text class="g-text" x="576" y="396" text-anchor="end">RISK →</text>
+          <text class="g-text" transform="translate(30 36) rotate(-90)" text-anchor="end">RETURN →</text>
+
+          <g class="g-assets">
+            <circle cx="329.5" cy="225.5" r="3.2"/><circle cx="520.5" cy="111.5" r="3.2"/><circle cx="351.1" cy="212.1" r="3.2"/>
+            <circle cx="317.0" cy="290.1" r="3.2"/><circle cx="431.7" cy="182.6" r="3.2"/><circle cx="312.0" cy="311.9" r="3.2"/>
+            <circle cx="393.4" cy="312.8" r="3.2"/><circle cx="341.2" cy="167.3" r="3.2"/><circle cx="414.2" cy="176.8" r="3.2"/>
+            <circle cx="245.6" cy="296.6" r="3.2"/><circle cx="274.8" cy="207.1" r="3.2"/><circle cx="272.9" cy="288.7" r="3.2"/>
+            <circle cx="362.2" cy="327.4" r="3.2"/><circle cx="371.1" cy="228.3" r="3.2"/><circle cx="363.4" cy="209.3" r="3.2"/>
+            <circle cx="460.3" cy="244.0" r="3.2"/>
+          </g>
+
+          <path class="g-ineff" d="M180.0 260.0 L180.5 264.9 L181.8 269.7 L184.0 274.6 L187.0 279.4 L190.8 284.3 L195.4 289.1 L200.5 294.0 L206.3 298.8 L212.6 303.7 L219.3 308.5 L226.5 313.4 L234.0 318.2 L241.9 323.1 L250.0 327.9 L258.4 332.8 L267.0 337.7 L275.8 342.5 L284.8 347.4 L293.9 352.2 L303.2 357.1"/>
+          <path class="g-front" pathLength="1" d="M180.0 260.0 L180.5 255.0 L181.9 250.0 L184.2 245.1 L187.4 240.1 L191.4 235.1 L196.1 230.1 L201.5 225.2 L207.5 220.2 L214.1 215.2 L221.1 210.2 L228.6 205.2 L236.4 200.3 L244.5 195.3 L253.0 190.3 L261.7 185.3 L270.6 180.4 L279.7 175.4 L289.0 170.4 L298.4 165.4 L308.0 160.4 L317.7 155.5 L327.5 150.5 L337.5 145.5 L347.5 140.5 L357.6 135.6 L367.7 130.6 L378.0 125.6 L388.3 120.6 L398.6 115.6 L409.0 110.7 L419.5 105.7 L430.0 100.7 L440.5 95.7 L451.0 90.8 L461.6 85.8 L472.3 80.8 L482.9 75.8 L493.6 70.8 L504.3 65.9 L515.1 60.9"/>
+
+          <g class="g-reveal">
+            <path class="g-tilt" d="M257.3 187.8 L265.3 183.3 L273.6 178.7 L282.0 174.1 L290.5 169.6 L299.2 165.0 L308.0 160.4 L316.9 155.9 L325.9 151.3 L335.0 146.8 L344.1 142.2 L353.4 137.6 L362.6 133.1"/>
+            <line class="g-leader" x1="298" y1="154" x2="264" y2="130"/>
+            <text class="g-callout" x="258" y="126" text-anchor="end">SAA · policy portfolio</text>
+            <line class="g-leader" x1="362.6" y1="124" x2="362.6" y2="82"/>
+            <text class="g-callout" x="362.6" y="72" text-anchor="middle">TAA · tilt range</text>
+            <circle class="g-policy-ring" cx="308.0" cy="160.4" r="8"/>
+            <circle class="g-policy" cx="308.0" cy="160.4" r="3.2"/>
+            <circle class="g-mover" r="5">
+              <animateMotion dur="7s" repeatCount="indefinite" calcMode="spline"
+                keyPoints="0.5;1;0;0.5" keyTimes="0;0.25;0.75;1"
+                keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1"
+                path="M257.3 187.8 L265.3 183.3 L273.6 178.7 L282.0 174.1 L290.5 169.6 L299.2 165.0 L308.0 160.4 L316.9 155.9 L325.9 151.3 L335.0 146.8 L344.1 142.2 L353.4 137.6 L362.6 133.1"/>
+            </circle>
+            <text class="g-text" x="566" y="358" text-anchor="end">● single assets</text>
+          </g>
+        </svg>
+        <figcaption><b>Fig. 1.</b> The job in one picture: set the policy portfolio, then tilt it with discipline. Illustrative only, not real data.</figcaption>
+      </figure>
+    </div>
+
+    <section id="work">
+      <div class="sec-head">
+        <h2>What I do</h2>
+        <p class="label">Four disciplines</p>
+      </div>
+      <div class="areas">
+        <article class="area">
+          <div class="area-head"><span class="num">01</span><span class="tag">SAA</span></div>
+          <h3>Strategic asset allocation</h3>
+          <p>Long-horizon policy portfolios, built with constrained optimization across return, risk and the real-world limits that actually bind.</p>
+        </article>
+        <article class="area">
+          <div class="area-head"><span class="num">02</span><span class="tag">TAA</span></div>
+          <h3>Tactical asset allocation</h3>
+          <p>Sized, deliberate tilts around the policy portfolio, taken only when the evidence is strong enough to pay for the risk.</p>
+        </article>
+        <article class="area">
+          <div class="area-head"><span class="num">03</span><span class="tag">Passive</span></div>
+          <h3>Passive equity</h3>
+          <p>Index portfolios run for precision: tight tracking, low cost, and clean, repeatable implementation.</p>
+        </article>
+        <article class="area">
+          <div class="area-head"><span class="num">04</span><span class="tag">Active</span></div>
+          <h3>Active equity</h3>
+          <p>Equity portfolios where every active position is intentional, sized to a risk budget, and measured against its benchmark.</p>
+        </article>
+      </div>
     </section>
 
-    <script src="/components/header.js"></script>
+    <section>
+      <div class="split">
+        <h2>Quantitative by training. <em>Practical</em> by habit.</h2>
+        <div>
+          <p>I've spent my career at Hartford Investment Management Company (HIMCO), turning research into portfolios.</p>
+          <p>A lot of that work is building the machinery behind the decisions: optimization models, data pipelines, performance and risk analytics, and, more and more, AI-assisted tools that help a small team move faster without cutting corners.</p>
+          <ul class="chips">
+            <li>Portfolio optimization</li>
+            <li>Risk budgeting</li>
+            <li>Performance attribution</li>
+            <li>Index replication</li>
+            <li>Python</li>
+            <li>R</li>
+            <li>AI-assisted workflows</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sec-head">
+        <h2>Background</h2>
+        <p class="label">Full history on LinkedIn</p>
+      </div>
+      <ol class="timeline">
+        <li><span class="when">2013 – present</span><span class="what">Portfolio Manager, Public Equity &amp; Asset Allocation</span><span class="where">Hartford Investment Management Co. (HIMCO)</span></li>
+        <li><span class="when">2022</span><span class="what">M.S., Financial Engineering</span><span class="where">WorldQuant University</span></li>
+        <li><span class="when">2013</span><span class="what">B.S., Economics-Finance</span><span class="where">Bentley University</span></li>
+      </ol>
+    </section>
+
+    <section class="closer">
+      <h2>Let's connect.</h2>
+      <p>LinkedIn is the best way to reach me.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/garrett-macdonald/" rel="me noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          Connect on LinkedIn
+        </a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <p>© 2026 Garrett MacDonald</p>
+    <p>Personal website. Views are my own and not those of my employer. Nothing here is investment advice or an offer of investment services.</p>
+  </div>
+</footer>
+
+<script>
+  // SMIL ignores prefers-reduced-motion, so freeze the tilt dot for people who ask for less motion.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('svg').forEach(function (s) { if (s.pauseAnimations) s.pauseAnimations(); });
+  }
+</script>
 </body>
 </html>

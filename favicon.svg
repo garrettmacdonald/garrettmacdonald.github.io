@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <style>
+    rect { fill: #f5f3ee; stroke: #14171c; }
+    text { fill: #14171c; }
+    @media (prefers-color-scheme: dark) { rect { fill: #0f1216; stroke: #ecebe7; } text { fill: #ecebe7; } }
+  </style>
+  <rect x="2" y="2" width="60" height="60" stroke-width="3"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" letter-spacing="-1">GM</text>
+</svg>
