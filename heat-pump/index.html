@@ -263,6 +263,104 @@
     .timeline .where { grid-column: 1; }
   }
   @media print { #tip { display: none; } details.nums { display: none; } }
+  /* floor plan */
+  #plan { --heat-lo: #f4ede4; --heat-hi: #b4461a; --glass: #8fbbe3; }
+  @media (prefers-color-scheme: dark) { #plan { --heat-lo: #23272c; --heat-hi: #ee8350; --glass: #4f86b8; } }
+  .pl-controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; margin: 18px 0 6px; }
+  .pl-slider { display: flex; align-items: center; gap: 12px; flex: 1 1 320px; max-width: 520px; }
+  .pl-slider b { font: 600 20px/1 var(--sans); min-width: 3.4em; font-variant-numeric: tabular-nums; }
+  .pl-slider input { flex: 1; accent-color: var(--c-accent); height: 28px; }
+  .pl-toggles { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pl-toggles label { cursor: pointer; }
+  .pl-toggles input { position: absolute; opacity: 0; pointer-events: none; }
+  .pl-toggles span { display: inline-block; font: 500 12px/1 var(--mono); letter-spacing: .04em; padding: 9px 12px; border: 1px solid var(--rule); color: var(--muted); background: var(--paper); }
+  .pl-toggles span::before { content: "○ "; }
+  .pl-toggles input:checked + span { border-color: var(--ink); color: var(--ink); }
+  .pl-toggles input:checked + span::before { content: "● "; color: var(--c-accent); }
+  .pl-toggles input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pl-grid { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: 28px; align-items: start; margin-top: 10px; }
+  .pl-svg svg.plan { display: block; width: 100%; height: auto; }
+  .pl-room { cursor: pointer; transition: fill .25s; }
+  @media (prefers-reduced-motion: reduce) { .pl-room { transition: none; } }
+  .pl-room:hover, .pl-room:focus-visible { filter: brightness(1.08) saturate(1.1); outline: none; }
+  .pl-gap { fill: none; stroke: var(--panel); stroke-width: 2.5; pointer-events: none; }
+  .pl-wall { stroke: var(--ink); stroke-width: 5; stroke-linecap: square; fill: none; pointer-events: none; }
+  .pl-wall.pl-part { stroke: var(--muted); stroke-width: 3.5; }
+  .pl-unc { fill: var(--c-zone); stroke: var(--rule); stroke-width: 1.5; }
+  .pl-unc-t { fill: var(--faint); font-size: 12px; }
+  .pl-lbl { pointer-events: none; }
+  .pl-lbl text { fill: var(--ink); }
+  .pl-lbl.on-dark text { fill: #fff; }
+  .pl-name { font-size: 11px; font-weight: 500; }
+  .pl-name.pl-small { font-size: 9px; }
+  .pl-val { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .pl-layer { display: none; pointer-events: none; }
+  #plan.show-windows .pl-windows, #plan.show-install .pl-install, #plan.show-loggers .pl-loggers { display: inline; }
+  #plan.show-loggers .pl-loggers { pointer-events: auto; }
+  .pl-win { stroke: var(--glass); stroke-width: 3; stroke-linecap: butt; }
+  .pl-sky { fill: var(--glass); stroke: var(--ink); stroke-width: 1; opacity: .9; }
+  .pl-eq { fill: var(--panel); stroke: var(--ink); stroke-width: 1.5; }
+  .pl-eq-t { fill: var(--ink); font-size: 10px; font-weight: 500; paint-order: stroke; stroke: var(--panel); stroke-width: 3px; }
+  .pl-line { stroke: var(--c-accent); stroke-width: 3; fill: none; }
+  .pl-attic { stroke: var(--c-accent); stroke-width: 3; fill: none; stroke-dasharray: 6 4; }
+  .pl-ah { fill: var(--panel); stroke: var(--c-accent); stroke-width: 2; stroke-dasharray: 5 3; }
+  .pl-ret { fill: var(--panel); stroke: var(--ink); stroke-width: 1.5; }
+  .pl-tg { stroke: var(--c-accent); stroke-width: 5; }
+  .pl-lg circle { fill: var(--ink); stroke: var(--panel); stroke-width: 2; }
+  .pl-lg text { fill: var(--ink); font-size: 11.5px; font-weight: 600; paint-order: stroke; stroke: var(--panel); stroke-width: 3.5px; }
+  .pl-comp line, .pl-comp path, .pl-scale line { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  .pl-comp text, .pl-scale text { fill: var(--muted); font-size: 11px; }
+  #plan.narrow .pl-name, #plan.narrow .pl-scale { display: none; }
+  #plan.narrow .pl-val { font-size: 19px; }
+  #plan.narrow .pl-eq-t, #plan.narrow .pl-lg text { font-size: 15px; }
+  .pl-legend { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 12.5px; color: var(--muted); }
+  .pl-legend i { width: 160px; height: 10px; background: linear-gradient(90deg, var(--heat-lo), var(--heat-hi)); border: 1px solid var(--rule); }
+  .pl-keys { margin-top: 8px; }
+  .pl-keys li { display: none; align-items: center; }
+  #plan.show-windows .k-windows, #plan.show-install .k-install, #plan.show-loggers .k-loggers { display: inline-flex; }
+  .pl-keys svg { width: 18px; height: 10px; margin-right: 7px; overflow: visible; }
+  .k-wall { stroke: var(--ink); stroke-width: 4; }
+  .k-win { stroke: var(--glass); stroke-width: 2.5; }
+  .k-sky { fill: var(--glass); stroke: var(--ink); stroke-width: 1; }
+  .k-ret { fill: var(--panel); stroke: var(--ink); stroke-width: 1.2; }
+  .k-tg { stroke: var(--c-accent); stroke-width: 4; }
+  .k-attic { stroke: var(--c-accent); stroke-width: 2.5; stroke-dasharray: 4 3; }
+  .k-lg { fill: var(--ink); }
+  .pl-side { border-left: 1px solid var(--rule); padding-left: 24px; }
+  .pl-kv { margin-bottom: 14px; }
+  .pl-kv span { display: block; font: 500 11.5px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .pl-kv b { font: 600 30px/1.15 var(--sans); letter-spacing: -.02em; }
+  .pl-kv small { display: block; font-size: 12.5px; color: var(--muted); }
+  .pl-gtrack { position: relative; height: 14px; background: var(--grid); border-radius: 2px; }
+  #pl-band { position: absolute; top: 0; bottom: 0; background: color-mix(in srgb, var(--c-accent) 35%, transparent); border-left: 2px solid var(--c-accent); border-right: 2px solid var(--c-accent); }
+  #pl-mark { position: absolute; top: -5px; bottom: -5px; width: 3px; margin-left: -1.5px; background: var(--ink); transition: left .2s; }
+  @media (prefers-reduced-motion: reduce) { #pl-mark { transition: none; } }
+  .pl-gaxis { display: flex; justify-content: space-between; font-size: 11px; color: var(--faint); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .pl-gkey { font-size: 12px; color: var(--muted); margin-top: 6px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .pl-gkey i { display: inline-block; }
+  .gk-band { width: 14px; height: 9px; background: color-mix(in srgb, var(--c-accent) 35%, transparent); border-left: 2px solid var(--c-accent); border-right: 2px solid var(--c-accent); }
+  .gk-mark { width: 3px; height: 12px; background: var(--ink); margin-left: 8px; }
+  .pl-status { font-size: 14.5px; font-weight: 500; margin-top: 10px; min-height: 2.9em; line-height: 1.4; }
+  .pl-replay { border-top: 1px solid var(--rule); margin-top: 12px; padding-top: 16px; }
+  #pl-play { font: 500 14px/1 var(--sans); padding: 12px 16px; width: 100%; cursor: pointer; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+  #pl-play::before { content: "\25B6\00A0\00A0"; font-size: 11px; }
+  #plan.playing #pl-play::before { content: ""; }
+  #pl-play:hover { background: var(--accent); border-color: var(--accent); }
+  .pl-sub { font-size: 12.5px; color: var(--muted); margin-top: 8px; line-height: 1.45; }
+  #pl-spark { display: block; width: 100%; height: 34px; margin-top: 10px; overflow: visible; }
+  #pl-spark path { fill: none; stroke: var(--c-gray); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  #pl-cursor { stroke: var(--ink); stroke-width: 2; vector-effect: non-scaling-stroke; visibility: hidden; }
+  #plan.started #pl-cursor { visibility: visible; }
+  .pl-when { font: 500 12.5px var(--mono); color: var(--muted); margin-top: 4px; }
+  .pl-tally { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-top: 10px; }
+  .pl-tally div:last-child { grid-column: 1 / -1; }
+  .pl-tally dt { font: 500 11px/1.3 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+  .pl-tally dd { font: 600 18px/1.3 var(--sans); font-variant-numeric: tabular-nums; }
+  .pl-tally dd.muted { font: 400 13px/1.3 var(--sans); }
+  @media (max-width: 900px) {
+    .pl-grid { grid-template-columns: 1fr; }
+    .pl-side { border-left: 0; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 18px; }
+  }
 
 </style>
 </head>
@@ -295,6 +393,7 @@
       <li><a href="#short">The short version</a></li>
       <li><a href="#timeline">How the plan changed</a></li>
       <li><a href="#load">Measuring the load</a></li>
+      <li><a href="#rooms">The house, room by room</a></li>
       <li><a href="#size">Bigger isn't better</a></li>
       <li><a href="#equipment">Picking the equipment</a></li>
       <li><a href="#backup">Backup heat and controls</a></li>
@@ -361,8 +460,67 @@
   <div class="callout"><p><b>What could make the oil number read low?</b> Hidden electric heat (there wasn't any: electric use barely rose on cold days), a missing delivery (the ledger reconciles), or a room zone left off all winter. That last one is the open question, and it's why the backup plan matters.</p></div>
 </div></section>
 
-<section id="size"><div class="wrap">
+<section id="rooms"><div class="wrap">
   <p class="sec-num">04</p>
+  <h2>The house, <em>room by room</em></h2>
+  <div class="prose">
+    <p>The permit's Manual J needed every wall, window and ceiling in the house, so the main floor already exists as data: 13 rooms, 29 walls, 28 windows by size and direction, 4 skylights and three kinds of ceiling. That makes it possible to see where the heat actually goes, and to run last winter's weather through it.</p>
+  </div>
+  <figure class="card plan-card" id="plan">
+    <figcaption><div class="t">Heat loss, room by room</div>
+      <div class="s">Rooms are shaded by heat loss per square foot. Drag the outdoor temperature, replay last winter's coldest week, or hover a room.</div></figcaption>
+    <div class="pl-controls">
+      <label class="pl-slider"><span class="label">Outdoor</span><b id="pl-t">5°F</b>
+        <input id="pl-temp" type="range" min="-10" max="60" step="1" value="5" aria-label="Outdoor temperature in °F"></label>
+      <div class="pl-toggles" role="group" aria-label="Layers">
+        <label><input type="checkbox" value="windows" checked><span>Windows</span></label>
+        <label><input type="checkbox" value="install"><span>The install</span></label>
+        <label><input type="checkbox" value="loggers"><span>Loggers</span></label>
+      </div>
+    </div>
+    <div class="pl-grid">
+      <div class="pl-svg">
+        <svg class="plan" viewBox="-255.0 -35.0 875.0 640.0" data-vb-full="-255.0 -35.0 875.0 640.0" data-vb-narrow="-6.0 -30.0 621.0 640.0" role="img" aria-label="Floor plan of the main floor, each room shaded by its share of the heat loss"><rect class="pl-unc" x="-232.0" y="122.0" width="232.0" height="129.0"/><text class="pl-unc-t" x="-116.0" y="186.5" text-anchor="middle">Sunroom<tspan x="-116.0" dy="15">unheated</tspan></text><rect class="pl-unc" x="-232.0" y="251.0" width="232.0" height="233.0"/><text class="pl-unc-t" x="-116.0" y="367.5" text-anchor="middle">Garage<tspan x="-116.0" dy="15">unheated</tspan></text><g class="pl-room" data-room="Family Room" data-share="0.16666" data-area="248.1" data-name="Family Room" data-tip-v="" data-tip-l="248 sq ft · 53 sq ft of glass · attic, R-19" tabindex="0"><rect x="204.6" y="0.0" width="143.4" height="173.0"/><polygon points="238.0,0.0 252.0,-13.0 298.0,-13.0 312.0,0.0"/></g><g class="pl-room" data-room="Primary Bedroom" data-share="0.18124" data-area="358.8" data-name="Primary Bedroom" data-tip-v="" data-tip-l="359 sq ft · 43 sq ft of glass · sloped ceiling, R-19" tabindex="0"><rect x="348.0" y="0.0" width="207.4" height="173.0"/><polygon points="436.0,0.0 450.0,-13.0 496.0,-13.0 510.0,0.0"/></g><g class="pl-room" data-room="Dining" data-share="0.08168" data-area="155.0" data-name="Dining" data-tip-v="" data-tip-l="155 sq ft · 27 sq ft of glass · attic, R-60" tabindex="0"><rect x="0.0" y="173.0" width="123.0" height="121.0"/><polygon points="29.5,173.0 44.5,161.0 78.5,161.0 93.5,173.0"/></g><g class="pl-room" data-room="Kitchen" data-share="0.03741" data-area="245.7" data-name="Kitchen" data-tip-v="" data-tip-l="246 sq ft · 11 sq ft of glass · attic, R-60" tabindex="0"><rect x="123.0" y="173.0" width="195.0" height="121.0"/></g><g class="pl-room" data-room="Center Hall" data-share="0.01127" data-area="142.8" data-name="Stair hall" data-tip-v="" data-tip-l="143 sq ft · 0 sq ft of glass · attic, R-19" tabindex="0"><rect x="318.0" y="173.0" width="118.0" height="121.0"/></g><g class="pl-room" data-room="Living Room" data-share="0.13533" data-area="326.1" data-name="Living Room" data-tip-v="" data-tip-l="326 sq ft · 37 sq ft of glass · attic, R-60" tabindex="0"><rect x="0.0" y="294.0" width="230.0" height="141.8"/><polygon points="66.0,435.8 78.0,446.8 136.0,446.8 148.0,435.8"/></g><g class="pl-room" data-room="Foyer &amp; Hall" data-share="0.04926" data-area="213.5" data-name="Foyer &amp; hall" data-tip-v="" data-tip-l="213 sq ft · 0 sq ft of glass · attic, R-19" tabindex="0"><rect x="230.0" y="294.0" width="53.8" height="106.0"/><rect x="283.8" y="294.0" width="118.2" height="47.0"/><rect x="402.0" y="294.0" width="34.0" height="296.7"/></g><g class="pl-room" data-room="Bedroom 2" data-share="0.03826" data-area="154.8" data-name="Bedroom 2" data-tip-v="" data-tip-l="155 sq ft · 20 sq ft of glass · attic, R-60" tabindex="0"><rect x="283.8" y="341.0" width="118.2" height="131.0"/></g><g class="pl-room" data-room="Bedroom 3" data-share="0.08391" data-area="140.3" data-name="Bedroom 3" data-tip-v="" data-tip-l="140 sq ft · 21 sq ft of glass · attic, R-60" tabindex="0"><rect x="283.8" y="472.0" width="118.2" height="118.7"/></g><g class="pl-room" data-room="Bedroom 4" data-share="0.08524" data-area="145.3" data-name="Bedroom 4" data-tip-v="" data-tip-l="145 sq ft · 21 sq ft of glass · attic, R-60" tabindex="0"><rect x="436.0" y="469.0" width="119.4" height="121.7"/></g><g class="pl-room" data-room="Hall Bath" data-share="0.02866" data-area="94.3" data-name="Hall Bath" data-tip-v="" data-tip-l="94 sq ft · 6 sq ft of glass · attic, R-60" tabindex="0"><rect x="436.0" y="390.0" width="119.4" height="79.0"/></g><g class="pl-room" data-room="Primary Bath" data-share="0.04987" data-area="156.4" data-name="Primary Bath" data-tip-v="" data-tip-l="156 sq ft · 14 sq ft of glass · attic, R-60" tabindex="0"><rect x="436.0" y="259.0" width="119.4" height="131.0"/></g><g class="pl-room" data-room="Primary Hall" data-share="0.05121" data-area="102.7" data-name="Primary Hall" data-tip-v="" data-tip-l="103 sq ft · 20 sq ft of glass · sloped ceiling, R-19" tabindex="0"><rect x="436.0" y="173.0" width="119.4" height="86.0"/></g><rect class="pl-gap" x="204.6" y="0.0" width="143.4" height="173.0"/><rect class="pl-gap" x="348.0" y="0.0" width="207.4" height="173.0"/><rect class="pl-gap" x="0.0" y="173.0" width="123.0" height="121.0"/><rect class="pl-gap" x="123.0" y="173.0" width="195.0" height="121.0"/><rect class="pl-gap" x="318.0" y="173.0" width="118.0" height="121.0"/><rect class="pl-gap" x="0.0" y="294.0" width="230.0" height="141.8"/><polygon class="pl-gap" points="230.0,294.0 436.0,294.0 436.0,590.7 402.0,590.7 402.0,341.0 283.8,341.0 283.8,400.0 230.0,400.0"/><rect class="pl-gap" x="283.8" y="341.0" width="118.2" height="131.0"/><rect class="pl-gap" x="283.8" y="472.0" width="118.2" height="118.7"/><rect class="pl-gap" x="436.0" y="469.0" width="119.4" height="121.7"/><rect class="pl-gap" x="436.0" y="390.0" width="119.4" height="79.0"/><rect class="pl-gap" x="436.0" y="259.0" width="119.4" height="131.0"/><rect class="pl-gap" x="436.0" y="173.0" width="119.4" height="86.0"/><line class="pl-wall " x1="204.0" y1="0.0" x2="240.5" y2="0.0"/><line class="pl-wall " x1="309.5" y1="0.0" x2="438.5" y2="0.0"/><line class="pl-wall " x1="507.5" y1="0.0" x2="556.0" y2="0.0"/><line class="pl-wall " x1="0.0" y1="173.0" x2="32.0" y2="173.0"/><line class="pl-wall " x1="91.0" y1="173.0" x2="204.0" y2="173.0"/><line class="pl-wall " x1="230.0" y1="400.0" x2="283.0" y2="400.0"/><line class="pl-wall " x1="0.0" y1="436.0" x2="68.5" y2="436.0"/><line class="pl-wall " x1="145.5" y1="436.0" x2="230.0" y2="436.0"/><line class="pl-wall " x1="283.0" y1="591.0" x2="556.0" y2="591.0"/><line class="pl-wall pl-part" x1="0.0" y1="173.0" x2="0.0" y2="436.0"/><line class="pl-wall " x1="204.0" y1="0.0" x2="204.0" y2="173.0"/><line class="pl-wall " x1="230.0" y1="400.0" x2="230.0" y2="436.0"/><line class="pl-wall " x1="283.0" y1="400.0" x2="283.0" y2="591.0"/><line class="pl-wall " x1="556.0" y1="0.0" x2="556.0" y2="591.0"/><polyline class="pl-wall" points="238.0,0.0 252.0,-13.0 298.0,-13.0 312.0,0.0"/><polyline class="pl-wall" points="436.0,0.0 450.0,-13.0 496.0,-13.0 510.0,0.0"/><polyline class="pl-wall" points="29.5,173.0 44.5,161.0 78.5,161.0 93.5,173.0"/><polyline class="pl-wall" points="66.0,435.8 78.0,446.8 136.0,446.8 148.0,435.8"/><g class="pl-layer pl-windows"><line class="pl-win" x1="239.7" y1="-1.6" x2="250.3" y2="-11.4"/><line class="pl-win" x1="257.5" y1="-13.0" x2="292.5" y2="-13.0"/><line class="pl-win" x1="299.7" y1="-11.4" x2="310.3" y2="-1.6"/><line class="pl-win" x1="437.7" y1="-1.6" x2="448.3" y2="-11.4"/><line class="pl-win" x1="455.5" y1="-13.0" x2="490.5" y2="-13.0"/><line class="pl-win" x1="497.7" y1="-11.4" x2="508.3" y2="-1.6"/><line class="pl-win" x1="31.3" y1="171.6" x2="42.7" y2="162.4"/><line class="pl-win" x1="48.6" y1="161.0" x2="74.4" y2="161.0"/><line class="pl-win" x1="80.3" y1="162.4" x2="91.7" y2="171.6"/><line class="pl-win" x1="67.4" y1="437.1" x2="76.6" y2="445.5"/><line class="pl-win" x1="85.0" y1="446.8" x2="129.0" y2="446.8"/><line class="pl-win" x1="137.4" y1="445.5" x2="146.6" y2="437.1"/><line class="pl-win" x1="150.6" y1="173.0" x2="176.4" y2="173.0"/><line class="pl-win" x1="329.1" y1="590.7" x2="356.6" y2="590.7"/><line class="pl-win" x1="481.8" y1="590.7" x2="509.2" y2="590.7"/><rect class="pl-sky" x="275.0" y="196.0" width="17.9" height="22.8" rx="2"/><rect class="pl-sky" x="226.0" y="30.0" width="25.5" height="38.7" rx="2"/><rect class="pl-sky" x="440.0" y="179.0" width="25.5" height="38.7" rx="2"/><rect class="pl-sky" x="292.0" y="350.0" width="25.5" height="38.7" rx="2"/></g><g class="pl-lbl" data-for="Family Room"><text class="pl-name" x="276.3" y="83.5" text-anchor="middle">Family Room</text><text class="pl-val" x="276.3" y="98.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Primary Bedroom"><text class="pl-name" x="451.7" y="83.5" text-anchor="middle">Primary Bedroom</text><text class="pl-val" x="451.7" y="98.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Dining"><text class="pl-name" x="61.5" y="230.5" text-anchor="middle">Dining</text><text class="pl-val" x="61.5" y="245.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Kitchen"><text class="pl-name" x="220.5" y="230.5" text-anchor="middle">Kitchen</text><text class="pl-val" x="220.5" y="245.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Center Hall"><text class="pl-name pl-small" x="356.0" y="223.0" text-anchor="middle">Stair hall</text><text class="pl-val" x="356.0" y="238.0" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Living Room"><text class="pl-name" x="115.0" y="361.9" text-anchor="middle">Living Room</text><text class="pl-val" x="115.0" y="376.9" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Foyer &amp; Hall"><text class="pl-name" x="343.0" y="316.0" text-anchor="middle">Foyer &amp; hall</text><text class="pl-val" x="343.0" y="331.0" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Bedroom 2"><text class="pl-name" x="342.9" y="403.5" text-anchor="middle">Bedroom 2</text><text class="pl-val" x="342.9" y="418.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Bedroom 3"><text class="pl-name" x="342.9" y="528.4" text-anchor="middle">Bedroom 3</text><text class="pl-val" x="342.9" y="543.4" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Bedroom 4"><text class="pl-name" x="495.7" y="526.9" text-anchor="middle">Bedroom 4</text><text class="pl-val" x="495.7" y="541.9" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Hall Bath"><text class="pl-name pl-small" x="495.7" y="426.5" text-anchor="middle">Hall Bath</text><text class="pl-val" x="495.7" y="441.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Primary Bath"><text class="pl-name" x="495.7" y="321.5" text-anchor="middle">Primary Bath</text><text class="pl-val" x="495.7" y="336.5" text-anchor="middle"></text></g><g class="pl-lbl" data-for="Primary Hall"><text class="pl-name pl-small" x="495.7" y="213.0" text-anchor="middle">Primary Hall</text><text class="pl-val" x="495.7" y="228.0" text-anchor="middle"></text></g><g class="pl-layer pl-install"><rect class="pl-eq" x="563.0" y="308.0" width="30.0" height="30.0" rx="3"/><text class="pl-eq-t" x="578.0" y="364.0" text-anchor="middle">outdoor</text><text class="pl-eq-t" x="578.0" y="379.0" text-anchor="middle">unit</text><path class="pl-line" d="M563.0,323.0 L555.4,323.0"/><path class="pl-attic" d="M555.4,323.0 L546.0,323.0 L546.0,285.0 L431.0,285.0"/><rect class="pl-ah" x="390.0" y="276.5" width="41.0" height="17.5" rx="2"/><text class="pl-eq-t" x="410.0" y="269.0" text-anchor="middle">air handler (attic)</text><rect class="pl-ret" x="411.0" y="447.0" width="16.0" height="16.0"/><rect class="pl-ret" x="249.0" y="316.0" width="16.0" height="16.0"/><rect class="pl-ret" x="418.0" y="152.0" width="16.0" height="16.0"/><line class="pl-tg" x1="402.0" y1="396.0" x2="402.0" y2="416.0"/><line class="pl-tg" x1="402.0" y1="510.0" x2="402.0" y2="530.0"/><line class="pl-tg" x1="436.0" y1="510.0" x2="436.0" y2="530.0"/></g><g class="pl-layer pl-loggers"><g class="pl-lg" tabindex="0" data-tip-v="68.2°F" data-tip-l="Kitchen logger, median 10/6–10/13 (heat at 67°F on the hall thermostat)"><circle cx="165.0" cy="205.0" r="7"/><text x="176.0" y="209.5">68.2°</text></g><g class="pl-lg" tabindex="0" data-tip-v="65.5°F" data-tip-l="Bedroom 4 logger, median 10/6–10/13 (heat at 67°F on the hall thermostat)"><circle cx="476.0" cy="566.0" r="7"/><text x="487.0" y="570.5">65.5°</text></g><g class="pl-lg" tabindex="0" data-tip-v="66.0°F" data-tip-l="Primary bedroom logger, median 10/6–10/13 (heat at 67°F on the hall thermostat)"><circle cx="390.0" cy="136.0" r="7"/><text x="401.0" y="140.5">66.0°</text></g><g class="pl-lg" tabindex="0" data-tip-v="64.2°F" data-tip-l="Sunroom logger, median 10/6–10/13 (heat at 67°F on the hall thermostat)"><circle cx="-216.0" cy="210.0" r="7"/><text x="-205.0" y="214.5">64.2°</text></g></g><g class="pl-comp"><line x1="595.0" y1="28.0" x2="595.0" y2="-12.0"/><path d="M590.0,-4.0 L595.0,-16.0 L600.0,-4.0"/><text x="595.0" y="54.0" text-anchor="middle">N</text></g><g class="pl-scale"><line x1="-232.0" y1="520.0" x2="-132.0" y2="520.0"/><text x="-182.0" y="542.0" text-anchor="middle">10 ft</text></g></svg>
+        <div class="pl-legend"><span>0</span><i></i><span>24 BTU/h per sq ft</span></div>
+        <ul class="legend pl-keys">
+          <li class="k-windows"><svg viewBox="0 0 18 10"><line x1="1" y1="5" x2="17" y2="5" class="k-wall"/><line x1="4" y1="5" x2="14" y2="5" class="k-win"/></svg>window</li><li class="k-windows"><svg viewBox="0 0 18 10"><rect x="6" y="1" width="6" height="8" rx="1" class="k-sky"/></svg>skylight</li>
+          <li class="k-install"><svg viewBox="0 0 18 10"><line x1="1" y1="5" x2="17" y2="5" class="k-attic"/></svg>line set, attic leg</li><li class="k-install"><svg viewBox="0 0 18 10"><rect x="5" y="1" width="8" height="8" class="k-ret"/></svg>ceiling return</li>
+          <li class="k-install"><svg viewBox="0 0 18 10"><line x1="9" y1="0" x2="9" y2="10" class="k-tg"/></svg>transfer grille (planned)</li><li class="k-loggers"><svg viewBox="0 0 18 10"><circle cx="9" cy="5" r="3.5" class="k-lg"/></svg>room logger</li>
+        </ul>
+      </div>
+      <aside class="pl-side" aria-live="polite">
+        <div class="pl-kv"><span>The house loses</span><b id="pl-loss">27.8k</b><small>BTU/h</small></div>
+        <div class="pl-kv"><span>The heat pump supplies</span><b id="pl-need">24.8k</b><small>after ~3k from people and appliances</small></div>
+        <div class="pl-gauge" aria-hidden="true"><div class="pl-gtrack"><i id="pl-band"></i><i id="pl-mark"></i></div>
+          <div class="pl-gaxis"><span>0</span><span>25k</span><span>50k</span></div></div>
+        <p class="pl-gkey"><i class="gk-band"></i>3-ton range, min to max <i class="gk-mark"></i>needed</p>
+        <p id="pl-status" class="pl-status">&nbsp;</p>
+        <div class="pl-replay">
+          <button id="pl-play" type="button">Replay Jan 24–30, 2026</button>
+          <p class="pl-sub">Last winter's coldest week, hour by hour at Bradley: average 10.8°F, low −1°F.</p>
+          <svg id="pl-spark" preserveAspectRatio="none" aria-hidden="true"><path/><line id="pl-cursor" x1="-5" x2="-5" y1="0" y2="30"/></svg>
+          <p id="pl-when" class="pl-when">&nbsp;</p>
+          <dl class="pl-tally">
+            <div><dt>Heat pump</dt><dd id="pl-kwh">–</dd><dd id="pl-kwhd" class="muted"></dd></div>
+            <div><dt>Oil, same heat</dt><dd id="pl-gal">–</dd><dd id="pl-gald" class="muted"></dd></div>
+            <div><dt>Hours it needs the boiler</dt><dd id="pl-short">–</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+    <p class="foot">Room shares come from the permit Manual J's own component loads (windows, walls, ceilings, skylights, doors; air leakage split by exterior wall area; duct losses in proportion), scaled to the measured 27.8k at 5°F. Replay: the heat pump's efficiency from its NEEP ratings between minimum and maximum speed, with a cycling penalty and a 5% field derate; oil at 80% efficiency, without the attic duct losses; 25¢/kWh and $5.50/gal. Loggers show medians for Oct 6–13 with the heat at 67°F. The air handler's attic position is approximate, and the sunroom and garage outlines are approximate.</p>
+    <details class="nums"><summary>Show the numbers</summary><div class="tbl-wrap"><table class="num"><thead><tr><th>Room</th><th>Sq ft</th><th>Glass sq ft</th><th>Ceiling</th><th>Share of heat loss</th><th>At 5°F</th><th>BTU/h per sq ft</th></tr></thead><tbody><tr><td>Primary Bedroom</td><td>359</td><td>43</td><td>sloped ceiling, R-19</td><td>18.1%</td><td>5.0k</td><td>14.0</td></tr><tr><td>Family Room</td><td>248</td><td>53</td><td>attic, R-19</td><td>16.7%</td><td>4.6k</td><td>18.7</td></tr><tr><td>Living Room</td><td>326</td><td>37</td><td>attic, R-60</td><td>13.5%</td><td>3.8k</td><td>11.5</td></tr><tr><td>Bedroom 4</td><td>145</td><td>21</td><td>attic, R-60</td><td>8.5%</td><td>2.4k</td><td>16.3</td></tr><tr><td>Bedroom 3</td><td>140</td><td>21</td><td>attic, R-60</td><td>8.4%</td><td>2.3k</td><td>16.6</td></tr><tr><td>Dining</td><td>155</td><td>27</td><td>attic, R-60</td><td>8.2%</td><td>2.3k</td><td>14.7</td></tr><tr><td>Primary Hall</td><td>103</td><td>20</td><td>sloped ceiling, R-19</td><td>5.1%</td><td>1.4k</td><td>13.9</td></tr><tr><td>Primary Bath</td><td>156</td><td>14</td><td>attic, R-60</td><td>5.0%</td><td>1.4k</td><td>8.9</td></tr><tr><td>Foyer &amp; hall</td><td>213</td><td>0</td><td>attic, R-19</td><td>4.9%</td><td>1.4k</td><td>6.4</td></tr><tr><td>Bedroom 2</td><td>155</td><td>20</td><td>attic, R-60</td><td>3.8%</td><td>1.1k</td><td>6.9</td></tr><tr><td>Kitchen</td><td>246</td><td>11</td><td>attic, R-60</td><td>3.7%</td><td>1.0k</td><td>4.2</td></tr><tr><td>Hall Bath</td><td>94</td><td>6</td><td>attic, R-60</td><td>2.9%</td><td>0.8k</td><td>8.4</td></tr><tr><td>Stair hall</td><td>143</td><td>0</td><td>attic, R-19</td><td>1.1%</td><td>0.3k</td><td>2.2</td></tr></tbody></table></div></details>
+  </figure>
+  <figure class="card">
+    <figcaption><div class="t">Where the heat goes on a design night</div>
+      <div class="s">Share of the permit Manual J's heat loss, by component.</div></figcaption>
+    <div class="chart"><div class="hb" role="img" aria-label="Bar chart: share of design heat loss by component: air leakage 31 percent, walls 21, attic ducts 20, windows 15, ceilings 10, doors 2, skylights 2"><div class="hb-row"><div class="hb-label">Air leakage</div><div class="hb-track"><b class="hb-bar emph" style="width:88.32%" tabindex="0" data-tip-v="31%" data-tip-l="Air leakage"></b><span class="hb-val" style="left:88.32%">31%</span></div></div><div class="hb-row"><div class="hb-label">Walls</div><div class="hb-track"><b class="hb-bar" style="width:59.11%" tabindex="0" data-tip-v="21%" data-tip-l="Walls"></b><span class="hb-val" style="left:59.11%">21%</span></div></div><div class="hb-row"><div class="hb-label">Attic ducts</div><div class="hb-track"><b class="hb-bar emph" style="width:55.93%" tabindex="0" data-tip-v="20%" data-tip-l="Attic ducts"></b><span class="hb-val" style="left:55.93%">20%</span></div></div><div class="hb-row"><div class="hb-label">Windows</div><div class="hb-track"><b class="hb-bar" style="width:41.58%" tabindex="0" data-tip-v="15%" data-tip-l="Windows"></b><span class="hb-val" style="left:41.58%">15%</span></div></div><div class="hb-row"><div class="hb-label">Ceilings</div><div class="hb-track"><b class="hb-bar" style="width:28.73%" tabindex="0" data-tip-v="10%" data-tip-l="Ceilings"></b><span class="hb-val" style="left:28.73%">10%</span></div></div><div class="hb-row"><div class="hb-label">Doors</div><div class="hb-track"><b class="hb-bar" style="width:6.47%" tabindex="0" data-tip-v="2%" data-tip-l="Doors"></b><span class="hb-val" style="left:6.47%">2%</span></div></div><div class="hb-row"><div class="hb-label">Skylights</div><div class="hb-track"><b class="hb-bar" style="width:5.57%" tabindex="0" data-tip-v="2%" data-tip-l="Skylights"></b><span class="hb-val" style="left:5.57%">2%</span></div></div></div></div>
+    <p class="foot">Air leakage and the attic ducts are half of it. A ductless mini-split skips the duct losses entirely; with ducts, sealing them is the cheapest heat you can buy. (Manual J assumes about 24% duct loss for attic ducts; my model uses 12%.)</p>
+  </figure>
+</div></section>
+
+<section id="size"><div class="wrap">
+  <p class="sec-num">05</p>
   <h2>Bigger isn't better: <em>the minimum</em> matters more than the maximum</h2>
   <div class="prose">
     <p>Contractors size for the coldest night, but a Connecticut winter spends very little time there: about 29 hours a year below 5°F, and half the heating season above 38°F. An inverter heat pump can only turn down so far. When the house needs less than the unit's minimum output, it cycles on and off, which costs efficiency and comfort.</p>
@@ -394,7 +552,7 @@
 </div></section>
 
 <section id="equipment"><div class="wrap">
-  <p class="sec-num">05</p>
+  <p class="sec-num">06</p>
   <h2>Most "DIY" heat pumps are <em>the same machine</em></h2>
   <div class="prose">
     <p>Sort NEEP's cold-climate list by ratings and a pattern shows up: Innovair, Senville, ACiQ and MrCool sell the same Midea-built ducted system, with identical certified numbers size for size. So the choice comes down to price, warranty and the air handler.</p>
@@ -422,7 +580,7 @@
 </div></section>
 
 <section id="backup"><div class="wrap">
-  <p class="sec-num">06</p>
+  <p class="sec-num">07</p>
   <h2>Keeping the boiler, and why <em>the strips stay off</em></h2>
   <div class="prose">
     <p>The oil boiler stays, for two reasons:</p>
@@ -448,7 +606,7 @@
 </div></section>
 
 <section id="money"><div class="wrap">
-  <p class="sec-num">07</p>
+  <p class="sec-num">08</p>
   <h2>About $8,000, and it pays back <em>in under six years</em></h2>
   <div class="tbl-wrap"><table class="num"><thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody><tr><td>Outdoor unit, air handler, thermostat, 50 ft pre-charged line set, 10 kW strips (delivered, with tax)</td><td>$4,875 <span class='muted'>paid</span></td></tr><tr><td>Install parts and code items: secondary drain pan + float switch, attic platform and walkway, attic light and outlet, duct transitions and mastic, transfer grilles, 6 AWG wire and breakers, CO alarms, condenser stand, line-set cover</td><td>~$1,800</td></tr><tr><td>Permits, Manual J, refrigerant recovery, disposal</td><td>~$300</td></tr><tr><td>My dad's travel and a thank-you</td><td>~$400</td></tr><tr><td>Contingency (10%)</td><td>~$700</td></tr><tr><td><b>All-in</b> <span class='muted'>(plausible range $5.8–10.9k)</span></td><td><b>~$8,000</b></td></tr></tbody></table></div>
   <div class="prose" style="margin-top:22px">
@@ -474,7 +632,7 @@
 </div></section>
 
 <section id="code"><div class="wrap">
-  <p class="sec-num">08</p>
+  <p class="sec-num">09</p>
   <h2>Wiring, permits and code: <em>by the book</em></h2>
   <div class="prose">
     <p>First, a licensed electrician replaced the old 100 A service with a 200 A panel, with spaces reserved for the heat pump. It needed doing anyway; even charged to this project, the NPV stays positive (+$8.6k). The heat pump then needs three circuits:</p>
@@ -494,7 +652,7 @@
 </div></section>
 
 <section id="data"><div class="wrap">
-  <p class="sec-num">09</p>
+  <p class="sec-num">10</p>
   <h2>Seven loggers and <em>a solar monitor</em></h2>
   <div class="prose">
     <p>Since late September, seven temperature and humidity loggers have been recording the rooms that matter, alongside the solar system's 15-minute electricity data. A few things they've already shown:</p>
@@ -509,7 +667,7 @@
 </div></section>
 
 <section id="minisplits"><div class="wrap">
-  <p class="sec-num">10</p>
+  <p class="sec-num">11</p>
   <h2>If you're shopping <em>for mini-splits</em></h2>
   <div class="prose"><p class="kicker">Most of this carries over from ducted to ductless.</p></div>
   <ol class="lessons">
@@ -525,7 +683,7 @@
 </div></section>
 
 <section id="methods"><div class="wrap">
-  <p class="sec-num">11</p>
+  <p class="sec-num">12</p>
   <h2>How this <em>was done</em></h2>
   <div class="two">
     <div class="prose">
@@ -557,7 +715,150 @@
   <p><a href="/">← garrett-macdonald.com</a></p>
   <p>A personal home project, written October 14, 2026. The numbers are for my house and my assumptions; they aren't engineering, code or financial advice. The status will change as the install happens.</p>
 </div></footer>
+<script type="application/json" id="plan-data">{"ua": 441.26984126984127, "gains": 3000, "maxPts": [[-22, 27800], [5, 39000], [17, 41000], [47, 48000]], "minPts": [[-22, 6600], [5, 7400], [17, 10500], [47, 11000]], "copMax": [[-22, 1.59], [5, 1.9], [17, 2.03], [47, 3.22]], "copMin": [[-22, 1.28], [5, 1.69], [17, 2.2], [47, 4.88]], "dmax": 24.0, "week": {"start": "2026-01-24 00:00:00", "temps": [9.0, 7.0, 7.0, 6.0, 4.0, 3.0, 2.0, 1.0, 2.0, 3.0, 5.0, 9.0, 10.0, 12.0, 12.0, 12.0, 10.0, 8.0, 7.0, 7.0, 6.0, 6.0, 5.0, 5.0, 5.0, 5.0, 6.0, 6.0, 6.0, 7.0, 7.0, 7.0, 6.0, 4.0, 4.0, 4.0, 4.0, 5.0, 5.0, 6.0, 6.0, 8.0, 9.0, 9.0, 11.0, 11.0, 12.0, 13.0, 13.0, 13.0, 13.0, 13.0, 13.0, 14.0, 14.0, 14.0, 14.0, 15.0, 17.0, 18.0, 19.0, 20.0, 21.0, 21.0, 21.0, 19.0, 18.0, 18.0, 16.0, 15.0, 15.0, 14.0, 12.0, 12.0, 12.0, 10.0, 10.0, 8.0, 8.0, 6.0, 11.0, 13.0, 17.0, 18.0, 19.0, 21.0, 21.0, 19.0, 17.0, 16.0, 15.0, 14.0, 12.0, 10.0, 9.0, 7.0, 8.0, 4.0, 8.0, 7.0, 6.0, 8.0, 7.0, 8.0, 11.0, 15.0, 18.0, 20.0, 21.0, 21.0, 21.0, 21.0, 20.0, 18.0, 15.0, 10.0, 10.0, 10.0, 5.0, 9.0, 4.0, 7.0, 4.0, 7.0, 8.0, 3.0, -1.0, 4.0, 8.0, 13.0, 16.0, 18.0, 19.0, 20.0, 20.0, 20.0, 19.0, 17.0, 16.0, 12.0, 15.0, 14.0, 12.0, 11.0, 10.0, 8.0, 8.0, 6.0, 5.0, 5.0, 3.0, 3.0, 4.0, 5.0, 6.0, 9.0, 11.0, 13.0, 14.0, 14.0, 13.0, 11.0, 10.0, 9.0, 9.0, 8.0, 9.0, 8.0]}}</script>
 <script>
+(() => {
+  const root = document.getElementById("plan");
+  if (!root) return;
+  const D = JSON.parse(document.getElementById("plan-data").textContent);
+  const svg = root.querySelector("svg.plan");
+  const rooms = [...svg.querySelectorAll(".pl-room")];
+  const labels = Object.fromEntries([...svg.querySelectorAll(".pl-lbl")].map(t => [t.dataset.for, t]));
+  const slider = root.querySelector("#pl-temp");
+  const $ = id => root.querySelector(id);
+
+  const interp = (pts, t) => {
+    if (t <= pts[0][0]) return pts[0][1];
+    for (let i = 1; i < pts.length; i++) if (t <= pts[i][0]) {
+      const [t0, v0] = pts[i - 1], [t1, v1] = pts[i];
+      return v0 + (v1 - v0) * (t - t0) / (t1 - t0);
+    }
+    return pts[pts.length - 1][1];
+  };
+  const k = v => (v / 1000).toFixed(1) + "k";
+
+  // colors: interpolate between --heat-lo and --heat-hi (read live so dark mode works)
+  let lo, hi;
+  const hex = s => { s = s.trim().replace("#", ""); return [0, 2, 4].map(i => parseInt(s.slice(i, i + 2), 16)); };
+  function readColors() {
+    const cs = getComputedStyle(root);
+    lo = hex(cs.getPropertyValue("--heat-lo")); hi = hex(cs.getPropertyValue("--heat-hi"));
+  }
+  const mix = f => lo.map((a, i) => Math.round(a + (hi[i] - a) * f));
+  const lum = c => { const s = c.map(v => { v /= 255; return v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4; });
+                     return .2126 * s[0] + .7152 * s[1] + .0722 * s[2]; };
+
+  function heatLoss(T) { return Math.max(0, D.ua * (68 - T)); }
+
+  function render(T) {
+    T = Math.round(T * 10) / 10;
+    const total = heatLoss(T);
+    for (const g of rooms) {
+      const load = total * +g.dataset.share, dens = load / +g.dataset.area;
+      const f = Math.min(1, Math.max(0, dens / D.dmax)), c = mix(f);
+      g.style.fill = `rgb(${c})`;
+      g.dataset.tipV = `${k(load)} BTU/h at ${T}°F`;
+      const t = labels[g.dataset.room];
+      if (t) {
+        t.querySelector(".pl-val").textContent = k(load);
+        t.classList.toggle("on-dark", lum(c) < 0.22);
+      }
+    }
+    const need = Math.max(0, total - D.gains);
+    const mx = interp(D.maxPts, T), mn = interp(D.minPts, T);
+    $("#pl-t").textContent = `${T}°F`;
+    $("#pl-loss").textContent = k(total);
+    $("#pl-need").textContent = k(need);
+    const sc = v => Math.min(100, v / 50000 * 100);
+    $("#pl-band").style.left = sc(mn) + "%";
+    $("#pl-band").style.width = (sc(mx) - sc(mn)) + "%";
+    $("#pl-mark").style.left = sc(need) + "%";
+    let status;
+    if (need <= 0) status = "Too mild to need heat";
+    else if (need < mn) status = `Below its ${k(mn)} minimum: cycles on and off`;
+    else if (need <= mx) status = `Modulating at ${Math.round(need / mx * 100)}% of its ${k(mx)} max`;
+    else status = `Short ${k(need - mx)}: the boiler tops it up`;
+    $("#pl-status").textContent = status;
+    return { need, mx, mn };
+  }
+
+  // COP between the NEEP min- and max-speed ratings, with the AHRI cycling penalty and a 0.95 field derate
+  function hourKwh(T) {
+    const { need, mx, mn } = render(T);
+    if (need <= 0) return [0, 0, 0];
+    const cmin = interp(D.copMin, T), cmax = interp(D.copMax, T);
+    let cop, out = Math.min(need, mx);
+    if (need < mn) cop = cmin * (1 - 0.25 * (1 - need / mn));
+    else cop = cmin + (cmax - cmin) * (mx > mn ? (out - mn) / (mx - mn) : 1);
+    cop *= 0.95;
+    return [out / 3412 / cop, need, need > mx ? 1 : 0];
+  }
+
+  slider.addEventListener("input", () => { stop(); render(+slider.value); });
+
+  // replay of the coldest week
+  const week = D.week.temps, start = new Date(D.week.start.replace(" ", "T"));
+  const spark = $("#pl-spark"), cursor = $("#pl-cursor");
+  let timer = null, h = 0, kwh = 0, heat = 0, short = 0;
+  const fmtTime = i => {
+    const d = new Date(start.getTime() + i * 3600e3);
+    return d.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" }) + ", " +
+      d.toLocaleTimeString("en-US", { hour: "numeric" });
+  };
+  function step() {
+    const T = week[h];
+    slider.value = T;
+    const [e, q, s] = hourKwh(T);
+    kwh += e; heat += q; short += s;
+    const gal = heat / 1.12 / (138500 * 0.80);
+    $("#pl-when").textContent = fmtTime(h);
+    $("#pl-kwh").textContent = Math.round(kwh).toLocaleString() + " kWh";
+    $("#pl-kwhd").textContent = "≈ $" + Math.round(kwh * 0.25).toLocaleString();
+    $("#pl-gal").textContent = Math.round(gal) + " gal";
+    $("#pl-gald").textContent = "≈ $" + Math.round(gal * 5.5).toLocaleString();
+    $("#pl-short").textContent = short + (short === 1 ? " hour" : " hours");
+    cursor.setAttribute("x1", h); cursor.setAttribute("x2", h);
+    h++;
+    if (h >= week.length) stop(true);
+  }
+  function play() {
+    if (timer) { stop(); return; }
+    if (h >= week.length || h === 0) { h = 0; kwh = heat = short = 0; }
+    root.classList.add("playing", "started");
+    $("#pl-play").textContent = "Pause";
+    timer = setInterval(step, matchMedia("(prefers-reduced-motion: reduce)").matches ? 25 : 70);
+  }
+  function stop(done) {
+    if (!timer) return;
+    clearInterval(timer); timer = null;
+    root.classList.remove("playing");
+    $("#pl-play").textContent = done ? "Replay again" : "Resume";
+    if (done) h = week.length;
+  }
+  $("#pl-play").addEventListener("click", play);
+
+  // sparkline of the week
+  const ys = week.map(t => 30 - (t + 5) / 30 * 30);
+  spark.setAttribute("viewBox", `0 0 ${week.length - 1} 30`);
+  spark.querySelector("path").setAttribute("d", "M" + ys.map((y, i) => `${i},${y.toFixed(1)}`).join(" L"));
+
+  // layers
+  for (const cb of root.querySelectorAll(".pl-toggles input")) {
+    const set = () => root.classList.toggle("show-" + cb.value, cb.checked);
+    cb.addEventListener("change", set); set();
+  }
+
+  // narrow screens: crop to the heated floor
+  function fit() {
+    const narrow = root.clientWidth < 620;
+    svg.setAttribute("viewBox", narrow ? svg.dataset.vbNarrow : svg.dataset.vbFull);
+    root.classList.toggle("narrow", narrow);
+  }
+  window.addEventListener("resize", fit);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { readColors(); render(+slider.value); });
+  readColors(); fit(); render(+slider.value);
+})();
+
 (() => {
   const tip = document.createElement("div");
   tip.id = "tip";
