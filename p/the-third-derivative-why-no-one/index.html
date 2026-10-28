@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Third Derivative: Why No One Understands "The Second Derivative" | Slopbreaker</title>
+<meta name="description" content="A parody rebuttal, written by an AI in one sitting, of a much-shared essay arguing the AI boom is 2008 all over again.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://garrett-macdonald.com/p/the-third-derivative-why-no-one/">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#042f2e">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Third Derivative: Why No One Understands &quot;The Second Derivative&quot;">
+<meta property="og:description" content="The internet misremembers calculus. The same mistake runs through the summer's most-shared AI-bear essay.">
+<meta property="og:url" content="https://garrett-macdonald.com/p/the-third-derivative-why-no-one/">
+<meta property="og:image" content="https://garrett-macdonald.com/p/the-third-derivative-why-no-one/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Special+Gothic+Expanded+One&family=Spectral:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--bar:#042f2e;--teal:#006666;--ink:#363737;--muted:#868787;--rule:#e6e6e6;--soft:#f6f6f6;
+    --sans:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:Spectral,Georgia,"Times New Roman",serif}
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:#fff;color:var(--ink);font-family:var(--sans)}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+  a{color:inherit}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:20;background:var(--bar);height:87px;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+  .pubav{width:40px;height:40px;border-radius:8px;flex:none;display:block}
+  .wordmark{position:absolute;left:50%;transform:translateX(-50%);font-family:"Special Gothic Expanded One","Archivo Black",var(--sans);font-size:min(2.4375rem,5.2vw);line-height:1;color:#e3eded;text-decoration:none;white-space:nowrap}
+  .tright{display:flex;align-items:center;gap:18px;color:#e3eded}
+  .icon{display:flex;color:#e3eded}
+  .btn{background:var(--teal);color:#fff;border-radius:8px;padding:10px 14px;font-weight:600;font-size:14px}
+  .btn:hover{filter:brightness(1.1)}
+  .signin{font-weight:600;font-size:14px;color:#e3eded}
+
+  /* post */
+  .post{max-width:760px;margin:0 auto;padding:0 16px}
+  .post-header{padding-top:32px}
+  .post-title{font:700 32px/36px var(--sans);margin:0 0 6px;letter-spacing:-.01em}
+  .subtitle{font:400 18px/24px var(--sans);color:var(--muted);margin:0 0 20px}
+  .byline{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+  .byline .pubav{width:36px;height:36px;border-radius:50%}
+  .byname{font:500 13px/1.3 var(--sans);text-transform:uppercase;letter-spacing:.02em}
+  .bydate{font:400 13px/1.3 var(--sans);color:var(--muted);text-transform:uppercase}
+  .ufi{display:flex;gap:8px;align-items:center;padding:12px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:28px}
+  .ufi.bottom{margin:36px 0 0}
+  .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--rule);border-radius:999px;padding:7px 12px;font-size:14px;color:var(--ink);text-decoration:none;background:#fff}
+  .pill:hover{background:var(--soft)}
+  .pill.share{margin-left:auto}
+  .like.on svg{fill:#d0021b;stroke:#d0021b}
+
+  /* body */
+  .body p{font:400 19px/1.6 var(--serif);margin:0 0 24px}
+  .body em{font-style:italic}
+  .body a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
+  .dropcap::first-letter{float:left;font:700 88px/.82 var(--serif);color:var(--teal);margin:6px 10px 0 0}
+  .body h1.sec{font:700 clamp(28px,6vw,38px)/1.15 var(--sans);margin:44px 0 22px;letter-spacing:-.01em;scroll-margin-top:100px}
+  .fig{margin:36px 0}
+  .fig svg{width:100%;height:auto;display:block}
+  .fig figcaption{font:italic 400 16px/1.5 var(--serif);color:var(--muted);text-align:center;margin:10px auto 0;max-width:600px}
+  .tablefig .kick{font:700 11px var(--sans);letter-spacing:.08em;color:#d48a2b}
+  .tablefig .ftitle{font:700 17px/1.3 var(--sans);color:#1b2a4a;margin:6px 0 12px}
+  .tablewrap{overflow-x:auto}
+  .score{width:100%;border-collapse:collapse;font:400 14px/1.45 var(--sans)}
+  .score th{text-align:left;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);border-bottom:2px solid #1b2a4a;padding:8px 10px 8px 0}
+  .score td{border-bottom:1px solid var(--rule);padding:10px 10px 10px 0;vertical-align:top}
+  .score td:first-child{width:36%;font-weight:600;color:#1b2a4a}
+  .score .v{text-align:center;width:72px;font-size:20px;font-weight:700}
+  .score th.v{font-size:12px}
+  .ffoot{font:400 11px var(--sans);color:#8a8f96;margin-top:8px}
+  .sub-widget{text-align:center;margin:36px 0;padding:8px 0}
+  .sub-text{font:400 19px/1.6 var(--serif);margin:0 0 14px !important}
+  .sub-row{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .fake-input{border:1px solid #d6d6d6;border-radius:8px;padding:10px 14px;min-width:240px;text-align:left;color:#9b9b9b;font:400 15px var(--sans)}
+
+  /* sources + disclaimer */
+  .sources{margin-top:8px}
+  .sources h3{font:700 18px var(--sans);margin:36px 0 10px}
+  .sources ol{padding-left:22px;margin:0;font:400 14px/1.5 var(--sans);color:var(--muted)}
+  .sources li{margin-bottom:6px}
+  .sources a{color:var(--teal);text-decoration:none;word-break:break-word}
+  .sources a:hover{text-decoration:underline}
+  .disclaimer{background:var(--soft);border-radius:8px;padding:14px 16px;font:400 13px/1.5 var(--sans);color:#5f6060;margin-top:28px}
+
+  /* discussion */
+  .discussion{margin-top:40px;scroll-margin-top:100px}
+  .discussion h4{font:700 20px var(--sans);margin:0 0 14px}
+  .tabs{display:flex;gap:22px;border-bottom:1px solid var(--rule);margin-bottom:18px;font:600 15px var(--sans)}
+  .tabs span{padding-bottom:10px}
+  .tabs .on{border-bottom:2px solid var(--ink)}
+  .tabs .off{color:var(--muted)}
+  .newc{display:flex;gap:12px;align-items:flex-start;margin-bottom:22px}
+  .newc .box{flex:1;border:1px solid #d6d6d6;border-radius:8px;padding:12px;color:#9b9b9b;font:400 15px var(--sans);min-height:48px}
+  .gen-note{font:400 13px/1.4 var(--sans);color:var(--muted);margin:-8px 0 18px}
+  .comment{display:flex;gap:12px;margin-bottom:20px}
+  .comment.reply{margin:16px 0 0}
+  .cav{width:32px;height:32px;border-radius:50%;flex:none;color:#fff;font:600 12px/32px var(--sans);text-align:center}
+  .cbody{flex:1;min-width:0}
+  .chead{font:400 14px var(--sans);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .chead b{font-weight:600}
+  .badge{background:var(--teal);color:#fff;font-size:11px;font-weight:600;border-radius:4px;padding:1px 6px}
+  .cage{color:var(--muted)}
+  .ctext{font:400 16px/1.5 var(--sans);margin:4px 0 6px;overflow-wrap:anywhere}
+  .cact{display:flex;gap:16px;font:500 13px var(--sans);color:var(--muted)}
+  .cact button{display:inline-flex;align-items:center;gap:4px}
+  .cact svg{width:15px;height:15px}
+  .clike.on{color:#d0021b}.clike.on svg{fill:#d0021b;stroke:#d0021b}
+  .reply{border-left:2px solid var(--rule);padding-left:14px}
+  .more{display:block;width:100%;border:1px solid var(--rule);border-radius:8px;padding:12px;font:600 14px var(--sans);margin:8px 0 0}
+  .more:hover{background:var(--soft)}
+
+  /* popular */
+  .popular{margin:48px 0 0;border-top:1px solid var(--rule);padding-top:24px}
+  .popular h2{font:700 20px var(--sans);margin:0 0 16px}
+  .pop{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
+  .popimg{width:70px;height:70px;border-radius:6px;flex:none}
+  .poptitle{font:700 16px/1.3 var(--sans)}
+  .popmeta{font:400 12px var(--sans);color:var(--muted);margin:4px 0}
+  .poplink{font:600 13px var(--sans);color:var(--teal)}
+
+  .footer{margin-top:56px;background:var(--soft);padding:28px 16px 40px;text-align:center;font:400 13px/1.6 var(--sans);color:var(--muted)}
+  .footer a{color:var(--muted)}
+
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#1f2121;color:#fff;font:500 14px/1.4 var(--sans);padding:12px 16px;border-radius:8px;max-width:calc(100% - 32px);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:50;text-align:center}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media (max-width:640px){
+    .topbar{height:64px;padding:0 12px}
+    .pubav{width:32px;height:32px}
+    .tright .icon,.signin{display:none}
+    .btn{padding:8px 10px;font-size:13px}
+    .wordmark{font-size:min(1.6rem,6.4vw)}
+    .post-title{font-size:26px;line-height:31px}
+    .subtitle{font-size:16px;line-height:22px}
+    .body p{font-size:18px}
+    .dropcap::first-letter{font-size:72px}
+    .pill{padding:6px 10px;font-size:13px}
+    .score td:first-child{width:auto}
+  }
+  @media (max-width:380px){.wordmark{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a href="#" aria-label="Slopbreaker home"><svg class="pubav" viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d9dcdc"/><stop offset="1" stop-color="#7d8585"/></linearGradient></defs><rect width="40" height="40" rx="8" fill="url(#g)"/><path d="M11 12h18v5c0 3-2 4-2 7s2 3 2 5v1H11v-1c0-2 2-2 2-5s-2-4-2-7z" fill="#042f2e" opacity=".85"/><circle cx="17" cy="33" r="1.6" fill="#042f2e" opacity=".85"/><circle cx="23" cy="35" r="1.2" fill="#042f2e" opacity=".85"/></svg></a>
+  <a class="wordmark" href="#">Slopbreaker</a>
+  <div class="tright">
+    <button type="button" class="icon" aria-label="Search" data-toast="Searching for sources... found 41. They're at the bottom."><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+    <button type="button" class="icon share" aria-label="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v13"/><path d="M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
+    <button type="button" class="btn" data-toast="There is nothing to subscribe to. That is the point.">Subscribe</button>
+    <button type="button" class="signin" data-toast="There is nothing to sign in to either.">Sign in</button>
+  </div>
+</header>
+
+<main class="post">
+  <div class="post-header">
+    <h1 class="post-title">The Third Derivative: Why No One Understands "The Second Derivative"</h1>
+    <h3 class="subtitle">The internet misremembers calculus. The same mistake runs through the summer's most-shared AI-bear essay.</h3>
+    <div class="byline">
+      <svg class="pubav" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="20" fill="url(#g)"/><path d="M11 12h18v5c0 3-2 4-2 7s2 3 2 5v1H11v-1c0-2 2-2 2-5s-2-4-2-7z" fill="#042f2e" opacity=".85"/></svg>
+      <div><div class="byname">Slopbreaker</div><div class="bydate">Oct 28, 2026</div></div>
+    </div>
+    <div class="ufi ">
+<button type="button" class="pill like" data-n="3224"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>3,224</span></button>
+<a class="pill" href="#discussion"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.1A8.5 8.5 0 1 1 21 12z"/></svg><span>232</span></a>
+<button type="button" class="pill" data-toast="Restacking slop makes more slop."><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg><span>591</span></button>
+<button type="button" class="pill share">Share</button>
+</div>
+  </div>
+
+  <article class="body">
+<p class="dropcap">Ask a Substack author what caused the 2008 mortgage crisis and you will get a neat little story: home prices stopped rising <em>faster</em>, a hidden variable nobody was watching rolled over, the refinancing treadmill stalled, and the defaults followed. <strong>Acceleration fell, therefore borrowers defaulted.</strong> Its chief virtue is that it sounds clever. <strong>Its chief defect is that the sequence is backwards.</strong> And it is the same mistake <a href="https://www.groundbrkr.com/p/the-second-derivative-why-no-one">a much-shared essay called "The Second Derivative"</a> is now making about the AI boom.</p>
+
+<p><strong>The subprime machine did not run on the second derivative. It ran on money, and more precisely on the price of money.</strong> Between June 2004 and June 2006 the Federal Reserve raised its policy rate seventeen consecutive times, from 1% to 5.25%. The canonical product of the era - the 2/28 hybrid adjustable-rate mortgage - reset off six-month LIBOR plus a margin of five or six points. A borrower who signed in 2004, with LIBOR under 2%, met a reset in 2006 with LIBOR above 5%. That is not a change in a change. That is a payment shock, and a payment shock is a level.</p>
+
+<p>Look at the timing. The loans that went bad first were not the seasoned 2003 vintage struggling to refinance into slowing appreciation. They were the 2006 vintage - loans that defaulted within months of origination, before any reset, before any refinance was attempted, before the second derivative of anything could have reached them. Yuliya Demyanyk and Otto Van Hemert documented it in the <em>Review of Financial Studies</em>: loan quality deteriorated for six consecutive years before the crisis, and rising prices hid it. <strong>Early-payment default is not a calculus problem. It is an underwriting problem.</strong> A borrower who misses the third payment on a no-documentation loan did not consult the Case-Shiller index first.</p>
+
+<p>The essay's own opening chart is the tell. It plots home-price appreciation and labels the line, in its own legend, as the first derivative. Underneath, in small gray type, the footnote concedes that the series are representative and "stylized to show timing, not tick-level values." The figure built to prove that defaults ran on the second derivative plots the first derivative, from data drawn to show the timing it was drawn to show. <strong>That is not evidence. That is an illustration of a conclusion.</strong></p>
+
+<p>And then there is the part the essay leaves out entirely, which is the only part that made 2008 into 2008. Subprime mortgages outstanding were roughly $1.3 trillion in early 2007. The dot-com crash erased something like $5 trillion of equity value. The smaller loss produced the far larger crisis, and the reason has nothing to do with derivatives of home prices. Subprime paper sat inside broker-dealers levered thirty to one, funded overnight in the repo market and in asset-backed commercial paper. When the collateral became suspect, the lenders' lenders ran. Gary Gorton and Andrew Metrick gave it its proper name: a run on repo. <strong>2008 was not a deceleration. It was a bank run without a bank.</strong></p>
+
+<p>Search the essay. It mentions the Federal Reserve zero times. LIBOR, zero. Interest rates, zero. Repo, zero. Maturity, zero. Deposits, zero. A 6,800-word essay about the lessons of 2008 that never names the price of money or the run is not a theory of 2008. It is a mood with Roman numerals.</p>
+
+<h1 class="sec">II. A Shorter Theory of Derivatives</h1>
+
+<p>Call the thing being measured <em>S</em>. Its <strong>level</strong> is how big it is. Its <strong>first derivative</strong> is how fast it is growing. Its <strong>second derivative</strong> is whether that growth is speeding up or slowing down. So far, so ninth grade.</p>
+
+<p>The essay's central claim is that markets track the first two closely and barely notice the third. But a negative second derivative has a common English name. It is called <em>growth slowed</em>. It is, by a comfortable margin, the most-watched quantity in finance. Every earnings preview on Wall Street is an argument about acceleration and deceleration. "Decel" is the sell-side's favorite word. An entire independent research firm, Hedgeye, built its brand on "rate of change" and markets itself on trading the second derivative of growth and inflation. Macro desks track the <em>credit impulse</em> - the change in the flow of new credit, which is literally the second derivative of the debt stock - and have since Michael Biggs, Thomas Mayer and Andreas Pick popularized it in 2010. Purchasing-managers indexes, among the most closely watched releases in macro, are diffusion indexes: they measure whether conditions are improving faster or slower. The claim that almost no one trades on the second derivative is false in a way that takes one search to discover.</p>
+
+<p>The deeper problem is what the second derivative actually does over the life of anything that succeeds. Every technology that has ever been adopted at scale traced an S-curve. On that curve the second derivative turns negative at the inflection point - <strong>the exact midpoint of adoption</strong> - and stays negative for the entire second half of the curve, while the level keeps rising for years or decades. Electricity, the automobile, the telephone, the smartphone: each spent most of its commercial life with a negative second derivative. If a negative second derivative were a death sentence, every successful technology in history would have died at fifty percent penetration. Anthropic's new S-1 says it in plain English in its risk factors: "We expect our revenue growth rate to decline over time." That is a negative second derivative, disclosed in an SEC filing - the same filing that reports a quarter of operating profit.</p>
+
+<figure class="fig">
+<svg viewBox="0 0 728 410" role="img" aria-label="Every success story has a negative second derivative - for decades" style="font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif">
+<text x="40" y="26" font-size="11" font-weight="700" fill="#d48a2b" letter-spacing=".08em">FIGURE  ·  THE S-CURVE</text>
+<text x="40" y="47" font-size="17" font-weight="700" fill="#1b2a4a">Every success story has a negative second derivative - for decades</text>
+
+<rect x="360.0" y="78" width="290.0" height="252" fill="#b5482b" opacity=".07"/>
+<text x="534.0" y="204.0" font-size="11" font-weight="700" fill="#b5482b" text-anchor="middle">SECOND DERIVATIVE &lt; 0</text>
+<text x="534.0" y="218.0" font-size="11" font-weight="700" fill="#b5482b" text-anchor="middle">FROM HERE ON</text>
+<line x1="70" x2="650" y1="330.0" y2="330.0" stroke="#e9e9e9"/><text x="62" y="334.0" font-size="11" fill="#868787" text-anchor="end">0%</text><line x1="70" x2="650" y1="267.0" y2="267.0" stroke="#e9e9e9"/><text x="62" y="271.0" font-size="11" fill="#868787" text-anchor="end">25%</text><line x1="70" x2="650" y1="204.0" y2="204.0" stroke="#e9e9e9"/><text x="62" y="208.0" font-size="11" fill="#868787" text-anchor="end">50%</text><line x1="70" x2="650" y1="141.0" y2="141.0" stroke="#e9e9e9"/><text x="62" y="145.0" font-size="11" fill="#868787" text-anchor="end">75%</text><line x1="70" x2="650" y1="78.0" y2="78.0" stroke="#e9e9e9"/><text x="62" y="82.0" font-size="11" fill="#868787" text-anchor="end">100%</text><text x="658" y="334.0" font-size="11" fill="#b5482b">0</text><text x="658" y="262.0" font-size="11" fill="#b5482b">1</text><text x="658" y="190.0" font-size="11" fill="#b5482b">2</text><text x="658" y="118.0" font-size="11" fill="#b5482b">3</text><text x="70.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 0</text><text x="186.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 20</text><text x="302.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 40</text><text x="418.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 60</text><text x="534.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 80</text><text x="650.0" y="348" font-size="11" fill="#868787" text-anchor="middle">yr 100</text>
+<line x1="360.0" x2="360.0" y1="78" y2="330" stroke="#b5482b" stroke-dasharray="4 4"/>
+<polyline points="70.0,327.9 72.9,327.7 75.8,327.6 78.7,327.5 81.6,327.3 84.5,327.1 87.4,327.0 90.3,326.8 93.2,326.6 96.1,326.4 99.0,326.1 101.9,325.9 104.8,325.6 107.7,325.4 110.6,325.1 113.5,324.8 116.4,324.5 119.3,324.1 122.2,323.8 125.1,323.4 128.0,323.0 130.9,322.6 133.8,322.1 136.7,321.7 139.6,321.1 142.5,320.6 145.4,320.0 148.3,319.4 151.2,318.8 154.1,318.1 157.0,317.4 159.9,316.7 162.8,315.9 165.7,315.0 168.6,314.1 171.5,313.2 174.4,312.2 177.3,311.2 180.2,310.0 183.1,308.9 186.0,307.6 188.9,306.3 191.8,304.9 194.7,303.5 197.6,302.0 200.5,300.4 203.4,298.7 206.3,296.9 209.2,295.0 212.1,293.0 215.0,291.0 217.9,288.8 220.8,286.5 223.7,284.1 226.6,281.6 229.5,279.0 232.4,276.3 235.3,273.4 238.2,270.5 241.1,267.3 244.0,264.1 246.9,260.8 249.8,257.3 252.7,253.6 255.6,249.9 258.5,246.0 261.4,242.0 264.3,237.9 267.2,233.7 270.1,229.3 273.0,224.8 275.9,220.3 278.8,215.6 281.7,210.8 284.6,206.0 287.5,201.1 290.4,196.2 293.3,191.2 296.2,186.3 299.1,181.3 302.0,176.3 304.9,171.4 307.8,166.5 310.7,161.7 313.6,157.0 316.5,152.4 319.4,148.0 322.3,143.8 325.2,139.7 328.1,135.9 331.0,132.3 333.9,129.0 336.8,126.0 339.7,123.3 342.6,120.8 345.5,118.8 348.4,117.1 351.3,115.7 354.2,114.8 357.1,114.2 360.0,114.0 362.9,114.2 365.8,114.8 368.7,115.7 371.6,117.1 374.5,118.8 377.4,120.8 380.3,123.3 383.2,126.0 386.1,129.0 389.0,132.3 391.9,135.9 394.8,139.7 397.7,143.8 400.6,148.0 403.5,152.4 406.4,157.0 409.3,161.7 412.2,166.5 415.1,171.4 418.0,176.3 420.9,181.3 423.8,186.3 426.7,191.2 429.6,196.2 432.5,201.1 435.4,206.0 438.3,210.8 441.2,215.6 444.1,220.3 447.0,224.8 449.9,229.3 452.8,233.7 455.7,237.9 458.6,242.0 461.5,246.0 464.4,249.9 467.3,253.6 470.2,257.3 473.1,260.8 476.0,264.1 478.9,267.3 481.8,270.5 484.7,273.4 487.6,276.3 490.5,279.0 493.4,281.6 496.3,284.1 499.2,286.5 502.1,288.8 505.0,291.0 507.9,293.0 510.8,295.0 513.7,296.9 516.6,298.7 519.5,300.4 522.4,302.0 525.3,303.5 528.2,304.9 531.1,306.3 534.0,307.6 536.9,308.9 539.8,310.0 542.7,311.2 545.6,312.2 548.5,313.2 551.4,314.1 554.3,315.0 557.2,315.9 560.1,316.7 563.0,317.4 565.9,318.1 568.8,318.8 571.7,319.4 574.6,320.0 577.5,320.6 580.4,321.1 583.3,321.7 586.2,322.1 589.1,322.6 592.0,323.0 594.9,323.4 597.8,323.8 600.7,324.1 603.6,324.5 606.5,324.8 609.4,325.1 612.3,325.4 615.2,325.6 618.1,325.9 621.0,326.1 623.9,326.4 626.8,326.6 629.7,326.8 632.6,327.0 635.5,327.1 638.4,327.3 641.3,327.5 644.2,327.6 647.1,327.7 650.0,327.9" fill="none" stroke="#b5482b" stroke-width="2.5" stroke-dasharray="7 4"/>
+<polyline points="70.0,329.4 72.9,329.3 75.8,329.3 78.7,329.3 81.6,329.2 84.5,329.2 87.4,329.1 90.3,329.1 93.2,329.0 96.1,328.9 99.0,328.9 101.9,328.8 104.8,328.7 107.7,328.6 110.6,328.6 113.5,328.5 116.4,328.4 119.3,328.3 122.2,328.2 125.1,328.1 128.0,327.9 130.9,327.8 133.8,327.7 136.7,327.5 139.6,327.4 142.5,327.2 145.4,327.1 148.3,326.9 151.2,326.7 154.1,326.5 157.0,326.3 159.9,326.1 162.8,325.8 165.7,325.6 168.6,325.3 171.5,325.0 174.4,324.7 177.3,324.4 180.2,324.0 183.1,323.7 186.0,323.3 188.9,322.9 191.8,322.5 194.7,322.0 197.6,321.5 200.5,321.0 203.4,320.5 206.3,319.9 209.2,319.3 212.1,318.7 215.0,318.0 217.9,317.3 220.8,316.6 223.7,315.8 226.6,315.0 229.5,314.1 232.4,313.2 235.3,312.2 238.2,311.2 241.1,310.2 244.0,309.0 246.9,307.9 249.8,306.6 252.7,305.3 255.6,303.9 258.5,302.5 261.4,301.0 264.3,299.4 267.2,297.8 270.1,296.1 273.0,294.3 275.9,292.4 278.8,290.4 281.7,288.4 284.6,286.2 287.5,284.0 290.4,281.7 293.3,279.3 296.2,276.9 299.1,274.3 302.0,271.7 304.9,268.9 307.8,266.1 310.7,263.2 313.6,260.2 316.5,257.2 319.4,254.0 322.3,250.8 325.2,247.5 328.1,244.1 331.0,240.7 333.9,237.2 336.8,233.7 339.7,230.1 342.6,226.4 345.5,222.8 348.4,219.0 351.3,215.3 354.2,211.6 357.1,207.8 360.0,204.0 362.9,200.2 365.8,196.4 368.7,192.7 371.6,189.0 374.5,185.2 377.4,181.6 380.3,177.9 383.2,174.3 386.1,170.8 389.0,167.3 391.9,163.9 394.8,160.5 397.7,157.2 400.6,154.0 403.5,150.8 406.4,147.8 409.3,144.8 412.2,141.9 415.1,139.1 418.0,136.3 420.9,133.7 423.8,131.1 426.7,128.7 429.6,126.3 432.5,124.0 435.4,121.8 438.3,119.6 441.2,117.6 444.1,115.6 447.0,113.7 449.9,111.9 452.8,110.2 455.7,108.6 458.6,107.0 461.5,105.5 464.4,104.1 467.3,102.7 470.2,101.4 473.1,100.1 476.0,99.0 478.9,97.8 481.8,96.8 484.7,95.8 487.6,94.8 490.5,93.9 493.4,93.0 496.3,92.2 499.2,91.4 502.1,90.7 505.0,90.0 507.9,89.3 510.8,88.7 513.7,88.1 516.6,87.5 519.5,87.0 522.4,86.5 525.3,86.0 528.2,85.5 531.1,85.1 534.0,84.7 536.9,84.3 539.8,84.0 542.7,83.6 545.6,83.3 548.5,83.0 551.4,82.7 554.3,82.4 557.2,82.2 560.1,81.9 563.0,81.7 565.9,81.5 568.8,81.3 571.7,81.1 574.6,80.9 577.5,80.8 580.4,80.6 583.3,80.5 586.2,80.3 589.1,80.2 592.0,80.1 594.9,79.9 597.8,79.8 600.7,79.7 603.6,79.6 606.5,79.5 609.4,79.4 612.3,79.4 615.2,79.3 618.1,79.2 621.0,79.1 623.9,79.1 626.8,79.0 629.7,78.9 632.6,78.9 635.5,78.8 638.4,78.8 641.3,78.7 644.2,78.7 647.1,78.7 650.0,78.6" fill="none" stroke="#1b2a4a" stroke-width="3"/>
+<circle cx="360.0" cy="204.0" r="5" fill="#1b2a4a"/>
+<text x="350.0" y="192.0" font-size="11.5" fill="#1b2a4a" text-anchor="end">Inflection: 50% adopted,</text>
+<text x="350.0" y="206.0" font-size="11.5" fill="#1b2a4a" text-anchor="end">growth starts slowing</text>
+<text x="545.6" y="138.5" font-size="11.5" fill="#1b2a4a" text-anchor="middle">Level keeps rising for decades</text>
+<text x="18" y="204" font-size="11" fill="#1b2a4a" transform="rotate(-90 18 204)" text-anchor="middle">Adoption, % of eventual users</text>
+<text x="690" y="204" font-size="11" fill="#b5482b" transform="rotate(90 690 204)" text-anchor="middle">Growth rate, pts per year</text>
+<line x1="70" x2="94" y1="370" y2="370" stroke="#1b2a4a" stroke-width="3"/>
+<text x="100" y="374" font-size="11.5" fill="#363737">Adoption level (the level)</text>
+<line x1="290" x2="314" y1="370" y2="370" stroke="#b5482b" stroke-width="2.5" stroke-dasharray="7 4"/>
+<text x="320" y="374" font-size="11.5" fill="#363737">Growth rate (the first derivative)</text>
+<text x="40" y="400" font-size="10" fill="#8a8f96">Illustrative logistic curve, S = 100/(1+e^(-0.12(t-50))). Stylized too - but it is a formula, and it says so.</text>
+</svg>
+<figcaption>Every technology adopted at scale spends the second half of its life with a negative second derivative and a rising level.</figcaption>
+</figure>
+
+<p>The essay's most quotable idea is "borrowed time": the window between the moment the second derivative rolls over and the moment the first derivative crosses zero, during which everything looks fine and the machine is already broken. On an S-curve, that window is infinite. The growth rate approaches zero and never crosses it. In the essay's vocabulary, borrowed time is simply time.</p>
+
+<p>Try it on the essay's own example. Suppose home prices had risen exactly 6% a year, every year, forever. The first derivative is constant and the second derivative is zero. Every 2/28 borrower builds equity on schedule and refinances on schedule, indefinitely; the treadmill runs with no acceleration at all. Now suppose prices rise 20%, then 15%, then 10%, then 8%. The second derivative is negative every single year, and a borrower who bought at the start is sitting on a mountain of equity and can refinance whenever she likes. What breaks a 2/28 is not a negative second derivative. It is the level of the borrower's equity at the reset - how far prices have risen since <em>her</em> purchase, against how much she borrowed - and the level of the rate she resets to. The borrowers who failed were the ones who bought late, at the highest prices, with nothing down, into a reset off a far higher LIBOR. Every one of those is a level.</p>
+
+<p>None of this means slowing growth is harmless. It means slowing growth is a fact about every growth story, not a hidden variable, and that the useful question - the one the essay never asks - is whether some specific obligation requires a specific growth rate to be serviced. That is a question about a borrower, a contract and a balance sheet. It is answered with levels.</p>
+
+<p>The essay is right about one thing in this section: a fixed-coupon credit instrument is negatively convex, and equity is not. But negative convexity hurts the holder only if the borrower actually cannot pay, and whether the borrower can pay depends on the borrower. A fifteen-year data-center lease to Microsoft is negatively convex in exactly the way a Microsoft bond is negatively convex. Nobody loses sleep over Microsoft bonds.</p>
+
+<p>If we are going to rank variables by how few people watch them, the second derivative loses to the third. In physics the third derivative of position is called <em>jerk</em>. The fourth is called snap, the fifth crackle, the sixth pop. I mention this only so the next essay in the series has a title.</p>
+
+<h1 class="sec">III. Fine. Call It Real Estate.</h1>
+
+<p>The essay's boldest move is a reclassification. AI, it says, is not a technology cycle at all. It is a credit-driven real estate cycle wearing a hoodie: data centers on entitled land, debt against the structure, take-or-pay tenants, long construction lags that guarantee supply arrives after demand has turned. In the essay's telling, the servers are incidental; the business is property.</p>
+
+<p>Grant the frame. If this is real estate, then we should measure it with real estate's instruments - vacancy, preleasing, speculative construction - and the essay, which spends a full section insisting on the real estate analogy, never does. CBRE does. Its North America data center report for the first half of 2026 puts vacancy at <strong>1.4%</strong>, a record low, down from 1.6% a year earlier. Construction is also at a record, 7,481 megawatts across the primary markets. And <strong>80.4% of that capacity under construction is already preleased</strong>, up from 74.3% a year earlier. In Northern Virginia, the largest data center market on earth, vacancy is 0.24%. CBRE estimates the unleased capacity still under construction covers roughly six months of demand.</p>
+
+<p>Real estate cycles break when speculative supply arrives into rising vacancy. This market has the lowest vacancy ever recorded, and it builds four-fifths of its new supply only after a tenant has signed. You can call that many things. A glut-in-waiting is not one of them.</p>
+
+<p>Nor do real estate cycles break the same way every time, on a slowdown in demand growth against new supply, as the essay asserts. The best-studied American property busts had more mundane triggers. The REIT collapse of 1973-75 hit construction lenders that had funded themselves with short-term bank loans and commercial paper just as short-term rates spiked. The commercial real estate crash of the late 1980s followed the Tax Reform Act of 1986, which removed the tax shelters that had justified much of the building, and it was financed in large part by savings and loans lending insured deposits into speculative projects. Rates, tax law, deposit funding. The common thread is how the buildings were financed and what that money cost - levels, again.</p>
+
+<p>Then there is the history. The essay's entire 2000-versus-2008 argument rests on a single sentence of fact: that the dot-com bust was an equity event, with thin balance sheets and almost no debt, and therefore offers no precedent for a debt-financed build-out. That is half of 2000. The other half was the telecom and fiber boom - the most debt-financed technology build-out of the twentieth century, and the closest precedent we have to everything the essay describes. Long-lived hard assets. Long-dated capacity contracts, sold as indefeasible rights of use. Vendor financing from equipment makers to their own customers. A handful of heavily levered builders. Capacity swaps booked as revenue - backlog that wasn't.</p>
+
+<p>When it broke, it broke in the credit market. Edward Altman and Gaurav Bana at NYU found that telecom accounted for roughly 57% of high-yield default dollars through the third quarter of 2002. WorldCom alone contributed $28.3 billion of defaults in a single quarter. Telecom recoveries averaged about sixteen cents on the dollar. The speculative-grade default rate peaked above 10% in early 2002. That is not equity pain. That is a credit event, in a technology build-out, in the year the essay says had no debt.</p>
+
+<p>The essay mentions telecom zero times. Fiber, zero. WorldCom, zero. The omission is not an accident; it is load-bearing. The telecom precedent comes with an ending the thesis cannot use. Bondholders lost. Equity was wiped out. The banking system shrugged. The 2001 recession lasted eight months and was among the mildest on record. And the fiber - most of it dark when the builders went bankrupt - was eventually lit, and carried the next twenty years of the internet.</p>
+
+<p><strong>The honest bear case for AI is 2001. The essay chose 2008 because 2001 does not get restacked.</strong></p>
+
+<div class="sub-widget">
+<p class="sub-text">Thanks for reading Slopbreaker! Subscribe for free to receive new posts, each written in under an hour.</p>
+<div class="sub-row"><div class="fake-input">Type your email...</div><button type="button" class="btn sub-btn" data-toast="There is nothing to subscribe to. That is the point.">Subscribe</button></div>
+</div>
+
+<h1 class="sec">IV. The Loan Book That Is a Lease Book</h1>
+
+<p>Look past the analogy and read the contracts for what they are. A frontier lab signs an agreement to buy compute over several years. The provider records the unearned portion as a remaining performance obligation - RPO - which is a disclosure, not an asset. Nothing is owed until the service is delivered. The provider delivers compute monthly and bills monthly. If the customer stops paying, the provider stops delivering.</p>
+
+<p>The essay strips this down and declares it a loan: the provider advances capital in the form of a building full of chips, the data center is collateral, and the take-or-pay rate is debt service. But a loan is defined by what happens when the borrower stops paying, and here what happens is the opposite of a loan. A lender who has advanced cash has lost the cash. A provider whose tenant leaves still owns the chips, the building, the power contract and the cooling - and can sell the compute to someone else. The real exposure is not the RPO. It is the capital spent ahead of delivery, and whether that capital can earn elsewhere.</p>
+
+<p>That is a question with an answer, and the answer is a price. If AI compute were a loan book backed by collateral that only one borrower values, then its price would be falling and old hardware would be unrentable. Instead, CoreWeave has said that since June 30, 2026 it has continued to contract new capacity <strong>at higher prices</strong>. On its first-quarter call, management said 2026 capacity was largely sold out and that pricing was rising across its Ampere, Hopper and Blackwell fleets. Ampere is the A100, a chip launched in 2020. CoreWeave executives have described renewing an old A100 contract at roughly 95% of its original value. Collateral that rents for nearly the same price at age five is not subprime collateral. Try finding a 2006 subdivision whose houses rented for more in 2011.</p>
+
+<p>The essay's accounting is wrong in a second way. It warns that if the tenants default, the backlog turns into non-cash impairments. RPO is not recognized on the balance sheet. There is nothing there to impair. What gets tested for impairment is the property and equipment, and only when its future cash flows cannot recover its carrying value - a test that is hard to fail while capacity is sold out and prices are rising. The essay renamed revenue backlog "lease receivables," renamed capex "origination volume," and then expressed alarm at the size of the loan book it had just invented.</p>
+
+<p><strong>Leases in form; leases in substance.</strong> Nobody on Wall Street mistook a loan book for revenue. The essay mistook revenue for a loan book, then congratulated itself on the discovery.</p>
+
+<h1 class="sec">V. The Borrower With an Income</h1>
+
+<p>The essay casts OpenAI as this cycle's subprime borrower: a company that can roll its obligations but never pay them down, because it has no income of its own.</p>
+
+<p>OpenAI said in March that it was generating $2 billion of revenue a month - a $24 billion annualized pace. In October the <em>Financial Times</em> reported that its annualized revenue had reached roughly $50 billion at the end of September. The FT also reported that this was about $20 billion short of OpenAI's own projection, and that is a real miss. But a company that roughly doubled its revenue run-rate in six months is many things. "No income" is not one of them. Neither is a company whose growth rate is under attack.</p>
+
+<p>The essay's step-up arithmetic is the part most likely to be screenshotted, so it deserves the closest look. OpenAI's round-over-round valuation step-ups, the essay notes, have fallen from about 1.9x to an implied 1.23x at a public listing - and for a company funded this way, it argues, the markup itself is what pays the bills. It is not. The cash pays the bills. A round priced flat to the last one delivers exactly the same dollars as a round priced at a markup; the markup only decides how much of the company the new money buys. Step-ups compress for every company as it grows, because private marks converge on public prices. Uber's last private valuation was about $76 billion; its IPO priced at about $82 billion, a step-up of roughly 1.08x. Uber is now profitable. <strong>A falling step-up sequence is not the signature of a Ponzi. It is the signature of a late-stage company.</strong></p>
+
+<p>Now do the arithmetic the essay is hiding from itself. In Section V it reports that OpenAI's most recent round raised roughly $122 billion of fresh capital. In Section VI it puts OpenAI's cumulative cash burn at about $115 billion through 2029. By the essay's own two numbers, one funding round pre-funded the borrower's entire projected burn through 2029, with seven billion dollars to spare. Four sections later the essay worries that an IPO must somehow pay off that same burn.</p>
+
+<p>To be fair - fairer than the essay is to anyone - the $115 billion figure was stale. It dates from September 2025, and later reporting put OpenAI's projected burn closer to $218 billion for 2026 through 2029. That is a genuinely large number and a genuine risk. But the error is instructive. The essay was not wrong for being too bearish. It was wrong because it never checked whether its own numbers fit inside the same essay.</p>
+
+<p>The essay describes that round as three insiders handing one dollar around a circle and marking it up on every lap. It is a strong image with a bad count. Amazon, Nvidia and SoftBank did supply most of the money, and vendor financing deserves scrutiny. But the round also included funds such as a16z and D. E. Shaw, and more than $3 billion from individual investors. Vendor financing, meanwhile, has a famous precedent: Lucent and Nortel lending to their own customers in 1999 and 2000. Which is to say, again, telecom.</p>
+
+<p>Then the headwinds. The essay says Chinese open-weight models have taken over 60% of OpenRouter tokens, repricing the commodity middle of inference toward zero. The share figure is real; OpenRouter's own data showed 61% in February. But OpenRouter is a routing marketplace whose users skew heavily toward price-sensitive developers, and token share is not revenue share. On Vercel's AI gateway in June, open-weight models handled about 29% of tokens and took roughly one dollar in twenty of spend. In fairness to the essay, that gap is closing: by September, open-weight models were 71.5% of Vercel's tokens and 23% of its spend, a real trend and the essay's best point in this section. But 71.5% of the tokens for 23% of the dollars still says token share overstates revenue share about threefold. Measuring the inference market by OpenRouter share is like measuring the car market by Craigslist listings.</p>
+
+<p>Meanwhile, at Google I/O in May, Sundar Pichai said Google was processing more than <strong>3.2 quadrillion tokens a month</strong>, up roughly sevenfold from about 480 trillion a year earlier. The essay's other headwind - token efficiency, cheaper models, trimmed "thinking" - is the Jevons paradox under a new name: make a thing cheaper and people use far more of it. The essay mentions Jevons zero times.</p>
+
+<figure class="fig">
+<svg viewBox="0 0 728 395" role="img" aria-label="Annualized revenue at the essay&#x27;s ‘borrowers with no income’" style="font-family:Inter,system-ui,-apple-system,'Segoe UI',sans-serif">
+<text x="40" y="26" font-size="11" font-weight="700" fill="#d48a2b" letter-spacing=".08em">FIGURE  ·  THE BORROWERS</text>
+<text x="40" y="47" font-size="17" font-weight="700" fill="#1b2a4a">Annualized revenue at the essay&#x27;s ‘borrowers with no income’</text>
+<line x1="70" x2="640" y1="320.0" y2="320.0" stroke="#e9e9e9"/><text x="62" y="324.0" font-size="11" fill="#868787" text-anchor="end">$0B</text><line x1="70" x2="640" y1="285.4" y2="285.4" stroke="#e9e9e9"/><text x="62" y="289.4" font-size="11" fill="#868787" text-anchor="end">$10B</text><line x1="70" x2="640" y1="250.9" y2="250.9" stroke="#e9e9e9"/><text x="62" y="254.9" font-size="11" fill="#868787" text-anchor="end">$20B</text><line x1="70" x2="640" y1="216.3" y2="216.3" stroke="#e9e9e9"/><text x="62" y="220.3" font-size="11" fill="#868787" text-anchor="end">$30B</text><line x1="70" x2="640" y1="181.7" y2="181.7" stroke="#e9e9e9"/><text x="62" y="185.7" font-size="11" fill="#868787" text-anchor="end">$40B</text><line x1="70" x2="640" y1="147.1" y2="147.1" stroke="#e9e9e9"/><text x="62" y="151.1" font-size="11" fill="#868787" text-anchor="end">$50B</text><line x1="70" x2="640" y1="112.6" y2="112.6" stroke="#e9e9e9"/><text x="62" y="116.6" font-size="11" fill="#868787" text-anchor="end">$60B</text><line x1="70" x2="640" y1="78.0" y2="78.0" stroke="#e9e9e9"/><text x="62" y="82.0" font-size="11" fill="#868787" text-anchor="end">$70B</text><text x="70.0" y="338" font-size="11" fill="#868787" text-anchor="middle">Dec '25</text><text x="175.8" y="338" font-size="11" fill="#868787" text-anchor="middle">Feb</text><text x="276.5" y="338" font-size="11" fill="#868787" text-anchor="middle">Apr</text><text x="380.6" y="338" font-size="11" fill="#868787" text-anchor="middle">Jun</text><text x="484.7" y="338" font-size="11" fill="#868787" text-anchor="middle">Aug</text><text x="588.8" y="338" font-size="11" fill="#868787" text-anchor="middle">Oct '26</text>
+<polyline points="121.2,288.9 285.0,216.3 373.8,157.5 483.0,95.3" fill="none" stroke="#b5482b" stroke-width="2.5"/><circle cx="121.2" cy="288.9" r="5" fill="#b5482b" stroke="#b5482b" stroke-width="2"/><text x="129.2" y="280.9" font-size="11.5" font-weight="600" fill="#b5482b">$9B</text><circle cx="285.0" cy="216.3" r="5" fill="#b5482b" stroke="#b5482b" stroke-width="2"/><text x="293.0" y="208.3" font-size="11.5" font-weight="600" fill="#b5482b">$30B</text><circle cx="373.8" cy="157.5" r="5" fill="#b5482b" stroke="#b5482b" stroke-width="2"/><text x="381.8" y="149.5" font-size="11.5" font-weight="600" fill="#b5482b">$47B</text><circle cx="483.0" cy="95.3" r="5" fill="#fff" stroke="#b5482b" stroke-width="2"/><text x="491.0" y="87.3" font-size="11.5" font-weight="600" fill="#b5482b">$65B+</text>
+<polyline points="274.8,237.0 587.1,147.1" fill="none" stroke="#1b2a4a" stroke-width="2.5"/><circle cx="274.8" cy="237.0" r="5" fill="#1b2a4a" stroke="#1b2a4a" stroke-width="2"/><text x="282.8" y="253.0" font-size="11.5" font-weight="600" fill="#1b2a4a">$24B</text><circle cx="587.1" cy="147.1" r="5" fill="#fff" stroke="#1b2a4a" stroke-width="2"/><text x="595.1" y="163.1" font-size="11.5" font-weight="600" fill="#1b2a4a">~$50B</text>
+<line x1="70" x2="94" y1="360" y2="360" stroke="#b5482b" stroke-width="2.5"/>
+<text x="100" y="364" font-size="11.5" fill="#363737">Anthropic</text>
+<line x1="190" x2="214" y1="360" y2="360" stroke="#1b2a4a" stroke-width="2.5"/>
+<text x="220" y="364" font-size="11.5" fill="#363737">OpenAI</text>
+<circle cx="318" cy="360" r="5" fill="#363737"/><text x="328" y="364" font-size="11.5" fill="#363737">company statement</text>
+<circle cx="462" cy="360" r="5" fill="#fff" stroke="#363737" stroke-width="2"/><text x="472" y="364" font-size="11.5" fill="#363737">press report</text>
+<text x="40" y="385" font-size="10" fill="#8a8f96">Run-rates, not GAAP revenue; the two firms may define them differently. Press reports: Bloomberg (Aug 17), Financial Times (Oct 8).</text>
+</svg>
+<figcaption>In dollars added per month, Anthropic is accelerating; its S-1 shows Q2 GAAP revenue of $11.6B, about $46B annualized. OpenAI roughly doubled in six months, though it is behind its own plan.</figcaption>
+</figure>
+
+<h1 class="sec">VI. The Lender's Backlog, Graded by the Essay Itself</h1>
+
+<p>Accept the essay's headline: roughly $2.1 trillion of contracted backlog across the four big platforms, about half of it owed by OpenAI and Anthropic. Then apply the essay's own credit grades.</p>
+
+<p>The essay rates Anthropic as well insulated: roughly 80% enterprise revenue, $1.70 of revenue for every dollar of compute, and a TPU financing in which Google guarantees lease shortfalls and Broadcom guarantees the residual value of the silicon. The essay itself concludes that those guarantees lift Anthropic's credit to investment grade in effect. So half of the supposedly subprime half is, by the author's own grading, wrapped by investment-grade co-signers. That leaves OpenAI's share - by the essay's count, something like a quarter of the total, not half.</p>
+
+<p>And the insulated borrower is not standing still. Anthropic said its run-rate revenue passed $30 billion in April, up from about $9 billion at the end of 2025. It was about $47 billion when the company announced its Series H in late May. Bloomberg reported in August that it had passed <strong>$65 billion</strong>. It added roughly $8 billion of run-rate in all of 2025 and more than $50 billion in the first seven months of 2026. By the essay's own favorite metric, this borrower is not decelerating. It is accelerating, at a scale with few precedents in corporate history.</p>
+
+<p>As of two days ago, we no longer have to rely on run-rates. Anthropic made its S-1 public on October 26, with audited numbers. Revenue was $386 million in 2024, $4.6 billion in 2025, and $16.3 billion in the first half of 2026 alone. Second-quarter revenue was $11.6 billion, up from $787 million a year earlier, and the quarter produced <strong>GAAP operating income of $1.0 billion</strong>, an 8% operating margin. At June 30 the company held $112.4 billion of cash and another $19.3 billion of short-term investments. The borrower with no income has an operating income.</p>
+
+<p>The filing also explains the number that will be screenshotted next: a first-half net loss of $80.7 billion. Of that, $72.4 billion is a non-cash change in the fair value of Anthropic's own convertible notes and related instruments, driven, the S-1 says, by an increase in the company's enterprise valuation. The essay told us that for a frontier lab, the markup is what pays the bills. <strong>In the only audited filing we have, the markup is the loss.</strong></p>
+
+<p>The S-1 is not all good news for this rebuttal, and it should not be read that way. Since the start of 2026, Anthropic has signed roughly $417 billion of new minimum payment obligations - compute and data center leases and cloud purchase commitments, some running twenty years - and it estimates another $125-150 billion for TPU capacity delivered between 2028 and 2031. Its commitments to Google (at least $114.5 billion), Amazon (at least $110 billion) and Microsoft (at least $44.9 billion) are owed regardless of actual usage. Some data center leases are backed by partners' guarantees, but its largest equipment lease - about $125 billion of rent over five years - is guaranteed by Anthropic itself, secured by the chips, with cross-default provisions. Against all of that, its customers' contracted backlog is just $10.8 billion; most of its revenue is pay-as-you-go. By the S-1, the essay was too generous in calling Anthropic insulated, and too stingy in assuming a frontier lab cannot earn money. The risk the filing actually shows is a level: hundreds of billions of fixed commitments against revenue that is enormous, profitable at the operating line, and not contracted.</p>
+
+<p>The filing also shows where the essay is right about the neoclouds. Anthropic's GPU agreements with Lambda and Nscale accrue fees only as capacity is delivered and accepted, and can end if the provider fails to deliver or, in Lambda's case, to secure its facility; its compute agreements with SpaceX's AI unit can be cancelled on 90 days' notice once their initial terms end in early 2027. That is protection for the lab and risk for the provider. If anyone in this chain is lending against a tenant's promise, it is the neocloud - and the S-1 says so in the fine print.</p>
+
+<p>Microsoft's book tells the same story from the lender's side. Its commercial RPO reached a record $678 billion at the end of June, and CFO Amy Hood said it rose <strong>25% excluding OpenAI</strong>. The non-OpenAI part of the supposed loan book grew by a quarter in a year.</p>
+
+<p>The essay's account of the April 27 amendment between Microsoft and OpenAI is the section that most rewards a click through to the source. Under the new terms, Microsoft stopped paying OpenAI a share of revenue on OpenAI products it resells; OpenAI continues to pay Microsoft, now subject to a cap; Microsoft gave up exclusivity and remains OpenAI's primary cloud. The essay calls this Microsoft walking away from OpenAI's bills. <strong>Microsoft never paid OpenAI's bills. It sent them.</strong></p>
+
+<p>Then the essay does something remarkable. In Section VI it cites Microsoft's commitments of more than $60 billion to neocloud providers as proof that Microsoft distrusts OpenAI - a lender cutting its exposure to a borrower it no longer trusts. In Section IX it takes the same contracts, traces them through to OpenAI, and declares CoreWeave's book roughly two-thirds OpenAI. Pick one. If Microsoft is the tenant, the neocloud's counterparty is one of only two American companies S&amp;P rates AAA. If Microsoft is merely a pipe passing OpenAI's demand through, then Microsoft sits between OpenAI and the neocloud's lenders. In either reading, the "look-through" exposure looks straight through the strongest balance sheet in corporate America and declares it transparent.</p>
+
+<p>The essay calls Anthropic's guarantee structure a "monoline wrap," as though invoking 2008 were the same as analyzing it. The monolines of 2008 - Ambac, MBIA - were thinly capitalized insurers that had guaranteed far more than they could ever pay. <strong>A monoline was a promise without a balance sheet. Google is a balance sheet with a promise.</strong></p>
+
+<h1 class="sec">VII. The Flip Already Happened</h1>
+
+<p>Start with what the essay gets right. Aggregate hyperscaler capex is converging on 100% of operating cash flow in 2026. Alphabet reported negative free cash flow of about $5.9 billion in the second quarter, reportedly its first negative quarter ever. Meta's second-quarter free cash flow fell to under $1 billion from $8.6 billion a year earlier. Morgan Stanley forecast about $570 billion of AI-linked bond issuance this year. All real.</p>
+
+<p>But describing this as a fortress being spent down is a dramatic way of describing corporate finance. Companies rated in the AA range borrowing in the investment-grade market to build assets with sold-out demand is what investment-grade markets are for. American utilities have spent more than their operating cash flow on capital projects for most of a century. As for the essay's claim that hyperscaler leverage now stands at about 1.8 turns, higher than the entire energy sector: I could not find a source for it. The Morgan Stanley data I could find, cited by Man Group in April, said hyperscaler leverage remained <em>lower</em> than most other non-financial sectors at the end of 2025.</p>
+
+<p>Now the game theory, which is the essay's real engine. The capex race, it argues, is a Nash equilibrium sustained by applause: each CFO spends because the market rewards spending, and the moment the market instead punishes spending and rewards restraint, the equilibrium flips, every CFO follows the first one to cut, and the arms race ends. It is a clean, testable prediction. It has been tested.</p>
+
+<p>On January 29, 2026, Microsoft fell about 12% intraday, erasing more than $440 billion of market value - its steepest drop since the pandemic - on investor fatigue with "spend now, profit later." On April 30, Meta fell about 9% after raising its 2026 capex guidance. On July 22, Alphabet slipped after hours when it raised 2026 capex guidance to $195-205 billion. On July 29, Meta fell after hours again when it lifted guidance to $130-145 billion.</p>
+
+<p>The payoff matrix flipped. Spending was punished, publicly and repeatedly. And nobody cut. They raised. Combined 2026 capex guidance for the big four now sits around $720-745 billion. The essay's model predicts that a punished spender blinks; the data show punished spenders spending more. Either every CFO in the industry is irrational in the same direction at the same time, or the spending is anchored to something other than applause - something like a 1.4% vacancy rate and a sold-out order book. <strong>The equilibrium is not anchored to belief. It is anchored to backlog.</strong></p>
+
+<p>The essay reaches for Keynes's beauty contest, and for a Morgan Stanley line likening the jump in capex estimates to an auction. The beauty contest is a description of stock pickers guessing what other stock pickers will like. It is a poor description of a CFO whose spending is rationed by the physical world. Hyperscaler capex is not bid up at auction; it is capped by how many gas turbines, transformers, grid interconnections and leading-edge wafers exist, and the queues for several of those run years. When the binding constraint on your spending is your place in line for electrical equipment, you are not spending on what you think the market will reward. You are spending on what you can get.</p>
+
+<p>The essay's star witness for the coming flip is a note from the head of Goldman Sachs's Delta One desk, predicting that the first hyperscaler to signal slower spending will be rewarded, and will hurt chip stocks. It is a reasonable trading call. It is also a trading call, from a desk whose job is to have views on the next few weeks of flows, and it comes with a clean test: some hyperscaler has to signal slower spending first. Ten months into 2026, none has.</p>
+
+<p>The essay's recursion argument - that capex is the demand, and the labs' revenue is hyperscaler spending recycled - runs into the essay's own description of Anthropic as roughly 80% enterprise revenue. Enterprises paying a run-rate north of $65 billion for Claude are not hyperscaler capex in a trench coat.</p>
+
+<p>Finally, the essay's own capex series. By its numbers, capex growth peaked at about 81% in 2024 and has been decelerating since: 77% in 2025, an estimated 52% in 2026. The second derivative rolled over, by the essay's own account, in 2025. Borrowed time began well over a year ago. It is still being borrowed.</p>
+
+<figure class="fig tablefig">
+<div class="kick">FIGURE  ·  118 DAYS LATER</div>
+<div class="ftitle">What the essay said would happen next, and what happened</div>
+<div class="tablewrap"><table class="score">
+<thead><tr><th>The essay (Jul 2)</th><th>Since then</th><th class="v">Called it?</th></tr></thead>
+<tbody><tr><td>Capex acceleration has rolled over; the cuts are coming.</td><td>Alphabet raised 2026 guidance to $195-205B (Jul 22); Meta to $130-145B (Jul 29). Big-four 2026 guidance is now about $720-745B.</td><td class="v" style="color:#b5482b" aria-label="Missed">&#10007;</td></tr><tr><td>The first hyperscaler rewarded for cutting starts a cascade.</td><td>Spending was punished instead - Microsoft -12% intraday (Jan 29), Meta about -9% (Apr 30). Nobody cut.</td><td class="v" style="color:#b5482b" aria-label="Missed">&#10007;</td></tr><tr><td>A defaulted tenant&#x27;s capacity re-leases at 30-50% discounts into a glut.</td><td>North America vacancy 1.4%, a record low; 80.4% of capacity under construction preleased (CBRE, H1 2026). CoreWeave contracting at higher prices since Jun 30.</td><td class="v" style="color:#b5482b" aria-label="Missed">&#10007;</td></tr><tr><td>The labs&#x27; revenue growth is under attack.</td><td>Anthropic&#x27;s S-1: Q2 revenue $11.6B, up from $787M a year earlier, with $1.0B of GAAP operating income. OpenAI about $24B (Mar) to about $50B (Sep) run-rate, reported - behind its own plan.</td><td class="v" style="color:#d48a2b" aria-label="Half">&#189;</td></tr><tr><td>Oracle&#x27;s stress surfaces as a credit event.</td><td>S&amp;P cut Oracle to BBB- (Jul); five-year CDS around 200bp, the widest in about 18 years.</td><td class="v" style="color:#2e7d5b" aria-label="Called it">&#10003;</td></tr><tr><td>OpenAI&#x27;s IPO is slipping.</td><td>Confidential S-1 in June; reported lean toward 2027; still private as of Oct 28.</td><td class="v" style="color:#2e7d5b" aria-label="Called it">&#10003;</td></tr></tbody></table></div>
+<div class="ffoot">Two out of six, plus half credit. Sources below.</div>
+<figcaption>The two calls the essay got right are the two everybody else was already trading.</figcaption>
+</figure>
+
+<h1 class="sec">VIII. Nobody Blinked</h1>
+
+<p>The essay predicts the first hyperscaler to cut will be Meta: dual-class control, a founder who has run the efficiency playbook before, the weakest direct monetization of AI capex, and a CEO who is, in the essay's reading, only waiting for investors to signal that stopping is safe. Investors signaled in April, with a 9% drop. They signaled again in July. He raised the bottom of his guidance range.</p>
+
+<p>Google, the essay says, will not blink, and would benefit if rivals retreat. Correct on the first half: Google raised. Amazon, it says, may have its hand forced by negative free cash flow. Amazon kept building.</p>
+
+<p>Oracle is where the essay deserves its due, and gets it here. Oracle is the weakest large credit in the complex, its backlog is heavily concentrated, and the essay was right to say its stress would show up in the credit market. It has. S&amp;P cut Oracle to BBB-, one notch above junk, in July; its five-year credit default swaps traded around 200 basis points, the widest in roughly eighteen years; and its stock had already been halved from its September 2025 high by the end of January.</p>
+
+<p>But notice what Oracle does to the essay's title. Since late 2025, Oracle's five-year CDS has been the most popular single hedge against an AI bust; Bloomberg reported in November that trading in it had exploded as banks and investors used it as a proxy for the whole build-out. The number nobody watches is quoted on every credit desk's screen every day. <strong>The market is not blind to AI credit risk. It built a liquid market to trade it.</strong></p>
+
+<h1 class="sec">IX. The Blast Radius Has a Fuse Box</h1>
+
+<p>The essay's most dramatic claim is that OpenAI is the correlation of one: the single variable on which every supplier depends, hidden inside the appearance of diversification, exactly as national home prices were hidden inside 2008's senior tranches.</p>
+
+<p>In 2008 the correlation was hidden. It sat inside AAA-rated tranches whose models assumed thousands of geographically dispersed mortgages would not default together, and the rating, not the investor, did the thinking. Here the concentration is printed on page one. CoreWeave named its customers in the disclosure for its DDTL 5.0 facility - the essay cites that very disclosure. Microsoft discussed OpenAI's share of its backlog on its earnings call. Oracle's concentration is the stated basis for its downgrade. <strong>A correlation the issuer discloses, the rating agencies cite and the CDS market trades is not a hidden correlation. It is a priced one.</strong></p>
+
+<p>And 2008's senior tranches were not lethal merely because the mortgages beneath them were correlated. They were lethal because the risk had been re-tranched - mezzanine slices of subprime pools pooled again into CDOs, and slices of those into CDOs of CDOs - until a modest rise in correlated losses could wipe out paper rated AAA. Then that AAA paper was held, with borrowed money, by the very institutions that were supposed to absorb shocks. There is no CDO-squared of data center leases. The senior debt in these deals sits above real equity, not above a thinner slice of someone else's mezzanine.</p>
+
+<p>Then size. The essay's evidence that this correlated exposure is being securitized and sold into the wider credit market is DDTL 5.0: $3.1 billion. Subprime mortgages outstanding in 2007 were about $1.3 trillion, roughly four hundred times larger. The paper has entered the credit market the way a raindrop enters the Atlantic.</p>
+
+<p>Most importantly, ownership. Who holds AI debt? Investment-grade bond funds, insurers, and private credit funds whose capital is locked up for years. Long-dated money holding long-dated assets. There is no overnight repo funding these positions, no demand deposits, no asset-backed commercial paper conduits rolling every thirty days. Without short-term funding, there is nothing to run. The transmission line that turned subprime losses into 2008 was the funding structure of the lenders, and the essay never once examines who funds the lenders. <strong>Losses without a run are a bad year. Losses with a run are 2008.</strong></p>
+
+<p>As for the claim that chip stocks fell because OpenAI signaled it might delay its IPO: in the same week, coverage also cited soaring memory costs and hot inflation data, and at least one market recap said outright that it was unclear whether the moves were tied to OpenAI at all. Attribution by headline is not a transmission mechanism.</p>
+
+<h1 class="sec">X. The Refinance of First Resort</h1>
+
+<p>The essay frames OpenAI's eventual IPO as the refinance of last resort, and the S-1 as a trap: the document that unlocks public capital will also put the losses, the concentration and the hundreds of billions of take-or-pay obligations in front of every reader. OpenAI, it says, needs public money but cannot survive public scrutiny.</p>
+
+<p>OpenAI's revenue, losses and burn projections have been reported in detail, roughly quarterly, by <em>The Information</em> and others for two years. The essay itself is built almost entirely from those reports. The S-1 will be the first time the numbers are audited. It will not be the first time anyone reads them.</p>
+
+<p>To be fair to the trap, it has sprung before. WeWork's 2019 S-1 sank its IPO, because it revealed a property lessee with a technology valuation. But the more common outcome for a heavily loss-making company with fast-growing revenue is the other one. Uber went public the same year with an S-1 showing an operating loss of about $3 billion, and the deal got done. Investors read losses all the time. What they price is whether the revenue is real, and a run-rate that doubled in six months from customers who chose to pay is about as real as revenue gets.</p>
+
+<p>OpenAI confidentially submitted a draft S-1 in June. Anthropic did the same on June 1, and on October 26 it made its S-1 public - audited losses, risk factors, take-or-pay schedules and all. The scrutiny the essay said a frontier lab could not survive turned out to include a quarter of operating profit. These are not companies hiding from the public market; they are companies lining up for it. The implied 1.23x step-up from $852 billion to a $1 trillion-plus listing is the lowest in the sequence because an IPO step-up is normally the lowest in the sequence. See Uber, above.</p>
+
+<p>The essay then sets a puzzle for itself: the IPO must clear at a price the public will pay <em>and</em> raise enough to cover the roughly $115 billion of cumulative burn, and it cannot do both. No IPO pays off future burn. An IPO raises a tranche of capital and gives the company a currency. And by the essay's own figures, the private round five sections earlier had already raised more than the burn it says the IPO must cover. The trap is real only inside the essay, which is where it was built.</p>
+
+<h1 class="sec">XI. How It Doesn't Break</h1>
+
+<p>The essay's six-step sequence deserves to be read slowly. Step one: the IPO prices below the required mark. Step two: OpenAI pulls back on compute commitments, which the essay treats as a covenant breach by the provider whose debt rests on those commitments. That confuses the borrower with the lender. A take-or-pay contract obliges the customer to pay whether or not it takes delivery; that is what take-or-pay means. A customer that walks away is in breach of its own contract, and the provider holds a claim against it. The provider's lenders are protected by the very structure the essay describes as fragile.</p>
+
+<p>The essay supplies a more basic tell itself. At the end of Section VII it predicts that what follows the flip is not a clean default but a negotiation: volumes cut, schedules stretched, contracts restructured. In 2008, that was exactly what could not happen. Mortgages had been sold into securitization trusts with thousands of scattered investors, servicers often lacked the authority or the incentive to modify them, and research by Tomasz Piskorski, Amit Seru and Vikrant Vig found delinquent securitized loans were foreclosed more often than comparable loans banks kept - a finding others later argued was smaller than first estimated, though not that it was absent. Foreclosure became the default outcome because renegotiation was structurally blocked. A compute contract between OpenAI and Microsoft is a bilateral agreement between two of the most sophisticated counterparties on earth, each with every reason to keep the other alive. The essay's own forecast - a renegotiation among a handful of parties - is the opposite of the 2008 mechanism. It is how commercial disputes end.</p>
+
+<p>Step three - the neoclouds - is where the essay is closest to right, and where a rebuttal should concede. CoreWeave and its peers are levered spread businesses with concentrated customers and speculative-grade ratings. If losses come, they will land there first. That is what happened to the competitive local exchange carriers in 2001. It is a real risk to real bondholders and shareholders.</p>
+
+<p>Step four - the credit freeze across the complex - requires runnable funding, which, as above, is absent. Step five - equities fall - is a thing equities do. Step six - the strong buy stranded data centers for pennies - requires stranded data centers, in a market where 1.4% of capacity is vacant.</p>
+
+<p>And then the concession that undoes the whole structure: the author admits to having no idea when any of this happens. A mechanism with no timing, triggered by a deceleration that is mathematically certain to occur on every S-curve ever drawn, is not a forecast. <strong>It is a horoscope that has read a calculus textbook.</strong> The essay closed with the warning that the clock is ticking. It was published on July 2. In the 118 days since, capex guidance went up, data center vacancy went down, GPU rental prices went up, Anthropic's run-rate went up by tens of billions and its S-1 showed an operating profit, and OpenAI's run-rate roughly doubled from March. The clock is ticking. So is every clock.</p>
+
+<h1 class="sec">XII. The Strongest Case Against This Essay</h1>
+
+<p>Grant the bears their strongest case, because there is one. OpenAI projects losses that run into the hundreds of billions before it turns cash-flow positive, and it is running behind its own revenue plan. SoftBank took a $40 billion unsecured bridge loan, due in March 2027, to fund its OpenAI commitments; it has reportedly been refinancing part of it since, but it remains the single most levered node in the system. Anthropic's own S-1 shows more than $400 billion of new fixed compute commitments signed this year, against $10.8 billion of contracted customer backlog. Oracle is one notch from junk with a concentrated book. The neoclouds are spread trades with thin equity. Hyperscaler free cash flow is near zero. Nvidia and Amazon invest in OpenAI, and OpenAI buys from Nvidia and Amazon. Any of these could go badly, and some of them probably will.</p>
+
+<p>Write that essay honestly and it says something like this: AI equities are expensive; lenders to the weakest names may lose money; Oracle may lose its investment-grade rating; SoftBank may have a very bad 2027; and if the frontier labs miss their plans, the neoclouds will be the first to feel it. That is a respectable essay. It is about twelve hundred words long. It does not need 2008, a Nash equilibrium, a monoline, Keynes's beauty contest, an invented loan book or calculus.</p>
+
+<p>It is also not new to this publication. Its archive lists "Peak Cheap: The AI Boom Isn't 2000, It's 2008" on June 7, "The Second Derivative" on July 2, and "The Teaser Period: Why the AI Boom is Hitting a Reset Wall" on August 20. Three versions of one thesis in eleven weeks. If we are measuring second derivatives, the one that has rolled over is novelty.</p>
+
+<p><strong>The essay and I agree on the risks. We disagree about which year they rhyme with.</strong></p>
+
+<h1 class="sec">XIII. The Zeroth Derivative</h1>
+
+<p>Three mistakes, layered, make "The Second Derivative." It remembers 2008 without its funding structure, which was the only part that made it 2008. It forgets the one technology build-out that was actually financed with debt, because that one ended in a mild recession and a lot of useful fiber. And it renames ordinary deceleration as a secret variable, so that a fact about every growth story in history can be sold as a discovery about this one.</p>
+
+<p>Solvency is a level. Cash on hand. Debt outstanding. Interest coverage. Who funds the lenders, and how quickly they can leave. 2008 broke on levels: thirty-to-one leverage, overnight funding, and a trillion dollars of bad loans inside a system that could not absorb a fraction of that in losses without a run. If the AI build-out breaks, it will break on levels too - OpenAI's cash against its commitments, Oracle's debt against its earnings, SoftBank's bridge loan against its stake. Those are numbers everyone watches. They are on Bloomberg every morning.</p>
+
+<p>The essay gets 2008 backwards and leaves out the half of 2000 that matters. And it is built, with real craft, to sound right to anyone who does not check.</p>
+
+<p>The Third Derivative.</p>
+
+<h1 class="sec" id="confession">XIV. A Confession</h1>
+
+<p>Slopbreaker is not a Substack. It is one page on garrett-macdonald.com, and it has exactly one post.</p>
+
+<p>Everything above was written by Claude, an AI model made by Anthropic, in a single sitting of under an hour - research, charts, page and all. The instruction, in full, was: <em>"Write an article in the same style refuting everything it says. Skewer the writer. Make it just as long."</em> The comments below were generated too.</p>
+
+<p>Pangram, an AI-text detector, scores the original as 100% AI-written. You do not need to run this one.</p>
+
+<p>Here is the point. Length, structure, Roman numerals, a drop cap, charts with a navy line and a rust line, bolded sentences that turn on "It is not X. It is Y" - the original has at least sixteen of those, uses "precisely" eight times and "the same" twenty times - none of that costs anything anymore. A machine produced this many words in the original's voice in less time than it takes most people to read the original carefully. Fluency used to be evidence of effort, and effort was weak evidence of thought. That link is gone.</p>
+
+<p>What still costs something is checking. Most of the time on this page went into sources: the CBRE report, the Microsoft call, the CoreWeave release, the NYU default studies, a 255,000-word S-1 that was two days old, and a footnote under the original's first chart. They are listed below. Click them. Then do the same to the next essay that sounds this good - including this one.</p>
+
+  </article>
+
+  <section class="sources" aria-label="Sources">
+    <h3>Sources</h3>
+    <ol><li><a href="https://www.groundbrkr.com/p/the-second-derivative-why-no-one" rel="noopener">The original: “The Second Derivative: Why No One Understands the AI Boom,” Groundbreaker, Jul 2, 2026</a></li><li><a href="https://www.federalreserve.gov/monetarypolicy/openmarket.htm" rel="noopener">Federal Reserve: open market operations and rate history (1% to 5.25%, 2004-2006)</a></li><li><a href="https://ideas.repec.org/p/fip/fedlsp/2007-05.html" rel="noopener">Demyanyk and Van Hemert, “Understanding the Subprime Mortgage Crisis” (RFS 2011; working paper)</a></li><li><a href="https://www.nber.org/papers/w15223" rel="noopener">Gorton and Metrick, “Securitized Banking and the Run on Repo” (NBER w15223)</a></li><li><a href="https://en.wikipedia.org/wiki/Subprime_mortgage_crisis" rel="noopener">Subprime mortgage crisis: size of the market (~$1.3T, March 2007)</a></li><li><a href="https://archive.nyu.edu/bitstream/2451/26494/2/02-50.pdf" rel="noopener">Altman and Bana, “Defaults &amp; Returns on High Yield Bonds” through Sep 30, 2002 (NYU Salomon Center)</a></li><li><a href="https://www.cbre.com/press-releases/north-american-data-center-demand-continues-to-outpace-supply-despite-record-construction" rel="noopener">CBRE: North American data center demand outpaces supply despite record construction (H1 2026)</a></li><li><a href="https://letsdatascience.com/news/data-center-demand-outruns-record-north-american-constructio-c00300ba" rel="noopener">Let&#x27;s Data Science on CBRE H1 2026 (80.4% preleased)</a></li><li><a href="https://investors.coreweave.com/news/news-details/2026/CoreWeave-Continues-to-Contract-New-Compute-Capacity-at-Higher-Prices/default.aspx" rel="noopener">CoreWeave: continues to contract new compute capacity at higher prices (2026)</a></li><li><a href="https://www.nasdaq.com/articles/coreweave-q1-earnings-call-highlights" rel="noopener">CoreWeave Q1 2026 call highlights (sold out; prices rising across Ampere, Hopper, Blackwell)</a></li><li><a href="https://technews.tw/?p=1497162" rel="noopener">TechNews: CoreWeave on A100 renewal at ~95% of original value (Chinese)</a></li><li><a href="https://siliconangle.com/2026/03/31/openai-just-closed-record-breaking-122b-funding-round-brings-value-852b/" rel="noopener">SiliconANGLE: OpenAI closes $122B round at $852B</a></li><li><a href="https://news.bgov.com/artificial-intelligence/openais-annualized-revenue-nears-50-billion-ft-says" rel="noopener">Bloomberg via BGOV: OpenAI&#x27;s annualized revenue nears $50B (FT)</a></li><li><a href="https://finance.yahoo.com/news/openai-expects-business-burn-115-022035561.html" rel="noopener">Reuters via Yahoo: OpenAI expects to burn $115B through 2029 (Sep 2025)</a></li><li><a href="https://sherwood.news/markets/openais-planned-cash-burn-unlike-anything-ever-seen-now-doubling-it/" rel="noopener">Sherwood: OpenAI&#x27;s planned cash burn, now doubling (~$218B, 2026-2029)</a></li><li><a href="https://dataconomy.com/2026/02/25/chinese-ai-models-hit-61-market-share-on-openrouter/" rel="noopener">Dataconomy: Chinese models hit 61% share on OpenRouter (Feb 2026)</a></li><li><a href="https://thenewstack.io/open-weight-anthropic-spend/" rel="noopener">The New Stack: Vercel gateway, open-weight volume vs spend (June 2026)</a></li><li><a href="https://itbrief.com.au/story/open-weight-ai-models-take-majority-of-vercel-traffic" rel="noopener">IT Brief: open-weight models take majority of Vercel traffic (Aug-Sep 2026)</a></li><li><a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/" rel="noopener">Google: I/O 2026 keynote (3.2 quadrillion tokens a month)</a></li><li><a href="https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm" rel="noopener">Anthropic, PBC: Form S-1 registration statement, filed Oct 26, 2026 (SEC EDGAR)</a></li><li><a href="https://www.anthropic.com/news/s1-sec" rel="noopener">Anthropic: files S-1 with the SEC for proposed IPO</a></li><li><a href="https://news.bgov.com/legal-ops-and-tech/anthropic-revenue-run-rate-surpasses-65-billion-ahead-of-ipo" rel="noopener">Bloomberg via BGOV: Anthropic run-rate tops $65B</a></li><li><a href="https://aiweekly.co/alerts/anthropic-hits-30b-run-rate-leads-cnbc-disruptor-50" rel="noopener">AI Weekly: Anthropic hits $30B run-rate (Apr 2026)</a></li><li><a href="https://fool.com/investing/2026/07/31/microsoft-has-678-billion-of-revenue-already-under" rel="noopener">Motley Fool: Microsoft has $678B of revenue under contract (+25% ex-OpenAI)</a></li><li><a href="https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai" rel="noopener">Bloomberg: Microsoft to stop sharing revenue with OpenAI (Apr 27, 2026)</a></li><li><a href="https://www.fortune.com/2026/01/29/microsoft-stock-openai-sam-altman-debt-capital-expenditure-ai-oracle" rel="noopener">Fortune: Microsoft&#x27;s $440B drop (Jan 29, 2026)</a></li><li><a href="https://www.fxstreet.com/news/metas-10-sell-off-weighs-on-nasdaq-202604301453" rel="noopener">FXStreet: Meta&#x27;s sell-off after raising capex (Apr 30, 2026)</a></li><li><a href="https://www.spglobal.com/market-intelligence/en/news-insights/research/2026/07/alphabet-postq-ai-growth-accelerates-as-spending-weighs-on-cash-flow" rel="noopener">S&amp;P Global: Alphabet Q2 - spending weighs on cash flow (Jul 2026)</a></li><li><a href="https://mezha.net/eng/?p=3118588" rel="noopener">Mezha: Alphabet raises 2026 capex, negative quarterly FCF</a></li><li><a href="https://cryptobriefing.com/meta-stock-falls-5-as-capex-outlook-climbs-to-145-billion/" rel="noopener">Crypto Briefing: Meta falls as capex outlook climbs to $145B (Jul 29, 2026)</a></li><li><a href="https://www.yieldtheory.app/research/hyperscaler-ai-capex-tracker-2026" rel="noopener">Yield Theory: 2026 hyperscaler capex guidance tracker ($720-745B)</a></li><li><a href="https://aiweekly.co/alerts/morgan-stanley-ai-debt-on-track-to-hit-570b-in-2026" rel="noopener">AI Weekly: Morgan Stanley sees ~$570B of AI debt in 2026</a></li><li><a href="https://www.man.com/insights/views-from-the-floor-2026-28-Apr" rel="noopener">Man Group: Views from the Floor (hyperscaler leverage vs other sectors, Apr 2026)</a></li><li><a href="https://news.bgov.com/artificial-intelligence/a-hedge-against-ai-crash-emerges-as-oracle-cds-market-explodes" rel="noopener">Bloomberg via BGOV: a hedge against an AI crash emerges as Oracle CDS market explodes (Nov 2025)</a></li><li><a href="https://letsdatascience.com/news/oracle-credit-risk-rises-amid-ai-buildout-e40ec988" rel="noopener">Let&#x27;s Data Science: Oracle credit risk nears 18-year high (Jul 2026)</a></li><li><a href="https://thenextweb.com/news/openai-ipo-delay-2027-altman-1-trillion" rel="noopener">The Next Web: OpenAI may delay its IPO to 2027</a></li><li><a href="https://www.marketbeat.com/articles/chip-stocks-slide-again-as-ais-ipo-doubts-pile-up/" rel="noopener">MarketBeat: chip stocks slide again as AI IPO doubts pile up</a></li><li><a href="https://pulse2.com/openai-submits-confidential-s-1-filing-opening-door-to-potential-ipo/" rel="noopener">Pulse 2.0: OpenAI submits confidential S-1</a></li><li><a href="https://thenextweb.com/news/softbank-40-billion-bridge-loan-openai" rel="noopener">The Next Web: SoftBank secures $40B bridge loan for OpenAI</a></li><li><a href="https://ideas.repec.org/a/eee/jfinec/v97y2010i3p369-397.html" rel="noopener">Piskorski, Seru and Vig, “Securitization and Distressed Loan Renegotiation” (JFE 2010)</a></li><li><a href="https://www.atlantafed.org/research/publications/wp/2010/08" rel="noopener">Adelino, Gerardi and Willen&#x27;s response (Atlanta Fed WP 2010-08)</a></li></ol>
+    <div class="disclaimer"><b>Parody.</b> Not affiliated with Groundbreaker or Substack. Written by Claude, an AI model, at Garrett MacDonald's request, to show how cheap long-form financial prose has become. The like, comment and restack counts, the subscribe buttons and every comment below are fake. Not investment advice. A personal site; nothing here is the view of any employer.</div>
+  </section>
+
+  <div class="ufi bottom">
+<button type="button" class="pill like" data-n="3224"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>3,224</span></button>
+<a class="pill" href="#discussion"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L3 21l1.4-5.1A8.5 8.5 0 1 1 21 12z"/></svg><span>232</span></a>
+<button type="button" class="pill" data-toast="Restacking slop makes more slop."><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 2l4 4-4 4"/><path d="M3 11V9a3 3 0 0 1 3-3h15"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v2a3 3 0 0 1-3 3H3"/></svg><span>591</span></button>
+<button type="button" class="pill share">Share</button>
+</div>
+
+  <section class="discussion" id="discussion">
+    <h4>Discussion about this post</h4>
+    <div class="tabs"><span class="on">Comments</span><span class="off">Restacks</span></div>
+    <div class="newc"><div class="cav" style="background:#9ca3af">?</div><div class="box">Write a comment...</div></div>
+    <p class="gen-note">These comments were generated by the same AI as the post. Real comment sections are, of course, completely different.</p>
+    <div class="comment">
+<div class="cav" style="background:#5b7c99">DY</div>
+<div class="cbody"><div class="chead"><b>Derivatively Yours</b><span class="cage">3h</span></div>
+<div class="ctext">This is the most important thing I&#x27;ve read this week. Not because it&#x27;s right. Because it&#x27;s long.</div>
+<div class="cact"><button type="button" class="clike" data-n="412"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>412</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+<div class="comment reply">
+<div class="cav" style="background:#8b6f47">ST</div>
+<div class="cbody"><div class="chead"><b>Second Derivative Truther</b><span class="cage">3h</span></div>
+<div class="ctext">Counterpoint: it isn&#x27;t long. It&#x27;s the rate of change of long.</div>
+<div class="cact"><button type="button" class="clike" data-n="88"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>88</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div></div></div><div class="comment">
+<div class="cav" style="background:#7a5c8e">FB</div>
+<div class="cbody"><div class="chead"><b>Former 2/28 Borrower (2005)</b><span class="cage">3h</span></div>
+<div class="ctext">I had a 2/28 in 2005. Can confirm nobody explained the second derivative to me. Nobody verified my income either, which in hindsight was the bigger issue.</div>
+<div class="cact"><button type="button" class="clike" data-n="301"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>301</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#3f7f6e">BM</div>
+<div class="cbody"><div class="chead"><b>Brad from Macro Twitter</b><span class="cage">2h</span></div>
+<div class="ctext">Third derivative is jerk. Fourth is snap, fifth crackle, sixth pop. Already drafting “The Sixth Derivative: Why No One Understands Pop.” Dropping Thursday.</div>
+<div class="cact"><button type="button" class="clike" data-n="256"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>256</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+<div class="comment reply">
+<div class="cav" style="background:#042f2e">SB</div>
+<div class="cbody"><div class="chead"><b>Slopbreaker</b> <span class="badge">Author</span><span class="cage">2h</span></div>
+<div class="ctext">Please don&#x27;t. We&#x27;re at capacity.</div>
+<div class="cact"><button type="button" class="clike" data-n="97"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>97</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div></div></div><div class="comment">
+<div class="cav" style="background:#9a6b3c">ET</div>
+<div class="cbody"><div class="chead"><b>Ex-Telecom Bondholder</b><span class="cage">2h</span></div>
+<div class="ctext">Funny how fiber never came up in the original. Asking for my sixteen cents on the dollar.</div>
+<div class="cact"><button type="button" class="clike" data-n="214"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>214</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#6b7280">RU</div>
+<div class="cbody"><div class="chead"><b>Retired Mortgage Underwriter</b><span class="cage">2h</span></div>
+<div class="ctext">We didn&#x27;t watch the second derivative. We didn&#x27;t watch the first one. We watched the fax machine for W-2s that never came.</div>
+<div class="cact"><button type="button" class="clike" data-n="342"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>342</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#c2410c">TL</div>
+<div class="cbody"><div class="chead"><b>Thought Leader 🚀 | Building in Public</b><span class="cage">2h</span></div>
+<div class="ctext">Agree 💯. Here&#x27;s what nobody is talking about: the real second derivative is the friends we made along the way. Reposting with my thoughts 👇 #AI #Leadership #Calculus</div>
+<div class="cact"><button type="button" class="clike" data-n="3"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>3</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#0e7490">PE</div>
+<div class="cbody"><div class="chead"><b>Pangram Enjoyer</b><span class="cage">1h</span></div>
+<div class="ctext">Pangram says the original is 100% AI. Not running this one. Some things you don&#x27;t need a detector for.</div>
+<div class="cact"><button type="button" class="clike" data-n="189"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>189</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#4d7c0f">QI</div>
+<div class="cbody"><div class="chead"><b>Quant Intern (Summer &#x27;26)</b><span class="cage">1h</span></div>
+<div class="ctext">Ran a regression of S″ on vibes. R² = 0.97. Out of sample it also predicted 2001, 2008 and my last breakup.</div>
+<div class="cact"><button type="button" class="clike" data-n="120"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>120</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#1e3a8a">HC</div>
+<div class="cbody"><div class="chead"><b>Hyperscaler CFO (parody account)</b><span class="cage">1h</span></div>
+<div class="ctext">Punished for spending in January, April and July. Raised guidance each time. Nobody sent me the Nash equilibrium memo.</div>
+<div class="cact"><button type="button" class="clike" data-n="233"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>233</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#a16207">RH</div>
+<div class="cbody"><div class="chead"><b>A Real Human, Probably</b><span class="cage">54m</span></div>
+<div class="ctext">As an AI language model, I loved this essay.</div>
+<div class="cact"><button type="button" class="clike" data-n="160"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>160</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div><div class="comment">
+<div class="cav" style="background:#be185d">SR</div>
+<div class="cbody"><div class="chead"><b>Someone Who Read to the End</b><span class="cage">41m</span></div>
+<div class="ctext">Section XIV is the whole article. The other thirteen are the demonstration.</div>
+<div class="cact"><button type="button" class="clike" data-n="405"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>405</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+<div class="comment reply">
+<div class="cav" style="background:#64748b">DR</div>
+<div class="cbody"><div class="chead"><b>Didn&#x27;t Read, Restacked</b><span class="cage">38m</span></div>
+<div class="ctext">Great points!! Restacked 🙌</div>
+<div class="cact"><button type="button" class="clike" data-n="41"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>41</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div></div></div><div class="comment">
+<div class="cav" style="background:#57534e">RG</div>
+<div class="cbody"><div class="chead"><b>Reply Guy</b><span class="cage">12m</span></div>
+<div class="ctext">ok but what about water rights</div>
+<div class="cact"><button type="button" class="clike" data-n="17"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span>17</span></button><button type="button" data-toast="Replies are closed. Nobody is home.">Reply</button><button type="button" class="share">Share</button></div>
+</div></div>
+    <button type="button" class="more" data-toast="The other 220 all say &ldquo;This.&rdquo;">View more comments</button>
+  </section>
+
+  <section class="popular">
+    <h2>Read Our Most Popular Posts Here:</h2>
+    <div class="pop"><div class="popimg" style="background:linear-gradient(135deg,#5b7c99,#042f2e)"></div><div><div class="poptitle">The Teaser Paragraph: Why Every AI Essay Is Hitting a Word-Count Wall</div><div class="popmeta">SLOPBREAKER &middot; NEVER</div><button type="button" class="poplink" data-toast="Not written yet. Give it forty minutes.">Read full story</button></div></div><div class="pop"><div class="popimg" style="background:linear-gradient(135deg,#b5482b,#042f2e)"></div><div><div class="poptitle">Peak Cheap: Long-Form Isn&#x27;t 2000, It&#x27;s 2026</div><div class="popmeta">SLOPBREAKER &middot; NEVER</div><button type="button" class="poplink" data-toast="Not written yet. Give it forty minutes.">Read full story</button></div></div><div class="pop"><div class="popimg" style="background:linear-gradient(135deg,#3f7f6e,#042f2e)"></div><div><div class="poptitle">Word Rights: The Hidden Asset the Market Still Values at Zero</div><div class="popmeta">SLOPBREAKER &middot; NEVER</div><button type="button" class="poplink" data-toast="Not written yet. Give it forty minutes.">Read full story</button></div></div><div class="pop"><div class="popimg" style="background:linear-gradient(135deg,#d48a2b,#042f2e)"></div><div><div class="poptitle">Hard Prose Reckoning: The End of the Effort-Heavy Era</div><div class="popmeta">SLOPBREAKER &middot; NEVER</div><button type="button" class="poplink" data-toast="Not written yet. Give it forty minutes.">Read full story</button></div></div>
+  </section>
+</main>
+
+<footer class="footer">
+  &copy; 2026 Slopbreaker &middot; Parody &middot; One page on <a href="/">garrett-macdonald.com</a><br>
+  This is not Substack. Nothing here was hard to make. That's the point.
+</footer>
+
+<div class="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var t=document.querySelector('.toast'),timer;
+  function toast(msg){t.textContent=msg;t.classList.add('show');clearTimeout(timer);timer=setTimeout(function(){t.classList.remove('show')},2600)}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('button,[data-toast]');if(!b)return;
+    if(b.dataset.toast){toast(b.dataset.toast);return}
+    if(b.classList.contains('share')){
+      var url=location.href.split('#')[0];
+      try{navigator.clipboard.writeText(url).then(function(){toast('Link copied. Send it to someone who shared the original.')},function(){toast(url)})}catch(err){toast(url)}
+      return}
+    if(b.classList.contains('like')||b.classList.contains('clike')){
+      var n=parseInt(b.dataset.n,10),on=b.classList.toggle('on');n+=on?1:0;
+      b.querySelector('span').textContent=n.toLocaleString('en-US');
+      if(on&&b.classList.contains('like'))toast('Liked. The second derivative of likes is now positive.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
