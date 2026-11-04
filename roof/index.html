@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How insurance paid for our whole roof | Garrett MacDonald</title>
+<meta name="description" content="A windstorm claim that started as one side of the roof and ended as a full roof replacement in Connecticut, paid by insurance except our $1,500 deductible. How the matching law works and how to do it yourself.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://garrett-macdonald.com/roof/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f5f3ee" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How insurance paid for our whole roof">
+<meta property="og:description" content="One damaged side, a new roof on every slope. Connecticut's matching law, a shingle test, and $1,500 out of pocket.">
+<meta property="og:url" content="https://garrett-macdonald.com/roof/">
+<meta property="og:image" content="https://garrett-macdonald.com/roof/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5f3ee;
+    --panel: #fbfaf7;
+    --ink: #14171c;
+    --muted: #5d636d;
+    --faint: #8b9099;
+    --rule: #dcd8cf;
+    --grid: #e7e3da;
+    --accent: #0e6b5c;
+    --btn-ink: #f5f3ee;
+    --c-accent: #00806a;
+    --c-gray: #8b9099;
+    --roof-old: #c9c4b8;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0f1216;
+      --panel: #151a1f;
+      --ink: #ecebe7;
+      --muted: #a2a8b1;
+      --faint: #7b828c;
+      --rule: #2a3037;
+      --grid: #20262c;
+      --accent: #4fbfa6;
+      --btn-ink: #0f1216;
+      --c-accent: #2fa98f;
+      --c-gray: #6b737d;
+      --roof-old: #3a4048;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--paper); color: var(--ink); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration-color: var(--faint); text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--accent); }
+  ::selection { background: var(--accent); color: var(--btn-ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+  .prose { max-width: 720px; }
+  @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+
+  .label { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .muted { color: var(--muted); }
+
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
+  .mark { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .mono-badge { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid var(--ink); font: 400 20px/1 var(--serif); letter-spacing: -.02em; }
+  .mark span:last-child { font-weight: 500; font-size: 15px; }
+  .top-link { font: 500 13px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+  .top-link:hover { border-color: var(--ink); }
+
+  .hero { padding: 64px 0 56px; }
+  .hero h1 { font: 400 clamp(46px, 7.4vw, 96px)/.95 var(--serif); letter-spacing: -.02em; margin: 18px 0 26px; max-width: 13ch; }
+  .hero h1 em { color: var(--accent); }
+  .lead { font-size: clamp(18px, 2vw, 22px); line-height: 1.5; max-width: 48ch; }
+
+  .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); margin-top: 48px; }
+  .tile { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 20px 22px 22px; background: var(--panel); }
+  .tile .k { font: 500 11.5px/1.3 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+  .tile .v { font: 600 clamp(30px, 3.4vw, 40px)/1.1 var(--sans); letter-spacing: -.02em; margin: 10px 0 6px; }
+  .tile .n { font-size: 14px; line-height: 1.45; color: var(--muted); }
+
+  .toc { columns: 2; column-gap: 40px; list-style: none; margin-top: 40px; counter-reset: toc; max-width: 720px; }
+  .toc li { counter-increment: toc; break-inside: avoid; padding: 4px 0; font-size: 15.5px; }
+  .toc li::before { content: counter(toc, decimal-leading-zero); font: 500 12px var(--mono); color: var(--accent); margin-right: 12px; }
+  .toc a { text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  section { border-top: 1px solid var(--rule); padding: 64px 0; }
+  .sec-num { font: 500 12px/1 var(--mono); color: var(--accent); letter-spacing: .08em; }
+  h2 { font: 400 clamp(32px, 4.2vw, 48px)/1.06 var(--serif); letter-spacing: -.01em; margin: 12px 0 22px; max-width: 22ch; }
+  h2 em { font-style: italic; color: var(--accent); }
+  h3 { font: 600 18px/1.35 var(--sans); margin: 36px 0 10px; }
+  .prose p + p, .prose p + ul, .prose ul + p, .prose p + ol, .prose ol + p { margin-top: 14px; }
+  .prose ul, .prose ol { padding-left: 22px; }
+  .prose li + li { margin-top: 6px; }
+  .prose li::marker { color: var(--faint); }
+  .kicker { font-size: 19px; line-height: 1.55; }
+  .callout { border-left: 2px solid var(--accent); padding: 4px 0 4px 18px; margin: 26px 0; max-width: 720px; }
+  .callout p { font-size: 16px; }
+  .callout p + p { margin-top: 10px; }
+  blockquote.statute { background: var(--panel); border: 1px solid var(--rule); padding: 20px 22px; margin: 24px 0; max-width: 720px; font: 400 21px/1.4 var(--serif); }
+  blockquote.statute cite { display: block; font: 500 12px/1.4 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); font-style: normal; margin-top: 12px; }
+
+  figure.card { background: var(--panel); border: 1px solid var(--rule); padding: 22px 24px 18px; margin: 30px 0 8px; }
+  figure.card figcaption .t { font: 600 16px/1.35 var(--sans); }
+  figure.card figcaption .s { font-size: 14px; color: var(--muted); margin-top: 2px; }
+  figure.card .foot { font-size: 12.5px; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+
+  /* roof diagram */
+  .roofs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 16px; }
+  .roofs figure { margin: 0; }
+  .roofs svg { display: block; width: 100%; height: auto; }
+  .roofs .cap { font-size: 14px; margin-top: 8px; }
+  .roofs .cap b { font-weight: 600; display: block; }
+  .roofs .cap span { color: var(--muted); }
+  .r-old { fill: var(--roof-old); stroke: var(--panel); stroke-width: 3; stroke-linejoin: round; }
+  .r-new { fill: var(--c-accent); stroke: var(--panel); stroke-width: 3; stroke-linejoin: round; }
+  .r-wall { fill: none; stroke: var(--faint); stroke-width: 1.5; }
+  .r-lbl { fill: var(--ink); font: 500 12px var(--sans); }
+  .r-lbl.on { fill: #fff; }
+  .r-key { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 13px; color: var(--muted); list-style: none; }
+  .r-key i { display: inline-block; width: 12px; height: 12px; vertical-align: -1px; margin-right: 7px; }
+
+  /* html bar chart */
+  .hb { margin-top: 18px; }
+  .hb-row { display: grid; grid-template-columns: minmax(150px, 31%) minmax(0, 1fr); gap: 16px; align-items: center; padding: 8px 0; }
+  .hb-label { font-size: 14.5px; font-weight: 500; line-height: 1.3; }
+  .hb-label small { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+  .hb-track { position: relative; height: 22px; margin-right: 72px; }
+  .hb-bar { position: absolute; left: 0; top: 0; height: 22px; background: var(--c-gray); border-radius: 0 4px 4px 0; }
+  .hb-bar.emph { background: var(--c-accent); }
+  .hb-val { position: absolute; top: 1px; margin-left: 8px; font: 500 13.5px/20px var(--sans); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  .tbl-wrap { overflow-x: auto; margin: 22px 0 6px; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; }
+  th { text-align: left; font: 500 11.5px/1.3 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 14px 10px 0; border-bottom: 1px solid var(--ink); vertical-align: bottom; }
+  td { padding: 11px 14px 11px 0; border-bottom: 1px solid var(--rule); vertical-align: top; line-height: 1.45; }
+  table.num td { font-variant-numeric: tabular-nums; }
+  td.r, th.r { text-align: right; }
+  tr.total td { font-weight: 600; border-bottom: 1px solid var(--ink); }
+
+  .timeline { list-style: none; margin-top: 28px; }
+  .timeline li { display: grid; grid-template-columns: 110px minmax(0, 0.9fr) minmax(0, 1.6fr); gap: 24px; padding: 16px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .timeline li:first-child { border-top: 1px solid var(--rule); }
+  .timeline .when { font: 400 13px var(--mono); color: var(--muted); }
+  .timeline .what { font: 400 22px/1.2 var(--serif); }
+  .timeline .where { color: var(--muted); font-size: 15px; }
+  .timeline li.key .what { color: var(--accent); }
+
+  .lessons { list-style: none; counter-reset: l; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; margin-top: 24px; }
+  .lessons li { counter-increment: l; padding: 20px 0; border-top: 1px solid var(--rule); }
+  .lessons li::before { content: counter(l, decimal-leading-zero); font: 500 12px var(--mono); color: var(--accent); display: block; margin-bottom: 6px; }
+  .lessons b { display: block; font: 400 23px/1.2 var(--serif); margin-bottom: 8px; font-weight: 400; }
+  .lessons p { font-size: 15.5px; color: var(--muted); }
+  .lessons p + p { margin-top: 8px; }
+
+  .sources { list-style: none; max-width: 760px; margin-top: 18px; }
+  .sources li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+  .sources li span { display: block; color: var(--muted); font-size: 13.5px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 28px 0 40px; margin-top: 8px; }
+  .foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font: 400 12.5px/1.6 var(--mono); color: var(--faint); }
+  .foot-row p:last-child { max-width: 68ch; }
+
+  @media (max-width: 960px) {
+    .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .lessons { grid-template-columns: 1fr; }
+    .timeline li { grid-template-columns: 90px minmax(0, 1fr); }
+    .timeline .where { grid-column: 2; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .top { padding: 18px 0; }
+    .hero { padding: 36px 0 40px; }
+    section { padding: 48px 0; }
+    .toc { columns: 1; }
+    .tile { padding: 16px 14px 18px; }
+    figure.card { padding: 18px 14px 14px; }
+    .roofs { grid-template-columns: 1fr; gap: 18px; }
+    .hb-row { grid-template-columns: 1fr; gap: 6px; padding: 7px 0 9px; }
+    .timeline li { grid-template-columns: 1fr; gap: 2px; }
+    .timeline .where { grid-column: 1; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="/"><span class="mono-badge">GM</span><span>Garrett MacDonald</span></a>
+    <a class="top-link" href="#contents">Contents</a>
+  </header>
+  <div class="hero">
+    <p class="label">Home project · 2026</p>
+    <h1>How insurance paid for our <em>whole roof</em></h1>
+    <p class="lead">A windstorm damaged one side of our roof in central Connecticut. The insurer's first offer was to fix that side, about 23 of the roof's 40 squares. Six months later we had a new roof on every slope, plus our 40 solar panels taken down and put back, and we paid only the $1,500 deductible. Connecticut's matching law is a big reason why. Here's how it went and how you can do the same.</p>
+    <div class="tiles">
+      <div class="tile"><div class="k">Our cost for the roof</div><div class="v">$1,500</div><div class="n">The deductible. Everything else in the claim was paid by insurance.</div></div>
+      <div class="tile"><div class="k">Insurance paid</div><div class="v">$41.8k</div><div class="n">Roof, solar removal and reinstall, code upgrades and the permit.</div></div>
+      <div class="tile"><div class="k">First offer</div><div class="v">1 side</div><div class="n">About 23 of 40 squares. After a shingle-match sample, the estimate was revised to the whole roof.</div></div>
+      <div class="tile"><div class="k">Claim to new roof</div><div class="v">6 mo</div><div class="n">Filed in March, whole roof approved in April, installed in September.</div></div>
+    </div>
+    <ol class="toc" id="contents">
+      <li><a href="#short">The short version</a></li>
+      <li><a href="#law">The Connecticut matching law</a></li>
+      <li><a href="#story">What happened, step by step</a></li>
+      <li><a href="#money">Where the money came from</a></li>
+      <li><a href="#howto">How to do this yourself</a></li>
+      <li><a href="#watch">Things to watch out for</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ol>
+  </div>
+</div>
+
+<section id="short"><div class="wrap">
+  <p class="sec-num">01</p>
+  <h2>The short version</h2>
+  <div class="prose">
+    <p class="kicker">If your roof has real storm damage and your shingles can't be matched anymore, Connecticut law can turn a one-slope repair into a full roof replacement.</p>
+    <ul>
+      <li><b>It started with a free inspection.</b> A roofer left a flier offering free ice-dam inspections. Their rep found wind damage, a leaking stove vent, leaks around the chimney and a moldy skylight.</li>
+      <li><b>We filed a windstorm claim</b> and had the roofer at the adjuster's inspection. The adjuster agreed the damage was covered, but only wrote up the damaged side, a bit over half the roof.</li>
+      <li><b>The roofer pulled a shingle for a match test.</b> In Connecticut, if new shingles won't match the old ones next to them, the insurer has to replace enough of the roof that it looks uniform. With an older roof, that usually means all of it.</li>
+      <li><b>Two weeks later the insurer revised to the whole roof,</b> about 42 squares. A later supplement added $13,000 to take down and reinstall our solar panels, which we had assumed wouldn't be covered.</li>
+      <li><b>We paid the $1,500 deductible and nothing else for the roof.</b> We did choose to spend our own money on new skylights while the roof was open.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="law"><div class="wrap">
+  <p class="sec-num">02</p>
+  <h2>The Connecticut <em>matching</em> law</h2>
+  <div class="prose">
+    <p class="kicker">Most homeowners' policies promise to repair damage with material of "like kind and quality." Connecticut goes further and writes a matching requirement into state law.</p>
+    <p>The statute is Connecticut General Statutes §38a-316e, passed in 2013 (Public Act 13-138). In plain English:</p>
+  </div>
+  <blockquote class="statute">If a covered loss means replacing items that won't match the adjacent items in quality, color or size, the insurer has to replace all of those items with like kind and quality material, so the result has a reasonably uniform appearance. It applies inside and outside the house.
+    <cite>My paraphrase of Conn. Gen. Stat. §38a-316e(a)</cite></blockquote>
+  <div class="prose">
+    <h3>What that means for a roof</h3>
+    <p>Each face of a roof is a "slope" (also called a plane or elevation). Storms usually damage one or two slopes, and the insurer's first estimate usually covers only those. The roof is one continuous surface, though, so every slope that touches the damaged one is an adjacent item. If the new shingles on the repaired slope won't match the old shingles on the slopes around it, the law requires the insurer to replace those slopes too. On a typical house, that ends up being the whole roof.</p>
+    <h3>Why discontinued shingles matter</h3>
+    <p>Shingle lines and colors change every few years, and a roof that's 15 or 20 years old has also faded. If the exact shingle isn't made anymore, a new one can't match in color, size or profile. Then the one-slope repair can't produce a "reasonably uniform appearance," and the matching rule applies.</p>
+    <p>The standard way to settle this is an <b>ITEL report</b>. The roofer (or adjuster) cuts a shingle sample and sends it to ITEL, a lab insurers use. ITEL identifies the shingle, says whether it's still made, and names the closest match currently available. Our first adjuster suggested this in writing: if the shingles were still manufactured, the contractor could match the old and new sections. That is the opening. If they aren't, the partial estimate doesn't hold up. Our roofer cut the sample on April 15, and on April 27 the insurer revised to the whole roof. Nothing in the paperwork says what the test found, but by the adjuster's own rule, that is the result you'd get if the shingle couldn't be matched.</p>
+  </div>
+  <figure class="card">
+    <figcaption><div class="t">What the matching rule changed on our claim</div>
+      <div class="s">Simplified roof plan seen from above. Our roof is about 40 squares (4,000 sq ft).</div></figcaption>
+    <div class="roofs">
+      <figure>
+        <svg viewBox="0 0 320 200" role="img" aria-label="First estimate: one roof slope highlighted as replaced, the other slopes left as old shingles">
+          <rect class="r-wall" x="20" y="20" width="280" height="160"/>
+          <polygon class="r-old" points="20,20 300,20 230,100 90,100"/>
+          <polygon class="r-new" points="20,180 300,180 230,100 90,100"/>
+          <polygon class="r-old" points="20,20 90,100 20,180"/>
+          <polygon class="r-old" points="300,20 230,100 300,180"/>
+          <text class="r-lbl on" x="160" y="150" text-anchor="middle">Damaged side</text>
+          <text class="r-lbl" x="160" y="62" text-anchor="middle">Old shingles</text>
+        </svg>
+        <p class="cap"><b>March: the first estimate</b><span>Replace the damaged side only, about 23 of 40 squares. Our first insurance check was $6,887.</span></p>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 320 200" role="img" aria-label="Revised estimate: every roof slope highlighted as replaced">
+          <rect class="r-wall" x="20" y="20" width="280" height="160"/>
+          <polygon class="r-new" points="20,20 300,20 230,100 90,100"/>
+          <polygon class="r-new" points="20,180 300,180 230,100 90,100"/>
+          <polygon class="r-new" points="20,20 90,100 20,180"/>
+          <polygon class="r-new" points="300,20 230,100 300,180"/>
+          <text class="r-lbl on" x="160" y="62" text-anchor="middle">Whole roof</text>
+        </svg>
+        <p class="cap"><b>April: the revised estimate</b><span>After the shingle sample, the whole roof, 42 squares with waste.</span></p>
+      </figure>
+    </div>
+    <ul class="r-key"><li><i style="background:var(--c-accent)"></i>Replaced under the estimate</li><li><i style="background:var(--roof-old)"></i>Left as is</li></ul>
+    <p class="foot">Our real roof has more slopes than this, plus a few small sections, but the idea is the same.</p>
+  </figure>
+  <div class="prose">
+    <h3>If the insurer won't budge: appraisal</h3>
+    <p>Most homeowners' policies have an appraisal clause. Each side picks an appraiser, and an umpire breaks ties. In 2022 the Connecticut Supreme Court held in <i>Klass v. Liberty Mutual</i> that once an insurer admits the damage is covered, how much undamaged material it must replace to get a uniform appearance is part of the "amount of loss." That makes it a question for appraisal, decided case by case, rather than a lawsuit. That case looked a lot like ours: a few shingles blew off the back of the roof, the insurer offered to replace only the rear slopes, and the homeowner wanted the whole roof. We didn't need appraisal, but it's good to know it's there.</p>
+    <h3>What the law does not do</h3>
+    <ul>
+      <li><b>It doesn't create coverage.</b> There has to be real damage from a covered peril, like wind or hail. Old age and wear aren't covered.</li>
+      <li><b>"Adjacent" has limits.</b> In a 2019 siding case, a Connecticut court read "adjacent" narrowly and didn't make the insurer replace siding on walls that didn't touch the damaged area. On a roof, the slopes all join at ridges and hips, which is why the argument works so well there.</li>
+      <li><b>Your policy still matters.</b> Some policies pay roofs at actual cash value (depreciated) instead of replacement cost, or exclude "cosmetic" hail damage. Check your declarations page.</li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="story"><div class="wrap">
+  <p class="sec-num">03</p>
+  <h2>What happened, <em>step by step</em></h2>
+  <div class="prose"><p class="kicker">The claim took about six weeks to go from one side to the whole roof. Getting the solar panels added and the install scheduled took the summer.</p></div>
+  <ol class="timeline">
+    <li><span class="when">Feb 23</span><span class="what">Windstorm</span><span class="where">The date of loss on the claim. We'd also had a skylight leak in January snow.</span></li>
+    <li><span class="when">Mar 5</span><span class="what">Free inspection</span><span class="where">All Site Builders came from an ice-dam flier. Their rep, Chris, found the wind damage, a leaking stove vent, leaks at the chimney and mold around a skylight. I signed an authorization so Chris could talk to the insurer for me.</span></li>
+    <li><span class="when">Mar 11</span><span class="what">Claim filed</span><span class="where">Windstorm claim with Travelers. An adjuster was assigned the same day.</span></li>
+    <li><span class="when">Mar 24</span><span class="what">Adjuster inspection</span><span class="where">Chris met the adjuster on the roof. The insurer also had me scan the house with the HOVER phone app, which produces a measured 3D roof report.</span></li>
+    <li><span class="when">Mar 30</span><span class="what">First estimate: the damaged side</span><span class="where">The adjuster wrote up only the damaged side (about 23 of 40 squares), but added that the contractor could send an ITEL sample to see whether the shingles were still made.</span></li>
+    <li class="key"><span class="when">Apr 15</span><span class="what">Shingle sample</span><span class="where">Chris came by to cut a shingle for the match test. Chris's text that afternoon: "I'm going to get you this entire roof."</span></li>
+    <li class="key"><span class="when">Apr 27</span><span class="what">Whole roof approved</span><span class="where">A second adjuster called and sent a revised estimate: "the roof replacement in its entirety."</span></li>
+    <li><span class="when">May 29</span><span class="what">Contract signed</span><span class="where">GAF Timberline HDZ shingles. The price was the insurance payout. We owed the deductible and passed the insurance checks through.</span></li>
+    <li><span class="when">Jul 28</span><span class="what">Solar added</span><span class="where">A supplement added $13,000 for our installer to take down and reinstall 40 panels. We'd sent the installer's quote early.</span></li>
+    <li><span class="when">Sep 3–10</span><span class="what">Install</span><span class="where">Panels off Sep 3, tear-off and new roof Sep 4, panels back Sep 10.</span></li>
+    <li><span class="when">Sep 11</span><span class="what">Depreciation released</span><span class="where">After the final invoice and photos, Travelers paid the $15,280 it had held back, including code items and the permit fee.</span></li>
+    <li><span class="when">Oct 14–21</span><span class="what">Paid in full, permit closed</span><span class="where">We paid the roofer, and the town did its final inspection.</span></li>
+  </ol>
+</div></section>
+
+<section id="money"><div class="wrap">
+  <p class="sec-num">04</p>
+  <h2>Where the <em>money</em> came from</h2>
+  <div class="prose"><p class="kicker">The final estimate came to $43,323. Insurance paid $41,823 of it, and the $1,500 difference was our deductible.</p></div>
+  <figure class="card">
+    <figcaption><div class="t">What the insurance estimate paid for</div>
+      <div class="s">Final estimate at replacement cost, before the $1,500 deductible.</div></figcaption>
+    <div class="hb">
+      <div class="hb-row"><div class="hb-label">Shingles and roofing<small>42 squares, underlayment, ridge vent, flashing</small></div><div class="hb-track"><span class="hb-bar emph" style="width:100%"></span><span class="hb-val" style="left:100%">$22,565</span></div></div>
+      <div class="hb-row"><div class="hb-label">Solar detach and reset<small>40 panels, by our solar installer</small></div><div class="hb-track"><span class="hb-bar" style="width:57.6%"></span><span class="hb-val" style="left:57.6%">$13,000</span></div></div>
+      <div class="hb-row"><div class="hb-label">Tear-off<small>remove the old roof</small></div><div class="hb-track"><span class="hb-bar" style="width:16.6%"></span><span class="hb-val" style="left:16.6%">$3,757</span></div></div>
+      <div class="hb-row"><div class="hb-label">Code upgrades<small>ice-and-water shield and more, under "ordinance or law"</small></div><div class="hb-track"><span class="hb-bar" style="width:12.2%"></span><span class="hb-val" style="left:12.2%">$2,748</span></div></div>
+      <div class="hb-row"><div class="hb-label">Sales tax<small>on materials</small></div><div class="hb-track"><span class="hb-bar" style="width:3.4%"></span><span class="hb-val" style="left:3.4%">$768</span></div></div>
+      <div class="hb-row"><div class="hb-label">Building permit</div><div class="hb-track"><span class="hb-bar" style="width:2.1%"></span><span class="hb-val" style="left:2.1%">$485</span></div></div>
+    </div>
+  </figure>
+  <div class="prose">
+    <h3>Why it arrived in four checks</h3>
+    <p>Insurers pay replacement-cost claims in two stages. First they pay the actual cash value: the cost of the new roof minus depreciation for the old roof's age. They hold back the depreciation (about $12,000 for us) until the work is done and you send the final invoice. Code-upgrade items and the permit are paid when the work is done, too. So the early checks look small. That's normal, and you get the rest.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="num">
+      <thead><tr><th>When</th><th>Payment</th><th class="r">Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Mar 30</td><td>First check (actual cash value, damaged side)</td><td class="r">$6,887</td></tr>
+        <tr><td>Apr 27</td><td>Second check (revised to the whole roof)</td><td class="r">$6,286</td></tr>
+        <tr><td>Jul 28</td><td>Supplement (solar panels added)</td><td class="r">$13,370</td></tr>
+        <tr><td>Sep 11</td><td>Held-back depreciation, code items and permit</td><td class="r">$15,280</td></tr>
+        <tr class="total"><td></td><td>Total from insurance</td><td class="r">$41,823</td></tr>
+        <tr><td></td><td>Our deductible</td><td class="r">$1,500</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="prose">
+    <p class="muted">We also paid about $7,000 of our own money for extras the claim didn't cover: four new Velux skylights, and new shingles around our ground-level cellar door. Neither was required.</p>
+  </div>
+</div></section>
+
+<section id="howto"><div class="wrap">
+  <p class="sec-num">05</p>
+  <h2>How to do this <em>yourself</em></h2>
+  <ol class="lessons">
+    <li><b>Get a free inspection</b><p>Have a reputable local roofer that does insurance work look at the roof, especially after a big wind or hail storm. Ask them to photograph any damage: lifted, creased or missing shingles, and hail bruising.</p></li>
+    <li><b>File promptly, for the right peril</b><p>If there's real storm damage, call your insurer and file it as wind or hail damage with a date. Policies have deadlines for reporting and for disputing a claim, so don't sit on it.</p></li>
+    <li><b>Have the roofer at the inspection</b><p>The adjuster may spend 20 minutes on your roof. A roofer who does insurance work will point out every damaged spot and get on the roof with them. We signed a short authorization so ours could talk to the insurer directly.</p></li>
+    <li><b>Expect a partial first offer</b><p>A one-slope estimate isn't a no. Read it: if it covers the damage but not the rest of the roof, that's the setup for the matching argument.</p></li>
+    <li><b>Ask for an ITEL test</b><p>Have the roofer cut a sample and send it in, or ask the adjuster to. If the shingle is discontinued or the closest match won't blend, ask in writing for the adjacent slopes under §38a-316e.</p></li>
+    <li><b>Get your solar quote early</b><p>If you have panels, get a written detach-and-reset quote from your installer and send it to the adjuster. Taking the panels off is part of fixing the roof. Ours was $13,000 and fully covered.</p></li>
+    <li><b>Sign a contract that matches the payout</b><p>Look for a roofer whose contract price is the insurance estimate, including any supplements, so you owe the deductible and nothing else. Read the fine print on late fees and what counts as "complete."</p></li>
+    <li><b>Collect the held-back money</b><p>When the roof is done, send the final invoice and photos to the insurer. That releases the depreciation and the code and permit items. It's real money: $15,280 for us.</p></li>
+  </ol>
+</div></section>
+
+<section id="watch"><div class="wrap">
+  <p class="sec-num">06</p>
+  <h2>Things to <em>watch out</em> for</h2>
+  <div class="prose">
+    <ul>
+      <li><b>The damage has to be real.</b> This only works for genuine storm damage. Exaggerating a claim is insurance fraud. A roofer who offers to "take care of" your deductible is a red flag.</li>
+      <li><b>Insurance checks can be made out to you and your mortgage company.</b> Ours were made out to just us, but if you have a mortgage, the lender may need to endorse them.</li>
+      <li><b>Don't pay the last dollar until the job is finished.</b> Our roofer left a pallet, leftover materials and nails in the yard after the install. We waited until a magnet sweep and the pickup were done before paying the final balance.</li>
+      <li><b>Know your contract's late-fee clauses.</b> Ours charged 1.5% a month on late balances and allowed a 35% collections fee after 30 days. You're usually supposed to pass insurance money through within 30 days of getting it.</li>
+      <li><b>Checks get lost.</b> Our final check was mailed and returned to the insurer for no clear reason. They stopped payment and reissued it electronically within a week.</li>
+      <li><b>Extras aren't covered.</b> Skylights, gutters and upgrades are out of pocket unless they were damaged too. That said, the roof is open anyway, so it's the cheapest time to do them.</li>
+      <li><b>The permit closes after you pay.</b> The roofer pulls the permit and schedules the final inspection, and many won't close it until they're paid. Make sure it actually gets closed.</li>
+    </ul>
+  </div>
+  <div class="callout">
+    <p><b>Our roofer:</b> All Site Builders in Cheshire. Chris ran the insurance side start to finish, including the shingle test and the solar supplement. If you want an inspection, ask for Chris and tell them I sent you.</p>
+  </div>
+</div></section>
+
+<section id="sources"><div class="wrap">
+  <p class="sec-num">07</p>
+  <h2>Sources</h2>
+  <ul class="sources">
+    <li><a href="https://www.cga.ct.gov/current/pub/chap_700.htm#sec_38a-316e">Conn. Gen. Stat. §38a-316e</a>, "Matching of adjacent items under real property covered loss"<span>Connecticut General Assembly. History: P.A. 13-138, §1.</span></li>
+    <li><a href="https://www.propertyinsurancecoveragelaw.com/blog/matching-is-a-factual-determination-and-can-be-resolved-by-appraisal/">Klass v. Liberty Mutual Insurance Co., 341 Conn. 735 (2022)</a><span>Connecticut Supreme Court, decided January 11, 2022: matching disputes are part of the amount of loss and go to appraisal.</span></li>
+    <li><a href="https://www.propertyinsurancecoveragelaw.com/blog/connecticuts-matching-statute/">"Connecticut's Matching Statute"</a><span>Property Insurance Coverage Law Blog, November 18, 2020. Covers the narrow reading of "adjacent" in Kamansky v. Liberty Mutual (Conn. Super. Ct. 2019).</span></li>
+    <li><span>Our own claim file: the insurer's estimates and settlement letters, the roofing contract, the invoices and our texts with the roofer, March to October 2026.</span></li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap foot-row">
+  <p><a href="/">← garrett-macdonald.com</a></p>
+  <p>A personal write-up of one claim, written November 2026. I'm not a lawyer or a public adjuster, and this isn't legal or insurance advice. Every policy and every roof is different, so read your own policy.</p>
+</div></footer>
+</body>
+</html>
