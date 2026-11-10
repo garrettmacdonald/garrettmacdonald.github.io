@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operation Fenway | Noah Kahan presale plan</title>
+<meta name="description" content="Our plan for the Noah Kahan Fenway presale: Tuesday at noon, four devices, one order.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://garrett-macdonald.com/fenway/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1611" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Operation Fenway 🐞">
+<meta property="og:description" content="Noah Kahan presale, Tuesday at noon. Four devices, one order, no poles.">
+<meta property="og:url" content="https://garrett-macdonald.com/fenway/">
+<meta property="og:image" content="https://garrett-macdonald.com/fenway/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f1e7; --panel: #fffaf0; --ink: #2a2118; --muted: #6f6253; --rule: #e2d6c2;
+    --bug: #c8402b; --bug-ink: #fff7ee; --gold: #b9851c; --gold-soft: #f3e2b8;
+    --go: #2f7a4d; --go-soft: #cfe6d3; --far: #2b7c84; --far-soft: #cfe5e6;
+    --meh: #d9a441; --meh-soft: #f6e6bd; --no: #c0492f; --no-soft: #f3d3c9;
+    --field: #e3ecd6; --sand: #e6d3ad; --stage: #2a2118; --stage-ink: #fff7ee; --monster: #1f5c3a; --unsold: #cfc6b6;
+    --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #1b1611; --panel: #251e17; --ink: #f1e7d6; --muted: #b3a48f; --rule: #3b3026;
+      --bug: #e8644c; --bug-ink: #1b1611; --gold: #e0b04e; --gold-soft: #4a3b1c;
+      --go: #63b884; --go-soft: #24402e; --far: #62b6be; --far-soft: #1f3b3e;
+      --meh: #e0b04e; --meh-soft: #4a3b1c; --no: #e8745c; --no-soft: #4a2820;
+      --field: #26301f; --sand: #4a3f2c; --stage: #f1e7d6; --stage-ink: #1b1611; --monster: #3f9a68; --unsold: #453b30;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16.5px; line-height: 1.55; -webkit-text-size-adjust: 100%; }
+  main { max-width: 720px; margin: 0 auto; padding: 0 18px 80px; }
+  h1, h2 { font-family: var(--serif); font-weight: 400; line-height: 1.05; margin: 0; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(52px, 15vw, 96px); }
+  h2 { font-size: clamp(32px, 8vw, 44px); margin-bottom: 6px; }
+  h3 { font-size: 17px; margin: 0 0 4px; font-weight: 700; }
+  p { margin: 0 0 12px; }
+  a { color: inherit; text-decoration-color: var(--bug); text-underline-offset: 3px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+  section { padding-top: 54px; }
+  .lede { color: var(--muted); margin-bottom: 18px; }
+
+  /* hero */
+  .hero { padding: 40px 0 8px; }
+  .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--bug); margin-bottom: 10px; }
+  .hero h1 em { font-style: italic; color: var(--bug); }
+  .hero .sub { font-size: 19px; margin: 14px 0 22px; max-width: 34em; }
+  .clock { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; max-width: 420px; }
+  .clock div { background: var(--ink); color: var(--paper); border-radius: 12px; padding: 12px 4px 9px; text-align: center; }
+  .clock b { display: block; font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
+  .clock span { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .75; }
+  .clock-note { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  .go-banner { display: none; background: var(--bug); color: var(--bug-ink); border-radius: 12px; padding: 14px 16px; font-weight: 700; font-size: 19px; max-width: 420px; }
+
+  /* five lines */
+  .five { counter-reset: n; list-style: none; padding: 0; margin: 26px 0 0; border-top: 2px solid var(--ink); }
+  .five li { counter-increment: n; display: grid; grid-template-columns: 38px 1fr; gap: 6px; padding: 13px 0; border-bottom: 1px solid var(--rule); font-size: 18px; line-height: 1.35; }
+  .five li::before { content: counter(n); font-family: var(--serif); font-size: 34px; line-height: .9; color: var(--bug); }
+
+  .jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .jump a { text-decoration: none; font-size: 14px; font-weight: 600; border: 1.5px solid var(--ink); border-radius: 999px; padding: 6px 12px; }
+
+  /* cards */
+  .card { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 16px 16px 14px; margin-bottom: 12px; }
+  .card > :last-child { margin-bottom: 0; }
+  .pick { display: inline-block; background: var(--gold-soft); border-radius: 6px; padding: 1px 7px; font-weight: 600; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; border-radius: 6px; padding: 2px 8px; margin-bottom: 8px; background: var(--ink); color: var(--paper); }
+
+  /* checklist */
+  .checks { list-style: none; padding: 0; margin: 0; }
+  .checks li { border-bottom: 1px solid var(--rule); }
+  .checks li:last-child { border-bottom: 0; }
+  .checks label { display: grid; grid-template-columns: 30px 1fr; gap: 8px; padding: 11px 0; cursor: pointer; align-items: start; }
+  .checks input { width: 22px; height: 22px; margin: 2px 0 0; accent-color: var(--go); }
+  .checks input:checked + span { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--rule); }
+  .who { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--bug); margin: 18px 0 2px; }
+
+  /* tiers table */
+  .tiers { width: 100%; border-collapse: collapse; margin: 6px 0 10px; font-size: 15.5px; }
+  .tiers td { padding: 8px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .tiers td:last-child { text-align: right; white-space: nowrap; font-weight: 700; font-variant-numeric: tabular-nums; padding-left: 10px; }
+  .tiers tr:last-child td { border-bottom: 0; }
+
+  /* devices */
+  .devices { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .device { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 14px; }
+  .device .ico { font-size: 26px; line-height: 1; }
+  .device h3 { margin-top: 8px; }
+  .device p { font-size: 14.5px; margin: 0 0 6px; }
+  .chip { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 2px 9px; }
+  .chip.sat { background: var(--bug); color: var(--bug-ink); }
+  .chip.sun { background: var(--gold-soft); color: var(--ink); }
+  .chip.still { background: var(--go-soft); color: var(--ink); }
+  .chip.poke { background: var(--far-soft); color: var(--ink); }
+
+  /* timeline */
+  .tl { list-style: none; margin: 0; padding: 0 0 0 4px; border-left: 2px solid var(--ink); }
+  .tl li { position: relative; padding: 0 0 20px 22px; }
+  .tl li::before { content: ""; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink); }
+  .tl li.big::before { background: var(--bug); border-color: var(--bug); }
+  .tl time { font-family: var(--serif); font-size: 28px; line-height: 1; display: block; margin-bottom: 2px; }
+  .tl li:last-child { padding-bottom: 0; }
+
+  /* map */
+  .mapwrap { background: var(--panel); border: 1px solid var(--rule); border-radius: 14px; padding: 12px 8px 6px; }
+  svg.map { display: block; width: 100%; max-width: 440px; margin: 0 auto; height: auto; font-family: var(--sans); }
+  .map .field { fill: var(--field); } .map .sand { fill: var(--sand); }
+  .map .stage { fill: var(--stage); } .map .stage-t { fill: var(--stage-ink); font-weight: 700; letter-spacing: .14em; }
+  .map .unsold { fill: var(--unsold); } .map .monster { stroke: var(--monster); }
+  .map .z1 { fill: var(--bug); } .map .z2 { fill: var(--go); } .map .z2b { fill: var(--go); opacity: .8; } .map .z2c { fill: var(--go); opacity: .6; }
+  .map .band { fill: none; }
+  .map .z3 { stroke: var(--go); } .map .z4 { stroke: var(--far); } .map .z5 { stroke: var(--meh); }
+  .map .z6 { stroke: url(#hatch); }
+  .map .lab { fill: var(--muted); font-size: 9.5px; font-weight: 600; }
+  .map .row { fill: #fff; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; }
+  .map .shadow { fill: var(--ink); opacity: .13; }
+  .map .badge circle { fill: var(--panel); stroke: var(--ink); stroke-width: 1.6; }
+  .map .badge text { fill: var(--ink); font-size: 12px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+  .map .pole { fill: #f2c230; stroke: var(--ink); stroke-width: 1.2; }
+  .legend { list-style: none; padding: 0; margin: 14px 0 0; }
+  .legend li { display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; padding: 12px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+  .legend li:last-child { border-bottom: 0; }
+  .num { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff; }
+  .n1 { background: var(--bug); } .n2, .n3 { background: var(--go); } .n4 { background: var(--far); } .n5 { background: var(--meh); color: var(--ink); }
+  .n6 { background: repeating-linear-gradient(45deg, var(--no) 0 5px, var(--no-soft) 5px 8px); color: var(--ink); text-shadow: 0 0 3px var(--panel), 0 0 3px var(--panel); }
+  .legend .t { font-weight: 400; } .legend .t b { font-weight: 700; }
+  .legend .desc { display: block; font-size: 14.5px; color: var(--muted); }
+  .legend .price { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; font-size: 15px; }
+  .legend .price small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; white-space: normal; max-width: 78px; margin-left: auto; line-height: 1.25; }
+
+  /* steps */
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; }
+  .steps li { counter-increment: s; position: relative; padding: 0 0 16px 46px; }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 700; }
+  .fix { display: grid; gap: 10px; }
+  .fix .card { margin: 0; }
+  .fix h3::before { content: "🐞 "; }
+  .cols { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .yes h3 { color: var(--go); } .nope h3 { color: var(--no); }
+  .cols ul { margin: 6px 0 0; padding-left: 20px; } .cols li { margin-bottom: 5px; }
+  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--rule); font-size: 13.5px; color: var(--muted); }
+  @media (min-width: 620px) { .cols { grid-template-columns: 1fr 1fr; } .fix { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 380px) { .devices { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <div class="eyebrow">🐞 Noah Kahan · The Last of the Bugs · Fenway Park</div>
+  <h1>Operation <em>Fenway</em></h1>
+  <p class="sub">The presale is <strong>Tuesday, Nov 10 at 12:00 noon</strong>. The goal is two seats for <strong>Saturday, May 29</strong>. Here's exactly how we do it.</p>
+  <div class="clock" id="clock" aria-label="Time until the presale">
+    <div><b id="cd">–</b><span>days</span></div><div><b id="ch">–</b><span>hours</span></div><div><b id="cm">–</b><span>min</span></div><div><b id="cs">–</b><span>sec</span></div>
+  </div>
+  <div class="go-banner" id="go">It's on. First device in shops. Go go go. 🐞</div>
+  <p class="clock-note" id="clocknote">Be in position by 11:45.</p>
+
+  <ol class="five">
+    <li><span><strong>Four devices on the Red Sox ticket page by 11:45.</strong> Each one signed in, with its code ready to paste.</span></li>
+    <li><span><strong>At noon, enter the code.</strong> Errors are normal. Keep pressing Submit.</span></li>
+    <li><span><strong>The first device that gets in is the only one that shops.</strong> Yell.</span></li>
+    <li><span><strong>Pick from the list, not the map.</strong> Take the first seats under our price cap. No browsing.</span></li>
+    <li><span><strong>Pay, screenshot, close everything else.</strong> One order, total.</span></li>
+  </ol>
+  <nav class="jump" aria-label="Sections">
+    <a href="#decide">3 decisions</a><a href="#before">Checklist</a><a href="#devices">Devices</a><a href="#timeline">Timeline</a><a href="#map">Seat map</a><a href="#in">Once you're in</a><a href="#breaks">When it breaks</a>
+  </nav>
+</header>
+
+<section id="decide">
+  <h2>Three things to decide before noon</h2>
+  <p class="lede">The cart gives you about 4 to 5 minutes. That's not the time to talk it over.</p>
+
+  <div class="card">
+    <span class="tag">1 · How many</span>
+    <p><span class="pick">Suggested: 2.</span> Go to 4 only if the other couple has said a firm yes. Tickets can't be transferred, and whoever buys has to walk in with the whole group. All the tickets go in one order.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">2 · Price cap per ticket, fees included</span>
+    <p>These are what people paid in Monday's season-ticket-holder presale, for Saturday, <strong>with fees</strong> (fees ran about $65 to $80 a ticket):</p>
+    <table class="tiers">
+      <tr><td><strong>Pavilion</strong> (upper deck). Far, clear view. The cheapest seat we'd be glad to have.</td><td>~$115</td></tr>
+      <tr><td><strong>Field Box / Loge Box.</strong> Sitting, sloped, much closer.</td><td>~$265</td></tr>
+      <tr><td><strong>Turf, back half.</strong> On the field in chairs.</td><td>~$325–380</td></tr>
+      <tr><td><strong>Turf, front.</strong></td><td>~$400+</td></tr>
+      <tr><td class="muted">Grandstand (pole risk, see the map)</td><td class="muted">~$90–210</td></tr>
+    </table>
+    <p><span class="pick">Pick one number.</span> It doesn't move once we're in the cart. Thursday is a second chance, so there's no reason to overpay Tuesday.</p>
+  </div>
+
+  <div class="card">
+    <span class="tag">3 · Is Sunday OK?</span>
+    <p>Sunday, May 30 is the same weekend, and Monday is Memorial Day. At least one veteran buyer expects the middle nights to sell slower than opening and closing night.</p>
+    <p><span class="pick">Suggested: yes.</span> Then one phone waits for Sunday from the start, as our safety net. Our rule if Sunday gets in first: put seats in the cart, give Saturday <strong>3 more minutes</strong>, and if Saturday still isn't in, <strong>buy Sunday and be happy</strong>.</p>
+    <p class="small muted">Tuesday June 1 and Wednesday June 2 are last resorts. Only if a weeknight in Boston works.</p>
+  </div>
+</section>
+
+<section id="before">
+  <h2>Before 11:30 Tuesday</h2>
+  <p class="lede">Tap to check things off. It saves on your phone.</p>
+  <div class="card">
+    <div class="who">Both of us</div>
+    <ul class="checks">
+      <li><label><input type="checkbox" data-k="b1"><span><strong>We can each sign in to MLB.com</strong> without hunting for the password. Garrett has both passwords written down.</span></label></li>
+      <li><label><input type="checkbox" data-k="b2"><span><strong>The codes are showing.</strong> Signed in at <a href="https://signup.ticketmaster.com/noahkahan">signup.ticketmaster.com/noahkahan</a>, "Your Selections" lists a code next to each Fenway date. No email is coming. Garrett has screenshots of all of them.</span></label></li>
+      <li><label><input type="checkbox" data-k="b3"><span><strong>We've made the three decisions</strong> above: how many, the cap, and Sunday.</span></label></li>
+    </ul>
+    <div class="who">Garrett</div>
+    <ul class="checks">
+      <li><label><input type="checkbox" data-k="g1"><span><strong>Signed in to MLB on all four devices.</strong> Mine on my laptop and old phone. Emily's on the work laptop and new phone.</span></label></li>
+      <li><label><input type="checkbox" data-k="g2"><span><strong>Card saved in each browser's autofill,</strong> the card itself on the desk, and a second card next to it.</span></label></li>
+      <li><label><input type="checkbox" data-k="g3"><span><strong>Bank app open on a phone,</strong> in case it asks "was this you?" at checkout.</span></label></li>
+      <li><label><input type="checkbox" data-k="g4"><span><strong>Laptops won't restart at noon.</strong> Updates paused on mine. Work laptop restarted this morning. Both plugged in.</span></label></li>
+      <li><label><input type="checkbox" data-k="g5"><span><strong>Old phone keeps the phone number</strong> and runs on cellular. New phone is on Wi-Fi.</span></label></li>
+      <li><label><input type="checkbox" data-k="g6"><span><strong>10-minute practice run</strong> (worth it). On a laptop, open another Fenway concert that's on sale now, click "best available," go as far as the payment page, then close the tab. You'll see the real screens, and a fan says that's also how you save a card on the MLB site. <em>Don't press the final buy button.</em></span></label></li>
+    </ul>
+    <div class="who">Emily</div>
+    <ul class="checks">
+      <li><label><input type="checkbox" data-k="e1"><span><strong>Garrett has my MLB password,</strong> and I'll have my phone on me at noon in case MLB texts or emails a sign-in code.</span></label></li>
+      <li><label><input type="checkbox" data-k="e2"><span><strong>I've looked at the seat map below</strong> and know the one rule: boxes and turf good, grandstand last.</span></label></li>
+    </ul>
+  </div>
+</section>
+
+<section id="devices">
+  <h2>Who runs what</h2>
+  <p class="lede">Each device uses <strong>only its own person's account and code</strong>. If Emily's home by noon, she takes the two phones and Garrett takes the two laptops. If not, Garrett runs all four.</p>
+  <div class="devices">
+    <div class="device"><div class="ico">💻</div><h3>Garrett's laptop</h3><p>Garrett's account<br>Home Wi-Fi</p><span class="chip sat">Saturday</span> <span class="chip still">sits still</span></div>
+    <div class="device"><div class="ico">💼</div><h3>Work laptop</h3><p>Emily's account<br>Home Wi-Fi</p><span class="chip sat">Saturday</span> <span class="chip still">sits still</span></div>
+    <div class="device"><div class="ico">📱</div><h3>Old phone</h3><p>Garrett's account<br>Cellular, Wi-Fi off</p><span class="chip sat">Saturday</span> <span class="chip poke">refreshes</span></div>
+    <div class="device"><div class="ico">📲</div><h3>New phone</h3><p>Emily's account<br>Home Wi-Fi</p><span class="chip sun">Sunday backup</span> <span class="chip poke">refreshes</span></div>
+  </div>
+  <p class="small muted" style="margin-top:12px"><strong>Sits still</strong> = once it's on the waiting page, hands off unless there's an error. <strong>Refreshes</strong> = if the page hasn't changed in a minute or two, refresh it by hand. Nobody knows which works better on this site, so we do both. If Sunday isn't OK, the new phone goes on Saturday too.</p>
+</section>
+
+<section id="timeline">
+  <h2>Tuesday, minute by minute</h2>
+  <ol class="tl">
+    <li><time>11:30</time>Home. All four devices plugged in, other tabs and apps closed. Cards and bank phone on the desk.</li>
+    <li><time>11:40</time>On each device: open <a href="https://signup.ticketmaster.com/noahkahan">the Ticketmaster selections page</a>, tap the copy icon next to that device's code, then tap the <strong>›</strong> arrow for the date. It opens the Red Sox Noah Kahan page.</li>
+    <li><time>11:45</time>In position on all four. Look under <strong>"Artist Presale"</strong> for the button to buy. If it's not there yet, refresh every minute until it is. Enter the code as soon as a box appears.</li>
+    <li class="big"><time>12:00</time><strong>Go.</strong> Expect a waiting page with no number on it, or a code box that says "not valid." Both are normal. Monday's early presale threw code errors for the first 10 to 15 minutes and then let people in.</li>
+    <li><time>12:00–1:30</time><strong>Don't quit.</strong> Seats flicker from "none" back to "lots" as carts expire. People have gotten in 12, 40, even 90 minutes after the start and still bought.</li>
+    <li><time>After</time>Screenshot the confirmation. Check for the email. Close every other device. Text each other something with a lot of exclamation points.</li>
+  </ol>
+</section>
+
+<section id="map">
+  <h2>Where to sit (and where Noah Kahan't see)</h2>
+  <p class="lede">This is how Fenway was set up for his shows last July. The 2027 map isn't out yet, so glance at where <strong>STAGE</strong> is when you get in. Numbers are our order of preference.</p>
+  <div class="mapwrap">
+    <svg class="map" viewBox="0 0 360 380" role="img" aria-label="Diagram of Fenway Park for the concert. The stage is in center field facing home plate. Standing pit and turf seats are on the field. Box seats ring the field, the grandstand is behind them, and the pavilion is the upper deck.">
+      <defs>
+        <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="7" height="7" fill="var(--no-soft)"/><rect width="3.5" height="7" fill="var(--no)"/>
+        </pattern>
+      </defs>
+      <!-- field -->
+      <path class="field" d="M60 108 L60 226 Q60 308 180 308 Q300 308 300 226 L300 60 L118 60 Z"/>
+      <polygon class="sand" points="180,226 204,250 180,274 156,250"/>
+      <!-- bleachers + monster -->
+      <rect class="unsold" x="150" y="6" width="170" height="16" rx="4"/>
+      <text class="lab" x="235" y="17.5" text-anchor="middle">bleachers behind stage: not sold</text>
+      <path class="monster band" d="M40 100 L40 70 L112 38" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="lab" x="22" y="56" transform="rotate(-24 22 56)">Green Monster</text>
+      <!-- bands -->
+      <path class="band z4" d="M6 150 L6 226 Q6 360 180 360 Q354 360 354 226 L354 110" stroke-width="10"/>
+      <path class="band z6" d="M26 112 L26 226 Q26 340 180 340 Q334 340 334 226 L334 64" stroke-width="18"/>
+      <path class="band z3" d="M50 112 L50 226 Q50 318 180 318 Q310 318 310 226 L310 150" stroke-width="20"/>
+      <path class="band z5" d="M310 150 L310 64" stroke-width="20"/>
+      <!-- mix shadow -->
+      <polygon class="shadow" points="156,200 204,200 240,328 120,328"/>
+      <!-- stage + pit -->
+      <rect class="stage" x="118" y="28" width="124" height="30" rx="4"/>
+      <text class="stage-t" x="180" y="48" text-anchor="middle" font-size="13">STAGE</text>
+      <rect class="z1" x="122" y="63" width="36" height="20" rx="4"/><rect class="z1" x="162" y="63" width="36" height="20" rx="9"/><rect class="z1" x="202" y="63" width="36" height="20" rx="4"/>
+      <!-- turf -->
+      <rect class="z2" x="86" y="90" width="188" height="28" rx="4"/><text class="row" x="96" y="108">TURF A</text>
+      <rect class="z2b" x="76" y="122" width="208" height="28" rx="4"/><text class="row" x="86" y="140">TURF B</text>
+      <rect class="z2c" x="96" y="154" width="168" height="24" rx="4"/><text class="row" x="106" y="170">TURF C</text>
+      <rect class="stage" x="156" y="184" width="48" height="16" rx="3"/><text class="stage-t" x="180" y="195.5" text-anchor="middle" font-size="9">SOUND</text>
+      <text class="lab" x="180" y="296" text-anchor="middle">sound booth in the way</text>
+      <circle class="pole" cx="286" cy="104" r="4.5"/>
+      <!-- badges -->
+      <g class="badge"><circle cx="180" cy="73" r="10"/><text x="180" y="73">1</text></g>
+      <g class="badge"><circle cx="200" cy="120" r="10"/><text x="200" y="120">2</text></g>
+      <g class="badge"><circle cx="50" cy="190" r="10"/><text x="50" y="190">3</text></g>
+      <g class="badge"><circle cx="310" cy="210" r="10"/><text x="310" y="210">3</text></g>
+      <g class="badge"><circle cx="262" cy="350" r="10"/><text x="262" y="350">4</text></g>
+      <g class="badge"><circle cx="310" cy="100" r="10"/><text x="310" y="100">5</text></g>
+      <g class="badge"><circle cx="26" cy="250" r="10"/><text x="26" y="250">6</text></g>
+      <g class="badge"><circle cx="110" cy="334" r="10"/><text x="110" y="334">6</text></g>
+    </svg>
+  </div>
+
+  <ul class="legend">
+    <li><span class="num n1">1</span><div><span class="t"><b>Front Porch / GA pit</b></span><span class="desc">Standing, right at the stage. None were offered in Monday's early sales, so they should be in this one, and gone in a minute or two. Take it only if you both want to stand all night.</span></div><div class="price">TBD<small>$100–390 last year</small></div></li>
+    <li><span class="num n2">2</span><div><span class="t"><b>Turf A, then B</b></span><span class="desc">Chairs on the field. Close and loud. It's flat, so shorter people watch the screens a lot. Turf C is far back for the money. The yellow dot is the foul pole, which stands at the right edge of Turf A.</span></div><div class="price">$325–400+</div></li>
+    <li><span class="num n3">3</span><div><span class="t"><b>Field Box or Loge Box</b></span><span class="desc">The best "sit down and actually see him" seats. Sloped rows, and the roof poles are behind you. The ones behind home plate look past the sound booth, which has its own big screen.</span></div><div class="price">~$265</div></li>
+    <li><span class="num n4">4</span><div><span class="t"><b>Pavilion</b> (upper deck)</span><span class="desc">Far away, nothing in front of you, and the whole park lit up below. The best value in the building.</span></div><div class="price">~$115</div></li>
+    <li><span class="num n5">5</span><div><span class="t"><b>Right-field boxes</b></span><span class="desc">Close to the stage but turned sideways to it. Fine for the price.</span></div><div class="price">~$265</div></li>
+    <li><span class="num n6">6</span><div><span class="t"><b>Grandstand</b>, the last resort</span><span class="desc">Under the roof, with steel columns between you and the stage. You could land directly behind one and it won't be labeled. <a href="https://www.reddit.com/r/boston/comments/1uravq9/">This is the photo</a> that got 1,267 upvotes last summer. Still better than staying home.</span></div><div class="price">$90–210</div></li>
+  </ul>
+
+  <div class="card" style="margin-top:16px">
+    <h3>Two things that will surprise you</h3>
+    <p><strong>You choose a section, not seats.</strong> The site assigns the row and seat, and you only see them in the cart. So the skill is picking the right <em>kind</em> of section fast.</p>
+    <p><strong>Ignore the "obstructed view" label on box seats.</strong> Last year it was stuck on lots of Loge and Field Box seats that turned out fine (<a href="https://www.reddit.com/r/NoahKahan/comments/1uqym6s/">like this one</a>). The truly bad pole seats in the grandstand had no label at all.</p>
+  </div>
+</section>
+
+<section id="in">
+  <h2>Once a device gets in</h2>
+  <ol class="steps">
+    <li><strong>Say so out loud.</strong> That device shops. The others stay where they are, but nobody starts a second checkout.</li>
+    <li><strong>Set the number of tickets first.</strong> Then look at the list of sections and prices.</li>
+    <li><strong>Go down our order</strong> (turf → field/loge box → pavilion → right-field box → grandstand) and take the first one at or under the cap. Use the list or the <strong>Best Available</strong> button. Don't click around the map.</li>
+    <li><strong>"Seats not available"?</strong> That's someone else's cart. Try again, or try the next one down. Don't leave the page.</li>
+    <li><strong>Seats in the cart.</strong> A countdown starts, about 4 to 5 minutes. Check it's the right date and the right number of tickets, then go straight to checkout. Don't go back.</li>
+    <li><strong>Sign in to MLB if it asks,</strong> let autofill drop in the card, and buy. If the bank pings the phone, approve it.</li>
+    <li><strong>Screenshot the confirmation.</strong> Then close every other device. One order per person may be all the codes allow, and we don't want two sets of tickets we can't hand to anyone.</li>
+  </ol>
+  <div class="card">
+    <h3>If Saturday is gone when we get in</h3>
+    <p>Check whether the other dates show up on that screen. If they don't, go back to the Ticketmaster page and use <strong>that same person's</strong> code for the next date: Emily's account has Sunday and Tuesday, Garrett's has Wednesday. Never put one person's code into the other person's account.</p>
+  </div>
+</section>
+
+<section id="breaks">
+  <h2>When it breaks (it will)</h2>
+  <p class="lede">The Red Sox ticket site is famously rough. All of these happened to people on Monday or last year, and they still got tickets.</p>
+  <div class="fix">
+    <div class="card"><h3>"Code not valid for this offer"</h3><p>Press Submit again. And again. On Monday it started working after about 10 minutes of that. Make sure it's the code for <em>that date</em> and <em>that person</em>.</p></div>
+    <div class="card"><h3>The waiting page never changes</h3><p>There's no place in line to lose. On the phones, refresh by hand or reopen the link. If a laptop sits for 10 minutes, refresh that too.</p></div>
+    <div class="card"><h3>"Technical difficulties" or a blank page</h3><p>Switch to a phone. On Monday the phones got through when some laptops didn't.</p></div>
+    <div class="card"><h3>Signed in, but nothing unlocks</h3><p>Sign out and back in, or open the link in a private window. One buyer on Monday was stuck until they did.</p></div>
+    <div class="card"><h3>It makes you reset your MLB password</h3><p>It did that to someone mid-checkout. Just do it quickly and keep going. They still got four tickets.</p></div>
+    <div class="card"><h3>"Timed out" after entering the card</h3><p><strong>Stop.</strong> Check email and "My Tickets" before trying again. Someone got charged twice. If it's unclear, call the Red Sox ticket office: 877-733-7699.</p></div>
+  </div>
+</section>
+
+<section id="rules">
+  <h2>Staying out of trouble</h2>
+  <div class="cols">
+    <div class="card yes"><h3>Totally fine</h3><ul>
+      <li>Two real people, each with one account and their own codes</li>
+      <li>Four of our own devices</li>
+      <li>One phone on cellular</li>
+      <li>Refreshing by hand</li>
+      <li>One order, for people who are going</li>
+    </ul></div>
+    <div class="card nope"><h3>Don't</h3><ul>
+      <li>Auto-refresh extensions or scripts</li>
+      <li>A VPN</li>
+      <li>Extra accounts or email addresses</li>
+      <li>Codes from strangers, or giving ours away</li>
+      <li>Two checkouts at once on one account</li>
+      <li>Resale sites. Nobody has tickets yet.</li>
+    </ul></div>
+  </div>
+</section>
+
+<section id="planb">
+  <h2>If Tuesday misses</h2>
+  <div class="card">
+    <p><strong>Thursday, Nov 12 at noon</strong> is round two: the general sale, plus a separate pool of seats for Mastercard World Elite cards (the JetBlue card should count). Same site, same drill.</p>
+    <p><strong>Watch for added shows.</strong> Last year the easiest tickets were for a night that got added mid-sale.</p>
+    <p class="muted small" style="margin:0">After that: the waitlist on noahkahan.com (codes go out a few days before each show), turf seats released the afternoon of the show, and the Fenway box office that morning. People got in all three ways last July.</p>
+  </div>
+</section>
+
+<footer>
+  Put together Monday night, Nov 9, from fan reports of last July's Fenway shows and Monday's season-ticket-holder presale (r/NoahKahan, r/boston), plus seat photos on <a href="https://aviewfrommyseat.com/venue/Fenway+Park/seating/concert/">A View From My Seat</a>. Prices are what buyers said they paid, so treat them as rough. The map is a sketch, not to scale.
+</footer>
+
+</main>
+<script>
+(function () {
+  var target = new Date("2026-11-10T12:00:00-05:00").getTime();
+  var ids = ["cd", "ch", "cm", "cs"].map(function (i) { return document.getElementById(i); });
+  var clock = document.getElementById("clock"), go = document.getElementById("go"), note = document.getElementById("clocknote");
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function tick() {
+    var ms = target - Date.now();
+    if (ms <= 0) {
+      clock.style.display = "none"; go.style.display = "block";
+      var late = -ms > 3 * 3600 * 1000;
+      go.textContent = late ? "The presale has started. If we're still looking, Thursday at noon is round two." : "It's on. First device in shops. Go go go. 🐞";
+      note.textContent = late ? "" : "Keep at it for at least 90 minutes.";
+      return;
+    }
+    var s = Math.floor(ms / 1000);
+    ids[0].textContent = Math.floor(s / 86400);
+    ids[1].textContent = pad(Math.floor(s % 86400 / 3600));
+    ids[2].textContent = pad(Math.floor(s % 3600 / 60));
+    ids[3].textContent = pad(s % 60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  var boxes = document.querySelectorAll(".checks input");
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem("fenway-checks") || "{}"); } catch (e) {}
+  Array.prototype.forEach.call(boxes, function (b) {
+    b.checked = !!saved[b.dataset.k];
+    b.addEventListener("change", function () {
+      saved[b.dataset.k] = b.checked;
+      try { localStorage.setItem("fenway-checks", JSON.stringify(saved)); } catch (e) {}
+    });
+  });
+})();
+</script>
+</body>
+</html>
