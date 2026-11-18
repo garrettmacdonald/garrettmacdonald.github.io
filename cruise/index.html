@@ -472,7 +472,7 @@ const CHANGES = [];
 
 TLDR = `<h3 style="font-size:24px">The plan in 30 seconds</h3>
 <ol>
-  <li><b>Dinner together:</b> Alyssa &amp; Anthony are on the <b>waitlist for early (5:45 PM) seating</b>. Keep checking the app, and <b>link our two reservations</b> so we can book things together. Linking doesn't line up seatings for you, so double-check both after linking.</li>
+  <li><b>Dinner together:</b> both families are on <b>early (5:45 PM) seating</b> (Alyssa &amp; Anthony's waitlist cleared Nov 17). Next, <b>link our two reservations</b> so we can book things together, then double-check both still show 5:45.</li>
   <li><b>Midnight Tue Nov 17 (= 12:00 AM Wed Nov 18 ET):</b> first-timers' booking window opens. Grab the <b>nursery for Carrie</b>, <b>Palo brunch</b> and the free princess meet.</li>
   <li><b>Garrett &amp; Emily's block:</b> <b>Palo brunch for two, Thu Feb 4, ~10:00–12:15</b>, on the sea day. Carrie naps in the nursery and Josie goes to the Oceaneer Club.</li>
   <li><b>Best day:</b> <b>Castaway Cay, Wed Feb 3</b>. It's Carrie's first birthday: the regular family beach (free umbrellas and loungers, no cabana) in the morning and smash cake on the verandah after naps.</li>
@@ -483,13 +483,12 @@ LEDES["status-lede"] = `The plan moves as we hear from each other. Send changes 
 
 STATUS.done.push(
   { h:"Palo brunch on the sea day, Thu Feb 4", p:"Just Garrett &amp; Emily, a table for two. It's the trip's one grown-ups' block.", by:"Nov 6" },
-  { h:"Alyssa &amp; Anthony: Palo brunch, early seating", p:"They're booked for the early brunch seating on the sea day, Thu Feb 4. Garrett &amp; Emily are going for their own table the same morning, so both couples get a grown-ups' block.", by:"Nov 17" },
+  { h:"Early dinner together: 5:45 seating", p:"Alyssa &amp; Anthony's waitlist cleared, so both families are on early (5:45) dinner every night.", by:"Nov 17" },
   { h:"Castaway Cay: the regular beach", p:"No cabana. We'll grab free umbrellas and loungers on the family beach near the splash pad and lagoon.", by:"Nov 6" },
   { h:"Carrie's 1st birthday on Castaway Cay", p:"Smash cake on our verandah after naps, Wed Feb 3. Everyone's invited." },
   { h:"Pirate Night: family party, then bed", p:"We dropped the late grown-ups' encore. Keeping the kids at the club late and Carrie asleep in the nursery didn't sit right, so Tuesday ends after the early deck party.", by:"Emily, Nov 3" }
 );
 STATUS.open.push(
-  { h:"Early dinner for Alyssa &amp; Anthony", p:"They're on the 5:45 waitlist. If it clears, we eat together every night; if not, we still have breakfasts, lunches and the islands.", by:"Waiting on Disney" },
   { h:"Which night is Pirate Night?", p:"Probably Tue Feb 2 (Lookout Cay). We'll know on Nov 18 from the boutique's pirate makeover dates." },
   { h:"Bluey", p:"The Dream is on Disney's Bluey list, but appearances are \"sporadic\". The times show up in the app onboard." }
 );
@@ -499,7 +498,7 @@ STATUS.yours.push(
 );
 
 CHANGES.push(
-  { d:"Nov 17", t:"Alyssa &amp; Anthony got the early Palo brunch seating on Thu Feb 4." },
+  { d:"Nov 17", t:"Alyssa &amp; Anthony's 5:45 waitlist cleared: early dinner together every night." },
   { d:"Nov 6", t:"Palo brunch is just Garrett &amp; Emily, and there's no cabana: Castaway Cay is the regular family beach." },
   { d:"Nov 3, night", t:"Cabana drinks: water and soda are included, alcohol is extra (Ed asked)." },
   { d:"Nov 3, evening", t:"Emily's notes: brunch is on for us either way (four if Jack's up for the club), the late Pirate Night encore is gone, and Alyssa &amp; Anthony are waitlisted for early dinner." },
@@ -519,7 +518,7 @@ DAYS.push(
   { s:"13:45", e:"14:45", w:"Open houses: Oceaneer Club + nursery", who:["kids","baby"], n:"Walk Josie and Jack through the club together so they meet the counselors before the first drop-off. Carrie visits the nursery, where we can add hours. Parents suggest a short trial drop-off before relying on it for brunch." },
   { s:"14:45", e:"15:40", w:"Rooms open, quick nap or unpack", who:["fam"], n:"Bags arrive by dinner, so keep swimsuits, diapers and meds in the carry-on." },
   { s:"15:30", e:"16:15", w:"Sail-away deck party", who:["all"], n:"Deck 11, with characters, dancing and the horn (ear muffs!). It moves indoors in rain." },
-  { s:"17:45", e:"19:00", w:"Dinner together", who:["all"], n:"Together if Alyssa &amp; Anthony clear the 5:45 waitlist (and the reservations are linked). Check our table number on the room card." },
+  { s:"17:45", e:"19:00", w:"Dinner together", who:["all"], n:"Both families are on 5:45 seating. Link the reservations so we're seated together, and check our table number on the room card." },
   { s:"19:15", e:"19:45", w:"Bedtime", who:["fam"], n:"Skip the 8:15 show tonight. Everyone's fried." }
 ] },
 
@@ -552,9 +551,7 @@ DAYS.push(
   { s:"07:45", e:"08:45", w:"Big breakfast", who:["all"], n:"The kids' clubs haven't served food since Covid (r/dcl and planDisney, 2026); only the nursery feeds kids. Fill them up first." },
   { s:"08:45", e:"09:30", w:"Bluey Wakey Wakey (if it's on)", who:["kids","fam"], n:"A morning dance party in the D Lounge on Deck 4. It's packed. Stand at the <i>back</i>: that's the front of the Bluey and Bingo meet line afterward. Times are only in the Navigator app." },
   { s:"09:45", e:"12:30", w:"Drop-off: nursery + Oceaneer Club", who:["kids","baby"], n:"Carrie naps in a nursery crib; Josie goes to the club (Andy's Room, Frozen, Marvel, the PlayFloor)." },
-  { s:"10:00", e:"12:15", w:"Palo brunch (Garrett &amp; Emily)", who:["adults"], n:"Deck 12 aft, $55 each plus gratuity. Antipasti, a parmesan station, pizzas, made-to-order eggs, tiramisu. Dress code: no shorts or flip-flops.", big:true },
-  { s:"10:00", e:"12:00", w:"Palo brunch (Alyssa &amp; Anthony, early seating)", who:["adults"], n:"Booked Nov 17 (exact time per your confirmation). Same restaurant, same morning: wave across the room, or compare notes on the pool deck after." },
-  { s:"12:30", e:"13:15", w:"Pick-up + lunch", who:["all"], n:"Flo's Café or Cabanas." },
+  { s:"10:00", e:"12:15", w:"Palo brunch (Garrett &amp; Emily)", who:["adults"], n:"Deck 12 aft, $55 each plus gratuity. Antipasti, a parmesan station, pizzas, made-to-order eggs, tiramisu. Dress code: no shorts or flip-flops.", big:true },  { s:"12:30", e:"13:15", w:"Pick-up + lunch", who:["all"], n:"Flo's Café or Cabanas." },
   { s:"13:15", e:"15:30", w:"Naps", who:["fam"], n:"Or a verandah sit. The adults-only Quiet Cove pool and Cove Café are on Deck 11 forward." },
   { s:"15:30", e:"17:15", w:"Pool deck + character meets", who:["all"], n:"Nemo's Reef for the little ones; the AquaDuck (42\" minimum) for grown-ups. Bluey or Royal Gathering meets if scheduled." },
   { s:"17:45", e:"19:00", w:"Dinner (dress-up optional)", who:["all"], n:"Good night for family photos with the ship's photographers." },
@@ -651,7 +648,7 @@ ISLANDS.push(
 );
 
 TIMELINE.push(
-  { when:"This week", icon:"⚓", hot:true, who:["all"], h:"Link up + same dinner seating", p:"Alyssa &amp; Anthony: stay on the <b>early (5:45) seating</b> waitlist and keep checking the app, then link our reservations in MyDisney (\"Add and Link Reservations\": the other booking's number plus the primary guest's last name and birthdate) or by calling DCL at 800-951-3532. If you haven't picked a stateroom, ask for one near Deck 6 midship. Then tell us your <b>Castaway Club level</b>, which sets your booking window." },
+  { when:"This week", icon:"⚓", hot:true, who:["all"], h:"Link up", p:"Alyssa &amp; Anthony: you're on <b>early (5:45) seating</b> now (cleared Nov 17). Link our reservations in MyDisney (\"Add and Link Reservations\": the other booking's number plus the primary guest's last name and birthdate) or by calling DCL at 800-951-3532. If you haven't picked a stateroom, ask for one near Deck 6 midship. Then tell us your <b>Castaway Club level</b>, which sets your booking window." },
   { when:"Now → January", icon:"🚽", who:["kids"], h:"Potty independence", p:"Josie and Jack each need to go, wipe and wash with no help, and be OK with a very loud vacuum flush. That's the ticket into the Oceaneer Club." },
   { when:"Midnight Tue Nov 17 → Wed Nov 18, 12:00 AM ET", date:"2026-11-18T05:00:00Z", icon:"🕛", hot:true, who:["all"], h:"First-timers' booking window", p:"In this order: <b>1.</b> Nursery for Carrie (Thu 9:45–12:45 for brunch, plus a spare daytime block; 10 hours max), and a backup block for a 3-year-old if anyone wants one. <b>2.</b> Palo brunch for two, Thu Feb 4. <b>3.</b> Royal Gathering (free). <b>4.</b> Boutique makeovers, if wanted. Also note which night pirate makeovers are sold: that's Pirate Night." },
   { when:"Nov 18 → Jan 29", icon:"📸", who:["fam"], h:"Photo package + cancellation watch", p:"Unlimited photos are cheaper before boarding. Keep refreshing for Palo and nursery cancellations." },
